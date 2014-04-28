@@ -1,0 +1,167 @@
+# Webalizer V2.23-08 Incremental Data - 04/27/2014 23:54:54
+2014 4 27 23 54 54
+227 95 6 10 4 2 264365 221 9 0 0 0
+1 2 82 7 27
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+7 7 18660 1 7 1 0 0
+5 4 10946 2 4 2 0 0
+1 1 912 1 1 1 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+98 37 19029 1 94 2 0 0
+10 4 4517 1 10 1 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+106 42 210301 1 105 2 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+2 2 1824 2 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+13 6 13639 12 0 0
+0 0 0 0 0 0
+10 7 1873 9 0 0
+18 0 0 18 0 0
+50 25 17156 47 0 0
+20 5 0 20 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+14 0 2333 13 0 0
+82 37 206833 82 0 0
+8 4 908 8 0 0
+0 0 0 0 0 0
+10 9 19799 10 0 0
+0
+0
+0
+95
+0
+0
+0
+0
+0
+0
+0
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+4
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+127
+0
+0
+0
+0
+0
+# -urls- 
+/icons/unknown.gif
+1 1 0 245 0 0 0 0
+/favicon.ico
+0 1 0 7358 0 0 0 0
+/icons/blank.gif
+1 1 0 148 0 0 0 0
+/shop/modules/shopUserManager/createUser.php
+0 11 0 817 0 0 0 0
+/shop/load.php
+0 19 0 19402 0 0 0 0
+/info.php
+0 40 0 215128 0 0 0 0
+/shop/modules/shopUserManager/
+0 1 0 483 0 0 0 0
+/
+0 15 0 7296 8 1 0 0
+/shop/shopUserManager.php
+0 5 0 565 1 1 0 0
+/icons/back.gif
+1 1 0 216 0 0 0 0
+# End Of Table - urls
+# -sites- (monthly)
+80.132.124.139
+0 1 1 912 1 1397084915 0 0
+-
+84.155.219.178
+0 98 37 19029 2 1398093165 0 0
+-
+195.37.37.251
+0 3 2 9122 1 1396952738 0 0
+-
+2.201.1.52
+0 10 4 4517 1 1398163434 0 0
+/shop/load.php
+80.132.68.81
+0 9 9 20484 2 1396917485 0 0
+-
+80.132.91.34
+0 106 42 210301 2 1398642894 0 0
+/shop/shopUserManager.php
+# End Of Table - sites (monthly)
+# -sites- (daily)
+80.132.91.34
+0 106 42 210301 2 1398642894 0 0
+/shop/shopUserManager.php
+# End Of Table - sites (daily)
+# -referrers- 
+http://gartenzwerge.verbunden.net/
+1 2
+http://gartenzwerge.verbunden.net/shop/modules/shopUserManager/
+1 32
+http://gartenzwerge.verbunden.net/info.php
+1 26
+- (Direct Request)
+0 167
+# End Of Table - referrers
+# -agents- 
+Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; BOIE9;ENUS; rv:11.0) like Gecko
+0 3
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/537.75.14
+0 224
+# End Of Table - agents
+# -search strings- 
+# End Of Table - search strings
+# -usernames- 
+# End Of Table - usernames
