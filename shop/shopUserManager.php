@@ -42,16 +42,6 @@ function getUserHash($uid) {
 	return $hash;
 }
 
-function createUserAdmin($email, $password) {
-	$uid = createSysUser($email, $password);
-	// Add User $uid to Group Admin
-}
-
-function createUserShop($email, $password) {
-	$uid = createSysUser($email, $password);
-	// Add User $uid to Group Checkout
-}
-
 function deleteUser($email, $password) {
 	$uid = getUserID($email);
 	
@@ -72,7 +62,7 @@ function createSysUser($title, $firstname, $lastname, $email, $password) {
 	global $entityManager;
 	if (validateEmail($email) == false) {
 		return(10001100);
-	} elseif (null !== getUserID($email)) {
+	} elseif (getUserID($email) <= 10000000) {
 		return(10001101);
 	} else {
 		$hash = createPasswordHash($password);
@@ -114,4 +104,14 @@ function loginUser($email, $password) {
 		echo "USER DOES NOT EXIST!";
 		return false;
 	}
+}
+
+function createUserAdmin($email, $password) {
+	$uid = createSysUser($email, $password);
+	// Add User $uid to Group Admin
+}
+
+function createUserShop($email, $password) {
+	$uid = createSysUser($email, $password);
+	// Add User $uid to Group Checkout
 }
