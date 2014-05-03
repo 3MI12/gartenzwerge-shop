@@ -24,7 +24,7 @@ class SysUser
 	/** @Column(type="string", length=50, unique=true, nullable=false) */
 	private $email;
 
-	/** @Column(type="string", length=100) */
+	/** @Column(type="string", length=300) */
 	private $hash;
 
 	public function setUid()
