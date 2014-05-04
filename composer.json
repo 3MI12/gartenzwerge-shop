@@ -1,5 +1,6 @@
 {
     "require": {
-        "doctrine/orm": "*"
+        "doctrine/orm": "*",
+        "phpdocumentor/phpdocumentor": "2.*"
     }
 }

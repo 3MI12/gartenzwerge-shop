@@ -2,10 +2,7 @@
 require_once($_SERVER['DOCUMENT_ROOT']."/bootstrap.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/shop/entity/SysUser.php");
 
-$salt = 'dsaDSDNjsnksdnSND823NDudjsdjIWEDHSdhksdsskadiusyriweadnsjADSSAKD';
-$iterations = 10000;
-
-function createPasswordHash($hash, $salt, $iterations) {
+function createPasswordHash($hash, $iterations = 10000, $salt = 'dsaDSDNjsnksdnSND823NDudjsdjIWEDHSdhksdsskadiusyriweadnsjADSSAKD') {
 	for ($x=0; $x<$iterations; $x++) {
 		$hash = hash('sha512', $hash . $salt);
 	}
@@ -24,30 +21,53 @@ function validateEmail($email){
 	}
 }
 
-function getUserID() {
+function getUserID($email) {
 	global $entityManager;
-	$user = $entityManager->find('SysUser', '.');
+	$user = $entityManager->getRepository('SysUser')->findOneBy(array('email' => $email));
 	if (is_null($user)){
-		return NULL;
+		return(10001000);
 	} else {
 		$uid = $user->getUid();
 		$entityManager->flush();
-		echo "ID: ".$uid;
 		return $uid;
 	}
 }
 
-function createSysUser($title, $firstname, $lastname, $email, $password) {
-	global $salt;
-	global $iterations;
+function getUserHash($uid) {
 	global $entityManager;
-	$uid = NULL;
-	if (validateEmail($email) == false) {
-		echo "Bitte geben sie eine gueltige eMail-Adresse an!";
-//	} elseif (empty(getUserID($email))) {
-//		echo "Die angegebene eMail-Adresse ist bereits registriert.";
+	echo "..";
+	$user = $entityManager->find("Sysuser", (int)$uid);
+	var_dump($user);
+	$hash = $user->getHash();
+	return $hash;
+}
+
+function deleteUser($email, $password) {
+	$uid = getUserID($email);
+	
+	if($uid < 10000000){
+		$hash = getUserHash($uid);
 	} else {
-		$hash = createPasswordHash($password, $salt, $iterations);
+		return false;
+	}
+	
+	if (createPasswordHash($password, $salt, $iterations) == $hash) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function createSysUser($title, $firstname, $lastname, $email, $password) {
+	global $entityManager;
+	if (validateEmail($email) == false) {
+		return(10001100);
+	} elseif (getUserID($email) <= 10000000) {
+		return(10001101);
+	} else {
+		$hash = createPasswordHash($password);
+		try
+		{
 		$sysuser = new SysUser();
 		$sysuser->setUid();
 		$sysuser->setEmail($email);
@@ -58,9 +78,32 @@ function createSysUser($title, $firstname, $lastname, $email, $password) {
 		$entityManager->persist($sysuser);
 		$entityManager->flush();
 		$uid = $sysuser->getUid();
-		echo "Der Nutzer mit der eMail-Adresse: $email (UID: $uid) wurde mit dem Passwort: $password angelegt!";
+		}
+		catch ( Doctrine_Connection_Exception $e )
+		{
+		    echo 'Code : ' . $e->getPortableCode();
+		    echo 'Message : ' . $e->getPortableMessage();
+		}
+		return $uid;
 	}
-	return $uid;
+}
+
+function loginUser($email, $password) {
+	$uid = getUserID($email);
+	if($uid <= 10000000){
+		$hash = getUserHash($uid);
+		$newhash = createPasswordHash($password);
+		if ($newhash == $hash) {
+			echo "JUHU!";
+			return true;
+		} else {
+			echo "WRONG PASSWORD!";
+			return false;
+		}
+	} else {
+		echo "USER DOES NOT EXIST!";
+		return false;
+	}
 }
 
 function createUserAdmin($email, $password) {
@@ -71,23 +114,4 @@ function createUserAdmin($email, $password) {
 function createUserShop($email, $password) {
 	$uid = createSysUser($email, $password);
 	// Add User $uid to Group Checkout
-}
-
-function deleteUser($email, $password) {
-	$uid = getUserID($email);
-	$hash = getUserHash($uid);
-	if (createPasswordHash($password, $salt, $iterations) == $hash) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-function loginUser($email, $password) {
-	$hash = getUserHash($uid);
-	if (createPasswordHash($password, $salt, $iterations) == $hash) {
-		return true;
-	} else {
-		return false;
-	}
 }
