@@ -11,7 +11,7 @@ $dbParams = array(
     'driver'   => 'pdo_mysql',
     'user'     => 'gartenzwerge',
     'password' => '9kpWWdlPuaJ0Qm',
-    'dbname'   => 'gartenzwerge',
+    'dbname'   => 'dev1gartenzwerge',
 );
 
 $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
