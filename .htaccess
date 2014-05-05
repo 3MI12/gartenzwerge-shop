@@ -1,1 +1,7 @@
 ## Default .htaccess file
+
+RewriteEngine On
+
+RewriteRule ^article/list$ index.php?controller=article&action=list
+RewriteRule ^article/show/([0-9]+)$ index.php?controller=article&action=show&id=$1
+RewriteRule ^article/update$ index.php?controller=article&action=update

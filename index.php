@@ -1,56 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+session_start();
+error_reporting(E_ALL); ini_set('display_errors', 1);
 
-<head>
+echo '<pre>';
+var_dump($_GET, $_POST);
+echo '</pre>';
 
- <?php require ($_SERVER['DOCUMENT_ROOT'] . '/template/documentheader.php'); ?>
+require_once 'bootstrap.php';
 
-</head>
-
-<body>
-
-	<?php require ($_SERVER['DOCUMENT_ROOT'] . '/template/header.php'); ?>
-
-<div id="slider">
-	<img src="resourcen/images/slider1.jpg" width="100%" height="100%;"  />
-</div>
-
-<div id="deko"></div>
-
-<div id="main">
- 
-    
-	<div id="contentMenu">
-    	<?php require ($_SERVER['DOCUMENT_ROOT'] . '/template/contentMenuAdmin.php'); ?>
-        <!-- require ($_SERVER['DOCUMENT_ROOT'] . '/template/contentMenuNoAdmin.php');  -->
-    </div>
-
-    <div id="contentWrapper">
-
-		<?php require ($_SERVER['DOCUMENT_ROOT'] . '/template/filter.php'); ?>
-    
-        <div id="homeWrapper" class="content">
-            <div class="title">
-                Startseite
-            </div>
-            
-            <div class="contentText">
-            	<a href="template/login.php">Anmeldung und Registrierung</a><br />
-                <a href="template/artikel.php">Artikel - Einzelansicht(Bsp)</a><br />
-                <a href="template/nutzerverwaltung.php">Nutzerverwaltung(Bsp)</a><br />
-                <a href="template/artikelverwaltung.php">Artikelverwaltung(Bsp)</a><br />
-                <a href="test-usrmgr.php">UserManager</a><br />
-                <a href="test-media.php">MediaManager</a>
-            </div>
-    	</div>
-	</div>
-</div>
+$controller = isset($_GET['controller']) ? $_GET['controller'] : null;
+$action = isset($_GET['action']) ? $_GET['action'] : null;
+$id = isset($_GET['id']) ? $_GET['id'] : null;
 
 
-	<?php require ($_SERVER['DOCUMENT_ROOT'] . '/template/footer.php'); ?>
-
-</body>
-
-</html>
-
+switch($controller) {
+	case 'article':
+		require 'shop/controller/articleController.php';
+		break;
+	case 'user':
+		require 'shop/controller/userController.php';
+		break;
+	default:
+		die("No controller found for ".htmlspecialchars($_SERVER['REQUEST_URI']));
+}
