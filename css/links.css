@@ -3,3 +3,14 @@ a:visited { font-weight:normal; color:#535D54; text-decoration:none; }
 a:focus { font-weight:normal; color:#94ac96; text-decoration:none; }
 a:hover { font-weight:normal; color:#94ac96; text-decoration:none; }
 a:active { font-weight:normal; color:#535D54; text-decoration:none; }
+
+#footerLinks a:link { font-weight:normal; color:#aaa; text-decoration:none; }
+#footerLinks a:visited { font-weight:normal; color:#aaa; text-decoration:none; }
+#footerLinks a:focus { font-weight:normal; color:#94ac96; text-decoration:none; }
+#footerLinks a:hover { font-weight:normal; color:#94ac96; text-decoration:none; }
+#footerLinks a:active { font-weight:normal; color:#535D54; text-decoration:none; }
+
+#footerLinks a{
+	float:left;
+	margin-left:30px;}
+

@@ -237,18 +237,53 @@ body{
 #footerWrapper{
 	position:fixed;
 	bottom:0;
-	height:70px;
+	height:50px;
 	width:100%;
 	cursor:pointer;
 	transition:all 1s ease-out;
 	z-index:60;
-	overflow:hidden;
+	border-top:2px solid #373D38;
+	background-color:#535D54;
 }
+
+#footerKontakt, #footerImpressum, #footerUp{
+	position:absolute;
+	top:-50px;
+	width:100px;
+	height:100px;
+	border-radius:60px;
+	
+	background-size:80%;
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-color:#535D54;
+	
+	  transition: background-size 200ms ease-in, border 200ms ease-in;
+  -moz-transition: background-size 200ms ease-in, border 200ms ease-in;
+  -ms-transition: background-size 200ms ease-in, border 200ms ease-in;
+  -o-transition: background-size 200ms ease-in, border 200ms ease-in;
+  -webkit-transition: background-size 200ms ease-in, border 200ms ease-in;}
+
+#footerKontakt{
+	background-image:url("../resourcen/icons/kontakt.png");
+	left:0;}
+
+#footerImpressum{
+	background-image:url("../resourcen/icons/impressum.png");
+	right:0;}
+	
+#footerUp{
+	background-image:url("../resourcen/icons/footerUp.png");
+	left:50%;
+	margin-left:-50px;}
+
+#footerImpressum:hover, #footerKontakt:hover{
+	background-size:70%;}
 
 #footerWrapper:hover{
 	height:200px;}
 
-#footerDeko{
+/*#footerDeko{
 	float:left;
 	position:relative;
 	top:0;
@@ -258,12 +293,24 @@ body{
 	background-size:100%;
 	background-position:center top;
 	background-repeat:no-repeat;
-	}
+	}*/
 	
-#footerContent{
-	float:left;
+#footerContent {
+  border: thin solid #FFFFFF;
+  float: left;
+  height: 120px;
+  left: 50%;
+  margin-left: -600px;
+  position: relative;
+  top: 50px;
+  width: 1200px;
+}
+
+#footerLinks{
 	position:relative;
 	top:0;
-	height:150px;
-	width:100%;
-	background-color:#535D54;}
+	left:0;
+	float:left;
+	height:50px;
+	width:auto;
+	border:thin solid white;}
