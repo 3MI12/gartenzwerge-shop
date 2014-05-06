@@ -18,7 +18,3 @@ switch($action) {
 		break;
 	default:
 }
-
-echo '<pre>';
-var_dump($data);
-echo '</pre>';

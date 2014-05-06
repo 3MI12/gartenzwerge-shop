@@ -6,8 +6,8 @@ session_start();
 require_once 'bootstrap.php';
 require_once 'config/config.php';
 
-$controller = isset($_GET['controller']) ? $_GET['controller'] : null;
-$action = isset($_GET['action']) ? $_GET['action'] : null;
+$controller = isset($_GET['controller']) ? $_GET['controller'] : 'article';
+$action = isset($_GET['action']) ? $_GET['action'] : ($controller == 'article' ? 'list' : null);
 $id = isset($_GET['id']) ? $_GET['id'] : null;
 
 
