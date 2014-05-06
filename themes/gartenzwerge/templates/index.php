@@ -43,10 +43,7 @@
                 <a href="test-usrmgr.php">UserManager</a><br />
                 <a href="test-media.php">MediaManager</a>
             </div>
-    	</div>
-	</div>
-</div>
-
+			
 	<?php
 		$template = isset($template) ? $template : '404';
 		$templateFile = TEMPLATE_PATH.$template.'.php';
@@ -57,6 +54,10 @@
 			echo 'Kein passendes Template gefunden!';
 		}
 	?>
+			
+    	</div>
+	</div>
+</div>
 
 	<?php require TEMPLATE_PATH . 'footer.php'; ?>
 
