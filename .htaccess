@@ -10,4 +10,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^article/show/([0-9]+)$ index.php?controller=article&action=show&id=$1
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^article/(update|create)$ index.php?controller=article&action=$1
+RewriteRule ^article/edit/([0-9]+)?$ index.php?controller=article&action=edit&id=$1
