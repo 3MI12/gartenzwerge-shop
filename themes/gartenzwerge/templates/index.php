@@ -49,7 +49,7 @@
 
 	<?php
 		$template = isset($template) ? $template : '404';
-		$templateFile = TEMPLATE_PATH.$emplate.'.php';
+		$templateFile = TEMPLATE_PATH.$template.'.php';
 		if(file_exists($templateFile)) {
 			include $templateFile;
 		}
