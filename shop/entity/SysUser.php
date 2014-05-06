@@ -28,6 +28,10 @@ class SysUser
 	/** @Column(type="string", length=300) */
 	private $hash;
 	
+	public static function getAll($entityManager) {
+		return $entityManager->getRepository('SysUser')->findAll();
+	}
+	
 	public function getUserByEmail($entityManager, $email)
 	{
 		return $entityManager->getRepository('SysUser')->findOneByEmail($email);
@@ -43,7 +47,7 @@ class SysUser
 		if ($sysuser->getUid() !== NULL) {
 			//email exist
 			$status = 0;
-		}elseif{$sysuser->getUid() == $uid){
+		}elseif($sysuser->getUid() == $uid){
 			//existing user
 			$status = 1;
 		}else{

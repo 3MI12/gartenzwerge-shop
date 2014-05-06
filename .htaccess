@@ -11,3 +11,12 @@ RewriteRule ^article/show/([0-9]+)$ index.php?controller=article&action=show&id=
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^article/edit/([0-9]+)?$ index.php?controller=article&action=edit&id=$1
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^user/list/([0-9]+)?$ index.php?controller=user&action=list&id=$1
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^user/show/([0-9]+)?$ index.php?controller=user&action=show&id=$1
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^user/edit/([0-9]+)?$ index.php?controller=user&action=edit&id=$1
