@@ -4,16 +4,16 @@
 
 <head>
 
- <?php require ('documentheader.php'); ?>
+ <?php require TEMPLATE_PATH . 'documentheader.php'; ?>
 
 </head>
 
 <body>
 
-	<?php require ('header.php'); ?>
+	<?php require TEMPLATE_PATH . 'header.php'; ?>
 
 <div id="slider">
-	<img src="../resourcen/images/slider1.jpg" width="100%" height="100%;"  />
+	<img src="<?php echo FE_THEME_PATH; ?>resourcen/images/slider1.jpg" width="100%" height="100%;"  />
 </div>
 
 <div id="deko"></div>
@@ -22,13 +22,13 @@
  
     
 	<div id="contentMenu">
-    	<?php require ('contentMenuAdmin.php'); ?>
+    	<?php require TEMPLATE_PATH . 'contentMenuAdmin.php'; ?>
         <!-- require ($_SERVER['DOCUMENT_ROOT'] . '/template/contentMenuNoAdmin.php');  -->
     </div>
 
     <div id="contentWrapper">
 
-		<?php require ('filter.php'); ?>
+		<?php require TEMPLATE_PATH . 'filter.php'; ?>
     
         <div id="homeWrapper" class="content">
             <div class="title">
@@ -36,10 +36,12 @@
             </div>
             
             <div class="contentText">
-            	<a href="login.php">Anmeldung und Registrierung</a><br />
-                <a href="artikel.php">Artikel - Einzelansicht(Bsp)</a><br />
-                <a href="nutzerverwaltung.php">Nutzerverwaltung(Bsp)</a><br />
-                <a href="artikelverwaltung.php">Artikelverwaltung(Bsp)</a><br />
+            	<a href="template/login.php">Anmeldung und Registrierung</a><br />
+                <a href="template/artikel.php">Artikel - Einzelansicht(Bsp)</a><br />
+                <a href="template/nutzerverwaltung.php">Nutzerverwaltung(Bsp)</a><br />
+                <a href="template/artikelverwaltung.php">Artikelverwaltung(Bsp)</a><br />
+                <a href="test-usrmgr.php">UserManager</a><br />
+                <a href="test-media.php">MediaManager</a>
             </div>
 			
 	<?php
@@ -57,7 +59,7 @@
 	</div>
 </div>
 
-	<?php require ('footer.php'); ?>
+	<?php require TEMPLATE_PATH . 'footer.php'; ?>
 
 </body>
 
