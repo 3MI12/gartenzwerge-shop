@@ -29,7 +29,7 @@
         </div>
 
         <div class="articleManager">
-        	<div id="articleManagerLabels">
+        	<!--<div id="articleManagerLabels">
             	<span>ID</span>
                 <span>Artikelname</span>
                 <span>Größe</span>
@@ -37,9 +37,28 @@
                 <span>Material</span>
                 <span>Menge</span>
                 <span>Preis</span>
-            </div>
-        
-            <form id="articleUpdateForm" method="post" action="">
+            </div>-->
+        	
+            <form id="newArticle" class="articleUpdateForm" method="post" action="">
+            	<input type="text" name="id" value="ID">
+            	<input type="text" name="artikelName" value="Atrikelname">
+                <input type="text" name="groesse" value="Größe">      
+                <input type="text" name="farbe" value="Farbe">
+                <input type="text" name="material" value="Material">
+                <input type="text" name="menge" value="Menge">
+                <input type="text" name="preis" value="Preis">
+                <button class="articleButton btn-articleText" id="btn-articleText" type="button" formaction="snippet/blabla.php"></button> 
+                <button class="articleButton" id="btn-articleImage" type="button" formaction="snippet/blabla.php"></button>
+                <button class="articleButton" id="btn-articleUpdate" type="button" formaction="snippet/blabla.php"></button> 
+                <div class="imageUpload">
+                	<div class="articleImgContainer">
+                    	<img src="../resourcen/images/gartenzwerg1-s.jpg" style="height:100%; width:auto; margin:auto auto;" />
+                    </div>
+                </div> 
+                <textarea class="articleText" name="text">Produktbeschreibung</textarea> 
+            </form>
+            
+            <form class="articleUpdateForm" method="post" action="">
             	<input type="text" name="id" value="5">
             	<input type="text" name="artikelName" value="Gartenzwerg Norbert">
                 <input type="text" name="groesse" value="120cm">      
@@ -59,7 +78,7 @@
                 <textarea class="articleText" name="text">Produktbeschreibung</textarea> 
             </form>
             
-            <form id="articleUpdateForm" method="post" action="">
+            <form class="articleUpdateForm" method="post" action="">
             	<input type="text" name="id" value="5">
             	<input type="text" name="artikelName" value="Gartenzwerg Norbert">
                 <input type="text" name="groesse" value="120cm">      
@@ -74,7 +93,7 @@
                 <textarea class="articleText" name="text">Produktbeschreibung</textarea> 
             </form>
             
-            <form id="articleUpdateForm" method="post" action="">
+            <form class="articleUpdateForm" method="post" action="">
             	<input type="text" name="id" value="5">
             	<input type="text" name="artikelName" value="Gartenzwerg Norbert">
                 <input type="text" name="groesse" value="120cm">      
@@ -89,7 +108,7 @@
                 <textarea class="articleText" name="text">Produktbeschreibung</textarea> 
             </form>
             
-            <form id="articleUpdateForm" method="post" action="">
+            <form class="articleUpdateForm" method="post" action="">
             	<input type="text" name="id" value="5">
             	<input type="text" name="artikelName" value="Gartenzwerg Norbert">
                 <input type="text" name="groesse" value="120cm">      
@@ -104,7 +123,7 @@
                 <textarea class="articleText" name="text">Produktbeschreibung</textarea> 
             </form>
             
-            <form id="articleUpdateForm" method="post" action="">
+            <form class="articleUpdateForm" method="post" action="">
             	<input type="text" name="id" value="5">
             	<input type="text" name="artikelName" value="Gartenzwerg Norbert">
                 <input type="text" name="groesse" value="120cm">      

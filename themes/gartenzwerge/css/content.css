@@ -1,0 +1,64 @@
+/** Wrapper **/
+.content{
+	float:left;}
+
+/** Content - Text **/
+.contentText{
+	clear:both;
+	float:left;
+	padding:10px 15px;}
+
+/** Überschriften **/
+.title{
+	float:left;
+	clear:both;
+	margin-left:-100px;
+	height:30px;
+	width:auto;
+	padding:7px 50px 7px 50px;
+	background-color:#535d54;
+	border-bottom-right-radius:15px;
+	border-top-right-radius:15px;
+	color:#bcc2ba;
+	font-size:30px;
+	line-height:30px;
+	margin-bottom:35px;}
+
+.subtitle{
+	clear:both;
+	float:left;
+	height:20px;
+	padding:5px 15px;
+	background-color:#535d54;
+	border-top-left-radius:15px;
+	border-top-right-radius:15px;
+	color:#bcc2ba;
+	font-size:18px;
+	}
+
+.titleHr{
+	clear:both;
+	float:left;
+	width:1000px;
+	height:1px;
+	background-color:#535d54;
+	margin-top:-1px;
+	margin-bottom:30px;}
+
+
+/** Artikel - Ansicht **/
+.articleText,.articleDetails{
+	padding:0px 10px 40px 10px;;
+	float:left;
+	clear:both;}
+	
+.articleImgContainer{
+	position:relative;
+	float:left;
+	top:0;
+	width:260px;
+	height:260px;
+	border:2px solid #535d54;
+	background-color:white;
+	text-align:center;}	
+	

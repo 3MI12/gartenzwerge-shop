@@ -1,0 +1,316 @@
+@charset "utf-8";
+
+*{padding:0;
+  margin:0;}
+
+html, body{
+	height:100%;}
+
+body{
+	font-family:"Lato";
+	color:#535d54;
+	background-image:url("../resourcen/icons/brushed.png");}
+
+#header {
+  	float: left;
+	height: 115px;
+	position: absolute;
+	width: 100%;
+	z-index: 50;
+}
+
+#logo {
+  float: left;
+  height: 115px;
+  left: 50%;
+  margin-left: -600px;
+  position: relative;
+  width: 675px;
+  z-index: 55;
+}
+
+#headerTitle{
+	float:left;
+	font-size:40px;
+	margin-top:20px;
+	margin-left:100px;
+}
+
+#headerSubtitle{
+	float:left;
+	font-size:24px;
+	font-weight:lighter;
+	font-style:italic;
+	margin-left:100px;
+}
+
+#iconContainer{
+	position:relative;
+	float:left;
+	top:20px;
+	width:165px;
+	height:165px;
+	border-radius:90px;
+	padding:5px;
+	background-image:url("../resourcen/icons/brushed.png");}
+
+
+/** Menü **/
+
+#menu {
+  left: 50%;
+  margin-left: 145px;
+  position: relative;
+  top: 65px;
+}
+
+.menuItemContainer{
+	position:relative;
+	float:left;
+	margin-left:10px;
+	width:100px;
+	height:100px;
+	border-radius:60px;
+	background-image:url("../resourcen/icons/brushed.png");}
+
+.menuButton{
+  position: relative;
+  top:5px;
+  left:5px;
+  width: 90px;
+  height: 90px;
+  border-radius:50px;
+  cursor:pointer;
+  background-color:#535d54;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 70% auto;
+  border: 2px solid #E5E5E5; /* #535D54 E5E5E5 4E544E*/
+  transition: background-size 200ms ease-in, border 200ms ease-in;
+  -moz-transition: background-size 200ms ease-in, border 200ms ease-in;
+  -ms-transition: background-size 200ms ease-in, border 200ms ease-in;
+  -o-transition: background-size 200ms ease-in, border 200ms ease-in;
+  -webkit-transition: background-size 200ms ease-in, border 200ms ease-in;}
+
+.menuButton:hover{
+	background-size:65%;
+	border:2px solid #4E544E;}
+
+.menuItemContainer:nth-child(1) .menuButton{
+	background-image: url("../resourcen/icons/indoor.png");}
+
+.menuItemContainer:nth-child(2) .menuButton{
+	background-image: url("../resourcen/icons/outdoor.png");}
+
+.menuItemContainer:nth-child(3) .menuButton{
+	background-image: url("../resourcen/icons/profil.png");}
+
+.menuItemContainer:nth-child(4) .menuButton{
+	background-image: url("../resourcen/icons/warenkorb.png");}
+ 
+#f1_container {
+  width: 90px;
+  height: 90px;
+  border-radius:50px;
+  z-index: 1;
+}
+
+#f1_container {
+  perspective: 1000;
+}
+
+#f1_card {
+  width: 100%;
+  height: 100%;
+  border-radius:50px;
+  transform-style: preserve-3d;
+  transition: all 1.0s linear;
+}
+
+#f1_container:hover #f1_card {
+  transform: rotateY(180deg);
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius:50px;
+  backface-visibility: hidden;
+  background-color:#535d54;
+}
+
+.face.back {
+  display: block;
+  transform: rotateY(180deg);
+  background-color: #94ac96;
+}
+
+#f1_container img{
+	position:relative;
+	top:15px;
+	left:15px;
+	width:60px;
+	height:60px;}
+
+
+
+#slider{
+	float:left;
+	position:relative;
+	top:115px;
+	width:100%;
+	height:auto;
+	border:3px solid #535D54;}
+
+#deko {
+  background-image: url("../resourcen/images/deko_grass.png");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  float: left;
+  height: 177px;
+  position: relative;
+  top: 115px;
+  width: 100%;
+  z-index: 40;
+}
+
+#main{
+	width:1200px;
+	min-height:800px;
+	position:absolute;
+	left:50%;
+	margin-left:-600px;
+	top:450px;
+	padding-bottom:50px;
+	z-index:50;}
+
+#contentMenu{
+	width:100%;
+	height:40px;}
+
+.contentMenuItem{
+	float:left;
+	margin-right:2px;
+	height:30px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	background-image:url("../resourcen/icons/brushed.png");
+	padding:5px 10px;
+	line-height:30px;
+	font-size:18px;}
+
+#suche{
+	float:right;
+	height:30px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	background-color:#636a63;
+	color:#c5c9c0;
+	padding:5px 10px;
+	line-height:30px;
+	font-size:18px;}
+
+#filter{
+	position:absolute;
+	top:0;
+	right:0;
+	height:100px;
+	width:350px;
+	padding:5px;
+	background-color:#636a63;
+	color:#bac0b4;
+	font-size:16px;
+	font-family:"Lato";}
+	
+#contentWrapper{
+	position:relative;
+	float:left;
+	width:1000px;
+	min-height:800px;
+	background-image:url("../resourcen/icons/brushed.png");
+	border-bottom-left-radius:25px;
+	border-bottom-right-radius:25px;
+	padding:40px 100px;}
+
+#footerWrapper{
+	position:fixed;
+	bottom:0;
+	height:50px;
+	width:100%;
+	cursor:pointer;
+	transition:all 1s ease-out;
+	z-index:60;
+	border-top:2px solid #373D38;
+	background-color:#535D54;
+}
+
+#footerKontakt, #footerImpressum, #footerUp{
+	position:absolute;
+	top:-50px;
+	width:100px;
+	height:100px;
+	border-radius:60px;
+	
+	background-size:80%;
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-color:#535D54;
+	
+	  transition: background-size 200ms ease-in, border 200ms ease-in;
+  -moz-transition: background-size 200ms ease-in, border 200ms ease-in;
+  -ms-transition: background-size 200ms ease-in, border 200ms ease-in;
+  -o-transition: background-size 200ms ease-in, border 200ms ease-in;
+  -webkit-transition: background-size 200ms ease-in, border 200ms ease-in;}
+
+#footerKontakt{
+	background-image:url("../resourcen/icons/kontakt.png");
+	left:0;}
+
+#footerImpressum{
+	background-image:url("../resourcen/icons/impressum.png");
+	right:0;}
+	
+#footerUp{
+	background-image:url("../resourcen/icons/footerUp.png");
+	left:50%;
+	margin-left:-50px;}
+
+#footerImpressum:hover, #footerKontakt:hover{
+	background-size:70%;}
+
+#footerWrapper:hover{
+	height:200px;}
+
+/*#footerDeko{
+	float:left;
+	position:relative;
+	top:0;
+	height:50px;
+	width:100%;
+	background-image:url("../resourcen/images/deko_grass2.png");
+	background-size:100%;
+	background-position:center top;
+	background-repeat:no-repeat;
+	}*/
+	
+#footerContent {
+  border: thin solid #FFFFFF;
+  float: left;
+  height: 120px;
+  left: 50%;
+  margin-left: -600px;
+  position: relative;
+  top: 50px;
+  width: 1200px;
+}
+
+#footerLinks{
+	position:relative;
+	top:0;
+	left:0;
+	float:left;
+	height:50px;
+	width:auto;
+	border:thin solid white;}
