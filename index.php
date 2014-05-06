@@ -29,4 +29,6 @@ switch($controller) {
 		$template = '404';
 }
 
-require TEMPLATE_PATH . 'index.php';
+require (TEMPLATE_PATH.'index.php');
+
+?>

@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-<?php require ($_SERVER['DOCUMENT_ROOT'] . '/template/documentheader.php'); ?>
+<?php require ('documentheader.php'); ?>
 
 </head>
 
 <body>
 
-<?php require ($_SERVER['DOCUMENT_ROOT'] . '/template/header.php'); ?>
+<?php require ('header.php'); ?>
 
     <div id="slider">
     	<img src="../resourcen/images/slider1.jpg" width="100%" height="100%;"  />
@@ -16,13 +16,13 @@
 
 <div id="main">
 	<div id="contentMenu">
-		<?php require ($_SERVER['DOCUMENT_ROOT'] . '/template/contentMenuAdmin.php'); ?>
+		<?php require ('contentMenuAdmin.php'); ?>
         <!-- require ($_SERVER['DOCUMENT_ROOT'] . '/template/contentMenuNoAdmin.php');  -->
 	</div>
 
 <div id="contentWrapper">
 	
-    <?php require ($_SERVER['DOCUMENT_ROOT'] . '/template/filter.php'); ?>
+    <?php require ('filter.php'); ?>
    <div id="articleWrapper" class="content">
     	<div class="title">
         	Gartenzwerg Norbert
@@ -72,7 +72,7 @@
 	
 </div>
 
-	<?php require ($_SERVER['DOCUMENT_ROOT'] . '/template/footer.php'); ?>
+	<?php require ('footer.php'); ?>
 
 </body>
 </html>
