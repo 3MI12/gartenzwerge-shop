@@ -250,13 +250,13 @@ input.submit:hover{
 	margin-top:100px;
 	}
 	
-#articleUpdateForm{
+.articleUpdateForm{
 	position:relative;
 	float:left;
 	clear:both;
 	margin-bottom:40px;}
 
-#articleUpdateForm input{
+.articleUpdateForm input{
   position:relative;
   background-color: #BCC2BA;
   float: left;
@@ -269,18 +269,18 @@ input.submit:hover{
 	border-bottom:thin solid #636A63;
 }
 
-#articleUpdateForm input:nth-child(odd){
+.articleUpdateForm input:nth-child(odd){
 	color:#BCC2BA;
   background-color: #636A63;
 }
 
-#articleUpdateForm input:nth-child(even){
+.articleUpdateForm input:nth-child(even){
 	color: #636A63;
   background-color: #BCC2BA;
 
 }
 
-#articleUpdateForm input:first-child{
+.articleUpdateForm input:first-child{
 	width:80px;
 	color:#BCC2BA;
 	padding-left:15px;
@@ -290,34 +290,34 @@ input.submit:hover{
   border-bottom-left-radius:15px;
 }
 
-#articleUpdateForm input:nth-child(odd):focus{
+.articleUpdateForm input:nth-child(odd):focus{
 	background-color:#7C847C;}
 
-#articleUpdateForm input:nth-child(even):focus{
+.articleUpdateForm input:nth-child(even):focus{
 	background-color:#CBD3C9;}
 
-#articleUpdateForm input:nth-child(2){
+.articleUpdateForm input:nth-child(2){
 	width:180px;
 }
 
-#articleUpdateForm input:nth-child(3){
+.articleUpdateForm input:nth-child(3){
 	width:70px;
 }
 
-#articleUpdateForm input:nth-child(4){
+.articleUpdateForm input:nth-child(4){
 	width:70px;
 }
 
-#articleUpdateForm input:nth-child(6){
+.articleUpdateForm input:nth-child(6){
 	width:70px;
 }
 
-#articleUpdateForm input:nth-child(7){
+.articleUpdateForm input:nth-child(7){
 	width:70px;
 }
 
 /** Artikel - Beschreibung **/
-#articleUpdateForm textarea{
+.articleUpdateForm textarea{
 	position:relative;
 	float:left;
 	clear:both;

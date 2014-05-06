@@ -8,7 +8,7 @@ class SysUser
 	/**
 	* @Id @Column(type="integer")
 	* @GeneratedValue
-	* @ManyToMany(targetEntity="adminUser");
+	* @OneToOne(targetEntity="adminUser");
 	*/
 	private $uid;
 
