@@ -2,7 +2,7 @@
 <div id="header">
 	<div id="logo">
     <div id="iconContainer">
-    	<a href="index.php"><img src="../resourcen/icons/zwerg-logo6.png" width="165px" height="165px" /></a>
+    	<a href="../../index.php"><img title="foobar" src="<?php echo FE_THEME_PATH; ?>resourcen/icons/zwerg-logo6.png" width="165px" height="165px" /></a>
     </div>
 
     <div id="headerTitle">Gartenzwerge24.de</div>
@@ -12,16 +12,16 @@
 
     <div id="menu">
 		<div class="menuItemContainer">
-        	<a href="indoor.php"><button class="menuButton"> </button></a>
+        	<a href="../../template/indoor.php"><button class="menuButton"> </button></a>
         </div>
         <div class="menuItemContainer">
-        	<a href="outdoor.php"><button class="menuButton"> </button></a>
+        	<a href="../../template/outdoor.php"><button class="menuButton"> </button></a>
         </div>
         <div class="menuItemContainer">
-        	<a href="profil.php"><button class="menuButton"> </button></a>
+        	<a href="../../template/profil.php"><button class="menuButton"> </button></a>
         </div>
         <div class="menuItemContainer">
-        	<a href="warenkorb.php"><button class="menuButton"> </button></a>
+        	<a href="../../template/warenkorb.php"><button class="menuButton"> </button></a>
         </div>       
     </div>
 </div>
