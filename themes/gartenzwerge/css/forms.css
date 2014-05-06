@@ -25,13 +25,14 @@ form input{
 
 /** Filter - Formular **/
 
-#filterCheckbox{
-	position:relative;
-	float:left;
-	top:0;
-	left:0;
-	width:190px;
-	height:40px;}
+#filterCheckbox {
+  float: left;
+  height: 40px;
+  left: 0;
+  position: relative;
+  top: 0;
+  width: 165px;
+}
 
 #filterCheckbox div{
 	float:left;
@@ -57,7 +58,7 @@ form input{
   border: none;
   font-family: "Lato";
   font-size: 16px;
-  width: 70px;
+  width: 100px;
   margin-bottom:5px;
   height:20px;
 }
@@ -75,12 +76,12 @@ select option[val="rot"]{
 
 
 /** Login/Registrierung - Formular **/
-#regForm, #loginForm{
+#regForm, #loginForm, #profilForm{
 	clear:both;
 	float:left;
 	margin-bottom:50px;}
 
-#regForm label, #loginForm label {
+#regForm label, #loginForm label, #profilForm label{
   background-color: #636A63;
   color: #BCC2BA;
   float: left;
@@ -95,7 +96,7 @@ select option[val="rot"]{
   border-bottom-left-radius:15px;
 }
 
-#regForm input, #regForm select, #loginForm input {
+#regForm input, #regForm select, #loginForm input, #profilForm input, #profilForm select{
   background-color: #BCC2BA;
   color: #636A63;
   float: left;
@@ -109,6 +110,10 @@ select option[val="rot"]{
 }
 
 #regForm select{
+	height:37px;
+	width:222px;}
+
+#profilForm select{
 	height:37px;
 	width:222px;}
 

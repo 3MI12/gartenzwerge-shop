@@ -2,12 +2,6 @@
 		<form action="">
 			<div id="filterCheckbox">
 				<div>
-					<input type="checkbox" name="indoor" value="Indoor"> Indoor
-				</div>
-                <div>
-                    <input type="checkbox" name="outdoor" value="Outdoor"> Outdoor
-                </div>
-                <div>
                     <input type="checkbox" name="male" value="Männlich"> Männlich
                 </div>	
                 <div>

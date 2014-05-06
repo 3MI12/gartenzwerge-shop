@@ -2,29 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-<title>Gartenzwerge</title>
-
-<link rel="stylesheet" href="../css/basic.css" />
-<link rel="stylesheet" href="../css/content.css" />
-<link rel="stylesheet" href="../css/links.css" />
-<link rel="stylesheet" href="../css/forms.css" />
-
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Lato:400,300italic,400italic,700,700italic,300' rel='stylesheet' type='text/css'>
-
-<script type="text/javascript" src="../js/jquery.js"></script>
-<script type="text/javascript" src="../js/script.js"></script>
-
-<!--<script type="text/javascript" src="js/stellar/stellar.js"></script>
-<script type="text/javascript" src="js/script.js"></script>-->
-
-</head>
+<?php require ('documentheader.php'); ?>
 
 <body>
 
-<?php require ($_SERVER['DOCUMENT_ROOT'] . '/template/header.php'); ?>
+<?php require ('header.php'); ?>
 
     <div id="slider">
     	<img src="../resourcen/images/slider1.jpg" width="100%" height="100%;"  />
@@ -34,13 +16,12 @@
 
 <div id="main">
 	<div id="contentMenu">
-		<?php require ($_SERVER['DOCUMENT_ROOT'] . '/template/contentMenuAdmin.php'); ?>
-        <!-- require ($_SERVER['DOCUMENT_ROOT'] . '/template/contentMenuNoAdmin.php');  -->
+		<?php require ('contentMenuAdmin.php'); ?>
 	</div>
 
 <div id="contentWrapper">
 	
-    <?php require ($_SERVER['DOCUMENT_ROOT'] . '/template/filter.php'); ?>
+    <?php require ('filter.php'); ?>
   <div id="loginWrapper" class="content">
 	
     <div class="title">
@@ -77,7 +58,7 @@
 	
 </div>
 
-	<?php require ($_SERVER['DOCUMENT_ROOT'] . '/template/footer.php'); ?>
+	<?php require ('footer.php'); ?>
 
 </body>
 </html>
