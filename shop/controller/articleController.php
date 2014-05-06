@@ -10,6 +10,12 @@ switch($action) {
 	case 'show':
 		$data = Article::getById($entityManager, $id);
 		break;
+	case 'update':
+		$data = Article::createUpdate($entityManager);
+		break;
+	case 'create':
+		$data = Article::createUpdate($entityManager);
+		break;
 	default:
 }
 

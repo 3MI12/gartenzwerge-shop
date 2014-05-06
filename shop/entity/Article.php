@@ -42,12 +42,19 @@ class Article
 	}
 
 	public static function getById($em, $id) {
-		$article = $em->getRepository('Article')->findById($id);
-		if($article) {
-			return $article[0];
+		return $em->getRepository('Article')->findOneById($id);
+	}
+	
+	public static function createUpdate($entityManager) {
+		$id = isset($_POST['id']) ? $_POST['id'] : null;
+		if($id) {
+			$article = Article::getOneById($id);
+			if(!$article) {
+				$data['error'][] = 'Article not found!';
+			}
 		}
 		else {
-			return null;
+			$article = new Article();
 		}
 	}
 	

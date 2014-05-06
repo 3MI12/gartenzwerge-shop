@@ -1,5 +1,5 @@
 <?php
-namespace Models;
+//namespace Models;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -52,5 +52,9 @@ class Order {
 		else {
 			unset($this->articles[$articleId]);
 		}
+	}
+	
+	public function getArticles() {
+		return $this->articles;
 	}
 }

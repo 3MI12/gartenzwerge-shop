@@ -2,6 +2,12 @@
 
 RewriteEngine On
 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^article/list$ index.php?controller=article&action=list
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^article/show/([0-9]+)$ index.php?controller=article&action=show&id=$1
-RewriteRule ^article/update$ index.php?controller=article&action=update
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^article/(update|create)$ index.php?controller=article&action=$1

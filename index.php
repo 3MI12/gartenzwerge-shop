@@ -4,7 +4,7 @@ session_start();
 error_reporting(E_ALL); ini_set('display_errors', 1);
 
 echo '<pre>';
-var_dump($_GET, $_POST);
+var_dump('$_GET:', $_GET, '$_POST:', $_POST);
 echo '</pre>';
 
 require_once 'bootstrap.php';
