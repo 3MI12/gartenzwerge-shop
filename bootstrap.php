@@ -1,6 +1,6 @@
 <?php
 require_once("vendor/autoload.php");
-require_once("dbParms.php");
+require_once("config/dbParms.php");
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
