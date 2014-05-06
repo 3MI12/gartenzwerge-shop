@@ -21,6 +21,11 @@ switch($controller) {
 	case 'user':
 		require 'shop/controller/userController.php';
 		break;
+	case 'page':
+		require 'shop/controller/pageController.php';
+		break;
 	default:
-		die("No controller found for ".htmlspecialchars($_SERVER['REQUEST_URI']));
+		$template = '404';
 }
+
+require 'themes/gartenzwerge/templates/index.php';

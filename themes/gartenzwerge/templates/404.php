@@ -1,0 +1,1 @@
+Die angeforderte Seite <?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?> konnte nicht gefunden werden!

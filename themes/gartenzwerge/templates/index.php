@@ -47,6 +47,16 @@
 	</div>
 </div>
 
+	<?php
+		$template = isset($template) ? $template : '404';
+		$templateFile = TEMPLATE_PATH.$emplate.'.php'
+		if(file_exists($templateFile)) {
+			include $templateFile;
+		}
+		else {
+			echo 'Kein passendes Template gefunden!';
+		}
+	?>
 
 	<?php require ($_SERVER['DOCUMENT_ROOT'] . '/template/footer.php'); ?>
 
