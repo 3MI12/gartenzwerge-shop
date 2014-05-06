@@ -1,4 +1,5 @@
 <?php
+require_once($_SERVER['DOCUMENT_ROOT']."/shop/shopHelper.php");
 /**
  * @Entity
  * @Table(name="sysuser")
@@ -26,6 +27,79 @@ class SysUser
 
 	/** @Column(type="string", length=300) */
 	private $hash;
+	
+	public function getUserByEmail($entityManager, $email)
+	{
+		return $entityManager->getRepository('SysUser')->findOneByEmail($email);
+	}
+	
+	public function buildSysUser($entityManager, $title, $firstname, $lastname, $email, $password, $uid = NULL) {
+		if (validateEmail($email) == false) {
+			return(false);
+		} 
+		
+		$sysuser = getUserByEmail($entityManager, $email);
+		
+		if ($sysuser->getUid() !== NULL) {
+			//email exist
+			$status = 0;
+		}elseif{$sysuser->getUid() == $uid){
+			//existing user
+			$status = 1;
+		}else{
+			return(false);
+		}
+		
+		if ($status = 0){
+
+
+			try
+			{
+			$sysuser = new SysUser();
+			$sysuser->setUid();
+			$sysuser->setEmail($email);
+			$sysuser->setHash(crypt($password, SALT));
+			$sysuser->setTitle($title);
+			$sysuser->setFirstname($firstname);
+			$sysuser->setLastname($lastname);
+			$entityManager->persist($sysuser);
+			$entityManager->flush();
+			$uid = $sysuser->getUid();
+			}
+			catch ( Doctrine_Connection_Exception $e )
+			{
+			    echo 'Code : ' . $e->getPortableCode();
+			    echo 'Message : ' . $e->getPortableMessage();
+			}
+			return $uid;
+		}
+	}
+
+	public function editSysUser($entityManager, $uid, $title, $firstname, $lastname, $email, $password) {
+		if (validateEmail($email) == false) {
+			return(false);
+		} elseif (getUserID($entityManager, $email) !== $uid) {
+			return(false);
+		} else {
+			try
+			{
+			$sysuser = $entityManager->getRepository('SysUser')->findOneByUid($uid);
+			$sysuser->setEmail($email);
+			$sysuser->setHash(crypt($password, SALT));
+			$sysuser->setTitle($title);
+			$sysuser->setFirstname($firstname);
+			$sysuser->setLastname($lastname);
+			$entityManager->persist($sysuser);
+			$entityManager->flush();
+			}
+			catch ( Doctrine_Connection_Exception $e )
+			{
+			    echo 'Code : ' . $e->getPortableCode();
+			    echo 'Message : ' . $e->getPortableMessage();
+			}
+			return true;
+		}
+	}
 
 	public function setUid()
 	{
@@ -85,6 +159,12 @@ class SysUser
 	public function getHash()
 	{
 		return $this->hash;
+	}
+	
+	public function getUserHash($entityManager, $uid) {
+		$user = $entityManager->find("Sysuser", (int)$uid);
+		$hash = $user->getHash();
+		return $hash;
 	}
 }
 
