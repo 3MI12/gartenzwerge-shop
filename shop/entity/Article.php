@@ -45,6 +45,36 @@ class Article
 		return $em->getRepository('Article')->findOneById($id);
 	}
 	
+	public static function editCreate($em, $id) {
+		$data = array();
+		if($id) {
+			$article = Article::getById($em, $id);
+			if(!$article) {
+				$data['error'][] = 'Article not found!';
+			}
+		}
+		if(!empty($_POST['editsubmit'])) {
+		}
+		else {
+			$data['article'] = array(
+				'id' => $article ? $article->getId() : 0,
+				'articlenumber' => $article ? $article->getArticlenumber() : '',
+				'name' => $article ? $article->getName() : '',
+				'image' => $article ? $article->getImage() : '',
+				'gender' => $article ? $article->getGender() : '',
+				'size' => $article ? $article->getSize() : '',
+				'color' => $article ? $article->getColor() : '',
+				'material' => $article ? $article->getMaterial() : '',
+				'description' => $article ? $article->getDescription() : '',
+				'price' => $article ? $article->getPrice() : '',
+				'vat' => $article ? $article->getVat() : '',
+				'inventory' => $article ? $article->getInventory() : '',
+				'category' => $article ? $article->getCategory() : '',
+			);
+		}
+		return $data;
+	}
+	
 	public static function createUpdate($entityManager) {
 		$id = isset($_POST['id']) ? $_POST['id'] : null;
 		if($id) {
@@ -55,6 +85,10 @@ class Article
 		}
 		else {
 			$article = new Article();
+		}
+		$params = array('id', 'articlenumber', 'name', 'image', 'gender', 'size', 'color', 'material', 'description', 'price', 'vat', 'inventory', 'category');
+		foreach($params as $param) {
+			isset($_POST[$postFieldName]) ? $_POST[$postFieldName] : null;				
 		}
 	}
 	
