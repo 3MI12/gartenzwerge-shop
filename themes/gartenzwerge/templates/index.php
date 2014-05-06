@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -13,7 +13,7 @@
 	<?php require TEMPLATE_PATH . 'header.php'; ?>
 
 <div id="slider">
-	<img src="resourcen/images/slider1.jpg" width="100%" height="100%;"  />
+	<img src="<?php echo FE_THEME_PATH; ?>resourcen/images/slider1.jpg" width="100%" height="100%;"  />
 </div>
 
 <div id="deko"></div>
