@@ -12,11 +12,9 @@ switch($action) {
 		$data = Article::getById($entityManager, $id);
 		$template = 'article';
 		break;
-	case 'update':
-		$data = Article::createUpdate($entityManager);
-		break;
-	case 'create':
-		$data = Article::createUpdate($entityManager);
+	case 'edit':
+		$data = Article::editCreate($entityManager, $id);
+		$template = 'articleEdit';
 		break;
 	default:
 }
