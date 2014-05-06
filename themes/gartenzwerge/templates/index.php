@@ -4,13 +4,13 @@
 
 <head>
 
- <?php require ($_SERVER['DOCUMENT_ROOT'] . '/template/documentheader.php'); ?>
+ <?php require TEMPLATE_PATH . 'documentheader.php'; ?>
 
 </head>
 
 <body>
 
-	<?php require ($_SERVER['DOCUMENT_ROOT'] . '/template/header.php'); ?>
+	<?php require TEMPLATE_PATH . 'header.php'; ?>
 
 <div id="slider">
 	<img src="resourcen/images/slider1.jpg" width="100%" height="100%;"  />
@@ -22,13 +22,13 @@
  
     
 	<div id="contentMenu">
-    	<?php require ($_SERVER['DOCUMENT_ROOT'] . '/template/contentMenuAdmin.php'); ?>
+    	<?php require TEMPLATE_PATH . 'contentMenuAdmin.php'; ?>
         <!-- require ($_SERVER['DOCUMENT_ROOT'] . '/template/contentMenuNoAdmin.php');  -->
     </div>
 
     <div id="contentWrapper">
 
-		<?php require ($_SERVER['DOCUMENT_ROOT'] . '/template/filter.php'); ?>
+		<?php require TEMPLATE_PATH . 'filter.php'; ?>
     
         <div id="homeWrapper" class="content">
             <div class="title">
@@ -49,7 +49,7 @@
 
 	<?php
 		$template = isset($template) ? $template : '404';
-		$templateFile = TEMPLATE_PATH.$emplate.'.php'
+		$templateFile = TEMPLATE_PATH.$emplate.'.php';
 		if(file_exists($templateFile)) {
 			include $templateFile;
 		}
@@ -58,7 +58,7 @@
 		}
 	?>
 
-	<?php require ($_SERVER['DOCUMENT_ROOT'] . '/template/footer.php'); ?>
+	<?php require TEMPLATE_PATH . 'footer.php'; ?>
 
 </body>
 
