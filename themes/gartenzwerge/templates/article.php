@@ -1,4 +1,5 @@
 <?php //echo '<pre>'; var_dump($data); echo '</pre>'; ?>
+<?php require TEMPLATE_PATH . 'filter.php'; ?>
 <?php if(!empty($data['article'])): $article = $data['article']; ?>
 	<h3><?php echo htmlspecialchars($article->getName()); ?></h3>
 	<?php if(!empty($article->getImage())): ?>

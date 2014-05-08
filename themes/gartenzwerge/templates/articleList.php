@@ -1,5 +1,5 @@
+<?php require TEMPLATE_PATH . 'filter.php'; ?>
 <h2>Artikelliste:</h2>
-
 <ul>
 <?php foreach($data['articles'] as $article): ?>
 	<li>

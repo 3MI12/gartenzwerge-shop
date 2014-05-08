@@ -146,12 +146,19 @@ class User
 	}
 	
 	public static function loginUser($entityManager) {
-		$user = $entityManager->getRepository('User')->findOneByEmail(getPostParam('email'));
-		if(!$user && $user->getStatus() && crypt(getPostParam('password'), SALT) == $user->getHash()){
+		$data = NULL;
+		if(isset($_POST['login'])){
+			$user = $entityManager->getRepository('User')->findOneByEmail(getPostParam('email'));
+			if($user && $user->getStatus() && crypt(getPostParam('password'), SALT) == $user->getHash()){
+				$data['success'] = true;
+				$_SESSION['user'] = $user;
+			}else{
+				$data['success'] = false;
+			}
+		}
+		if(isset($_POST['logout'])){
+			$_SESSION['user'] = NULL;
 			$data['success'] = true;
-			$_SESSION['user'] = $user;
-		}else{
-			$data['success'] = false;
 		}
 		return $data;
 	}

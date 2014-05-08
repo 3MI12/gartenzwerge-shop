@@ -4,11 +4,12 @@ Nutzerverwaltung
 
 <div id="userManagerWrapper" class="content">
 	<div id="userManagerLabels">
-		<span>ID</span>
-		<span>LASTNAME</span>
-		<span>FIRSTNAME</span>
-		<span>EMAIL</span>
-		<span>PASSWORD</span>
+		<span>Kundennummer</span>
+		<span>Vorname</span>
+		<span>Nachname</span>
+		<span>eMail</span>
+		<span>Status</span>
+		<span>Admin</span>
 	</div>
 		<?php foreach($data['user'] as $sysuser): ?>
 		<form id="userUpdateForm" method="post" action="/user/edit/">
@@ -18,9 +19,10 @@ Nutzerverwaltung
 			<input disabled type="text" name="email" value="<?php echo htmlspecialchars($sysuser->getEmail()); ?>">
 			<input type="checkbox" name="Status" value="1" <?php echo $sysuser->getStatus() ? 'checked' : ''; ?>>
 			<input type="checkbox" name="Admin" value="1" <?php echo $sysuser->getAdmin() ? 'checked' : ''; ?>>
-			<button class="userButton" name="userStatus" id="btn-userUpdate" type="submit" formaction="/user/edit/<?php echo $sysuser->getUid(); ?>" formmethod="post"></button> 
-			<button class="userButton" id="btn-userDelete" type="submit" formaction="/user/delete/<?php echo $sysuser->getUid(); ?>" formmethod="post"></button>
+			<button class="userButton" name="userStatus" id="btn-userUpdate" type="submit" formaction="/user/edit/<?php echo $sysuser->getUid(); ?>" formmethod="post"></button>
+			<button class="userButton" name="userDetail" id="btn-userDelete" type="submit" formaction="/user/show/<?php echo $sysuser->getUid(); ?>" formmethod="post"></button>
 		</form>
 		<?php endforeach; ?>
 	</div>
+	<p><a href="/user/edit/">////////NEUER NUTZER////////</a></p>
 </div>

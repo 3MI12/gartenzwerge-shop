@@ -18,7 +18,7 @@
         	<a href="../../template/outdoor.php"><button class="menuButton"> </button></a>
         </div>
         <div class="menuItemContainer">
-        	<a href="../../template/profil.php"><button class="menuButton"> </button></a>
+        	<a href="/user/login/"><button class="menuButton"> </button></a>
         </div>
         <div class="menuItemContainer">
         	<a href="/cart/"><button class="menuButton"> </button></a>
