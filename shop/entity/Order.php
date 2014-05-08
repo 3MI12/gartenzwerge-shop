@@ -10,7 +10,11 @@ class Order {
 	/** @Id @GeneratedValue @Column(type="integer", unique=true, nullable=false) */
 	private $id;
 	/**
+<<<<<<< HEAD
+     * @OneToMany(targetEntity="user", mappedBy="order")
+=======
      * @OneToMany(targetEntity="sysuser", mappedBy="order")
+>>>>>>> master
      **/
 	private $user;
 	/**
