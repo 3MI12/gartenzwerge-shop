@@ -28,7 +28,6 @@ switch($controller) {
 	default:
 		$template = '404';
 }
-
-require (TEMPLATE_PATH.'index.php');
-
-?>
+require (TEMPLATE_PATH.'documentheader.php');
+require (TEMPLATE_PATH.'body.php');
+require (TEMPLATE_PATH.'footer.php');
