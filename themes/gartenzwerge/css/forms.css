@@ -74,6 +74,41 @@ select option[val="rot"]{
 	background-color:#red;
 }
 
+#filter #rangeBox {
+  margin-left: 10px;
+  padding-top: 0;
+  position: relative;
+  top: 10px;
+}
+
+#rangeBox label {
+  float: left;
+  font-size: 22px;
+}
+
+#filter input[type="range"] {
+  float: left;
+  height: 30px;
+  line-height: 58px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 0;
+  width: 80px;
+}
+
+#rangeDisplay {
+  background-color: #BAC0B4;
+  border: medium none;
+  border-radius: 20px;
+  color: #636A63;
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 10px;
+  margin-top: -8px;
+  text-align: center;
+  width: 40px;
+}
 
 /** Login/Registrierung - Formular **/
 #regForm, #loginForm, #profilForm{
@@ -137,13 +172,13 @@ input.submit:hover{
 	margin-top:100px;
 	}
 	
-#userUpdateForm{
+#userUpdateForm, #userCreateForm{
 	position:relative;
 	float:left;
 	clear:both;
 	margin-bottom:40px;}
 
-#userUpdateForm input{
+#userUpdateForm input, #userCreateForm input{
   position:relative;
   background-color: #BCC2BA;
   
@@ -154,19 +189,19 @@ input.submit:hover{
   width: 170px;
 }
 
-#userUpdateForm input:nth-child(odd){
+#userUpdateForm input:nth-child(odd), #userCreateForm input:nth-child(odd){
 	color:#BCC2BA;
   background-color: #636A63;
   border:thin solid #636A63;
 }
 
-#userUpdateForm input:nth-child(even){
+#userUpdateForm input:nth-child(even), #userCreateForm input:nth-child(even){
 	color: #636A63;
   background-color: #BCC2BA;
   border:thin solid #636A63;
 }
 
-#userUpdateForm input:first-child{
+#userUpdateForm input:first-child, #userCreateForm input:first-child{
 	width:80px;
 	color:#BCC2BA;
 	padding-left:15px;
@@ -180,8 +215,8 @@ input.submit:hover{
 	position:relative;
   background-color: #636A63;
   float: left;
-  height: 38px;
-  width: 50px;
+  height: 30px;
+  width: 40px;
   cursor:pointer;
   background-position: center center;
   background-repeat: no-repeat;
@@ -194,9 +229,14 @@ input.submit:hover{
   -o-transition: background-color 200ms ease-in;
   -webkit-transition: background-color 200ms ease-in;}
 
-#btn-userUpdate{
-	margin-left:25px;
+#btn-userUpdate, #btn-userCreate{
+	margin-left:2px;
 	background-image: url("../resourcen/icons/save.png");}
+
+#btn-userCreate{
+	width:40px;
+	border-top-right-radius:15px;
+	border-bottom-right-radius:15px;}
 
 #btn-userDelete{
 	background-image: url("../resourcen/icons/delete.png");
@@ -212,6 +252,7 @@ input.submit:hover{
 	position:relative;
 	float:left;
 	clear:both;
+	margin-top:25px;
 	margin-bottom:40px;}
 
 #userManagerLabels span{
@@ -223,7 +264,7 @@ input.submit:hover{
   font-weight:bold;
   height: 30px;
   padding: 3px 7px;
-  width: 170px;
+  width: 152px;
 }
 
 #userManagerLabels span:nth-child(odd){
@@ -239,7 +280,7 @@ input.submit:hover{
 }
 
 #userManagerLabels span:first-child{
-	width:80px;
+	width:58px;
 	color:#BCC2BA;
 	padding-left:15px;
   background-color: #636A63;

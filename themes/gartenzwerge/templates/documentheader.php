@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Gartenzwerge</title>
@@ -12,4 +12,10 @@
 	
 	<script type="text/javascript" src="<?php echo FE_THEME_PATH; ?>js/jquery.js"></script>
 	<script type="text/javascript" src="<?php echo FE_THEME_PATH; ?>js/script.js"></script>
+    
+    <script type="text/javascript">
+    function updateRangeDisplay(val) {
+      document.getElementById('rangeDisplay').value=val; 
+    }
+	</script>
 </head>

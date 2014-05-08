@@ -10,6 +10,7 @@
         <!-- require ($_SERVER['DOCUMENT_ROOT'] . '/template/contentMenuNoAdmin.php');  -->
     	</div>
 		<div id="contentWrapper">
+        <?php require TEMPLATE_PATH . 'filter.php'; ?>
 		<?php
 			$template = isset($template) ? $template : '404';
 			$templateFile = TEMPLATE_PATH.$template.'.php';
