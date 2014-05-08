@@ -7,8 +7,9 @@ $_SESSION['order'] = isset($_SESSION['order']) ? $_SESSION['order'] : null;
 
 require_once 'bootstrap.php';
 require_once 'config/config.php';
+require_once 'shop/shopHelper.php';
 
-echo '<pre>'; var_dump($_GET, $_POST); echo '</pre>';
+//echo '<pre>'; var_dump($_GET, $_POST); echo '</pre>';
 
 $controller = isset($_GET['controller']) ? $_GET['controller'] : 'article';
 $action = isset($_GET['action']) ? $_GET['action'] : ($controller == 'article' ? 'list' : null);

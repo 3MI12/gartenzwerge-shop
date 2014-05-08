@@ -1,5 +1,4 @@
 <?php
-//namespace Models;
 
 /**
  * @Entity
@@ -25,9 +24,9 @@ class Article
 	private $material;
 	/** @Column(type="string", length=500, nullable=false) */
 	private $description;
-	/** @Column(type="decimal", precision=2, nullable=false) */
+	/** @Column(type="decimal", precision=5, scale=2, nullable=false) */
 	private $price;
-	/** @Column(type="decimal", precision=2, nullable=false) */
+	/** @Column(type="decimal", precision=5, scale=2, nullable=false) */
 	private $vat;
 	/** @Column(type="integer", nullable=false) */
 	private $inventory;
@@ -47,31 +46,45 @@ class Article
 	
 	public static function editCreate($em, $id) {
 		$data = array();
+		$article = null;
 		if($id) {
 			$article = Article::getById($em, $id);
 			if(!$article) {
-				$data['error'][] = 'Article not found!';
+				$data['error'] = 'Artikel nicht gefunden!';
 			}
 		}
+		if(!$article) {
+			$article = new Article();
+		}
 		if(!empty($_POST['editsubmit'])) {
+			$articleWithArticlenumber = $em->getRepository('Article')->findOneByArticlenumber(getPostParam('articlenumber'));
+			if($articleWithArticlenumber && $articleWithArticlenumber->getId() != $article->getId()) {
+				$data['error'][] = 'Artikel mit der Artikelnummer ' . getPostParam('articlenumber') . ' existiert bereits!';
+			}
+			$articleWithName = $em->getRepository('Article')->findOneByName(getPostParam('name'));
+			if($articleWithName && $articleWithName->getId() != $article->getId()) {
+				$data['error'][] = 'Artikel mit Name ' . getPostParam('name') . ' existiert bereits!';
+			}
+			$article->setArticlenumber(getPostParam('articlenumber'));
+			$article->setName(getPostParam('name'));
+			$article->setImage(getPostParam('image'));
+			$article->setGender(getPostParam('gender'));
+			$article->setSize(getPostParam('size'));
+			$article->setColor(getPostParam('color'));
+			$article->setMaterial(getPostParam('material'));
+			$article->setDescription(getPostParam('description'));
+			$article->setPrice(getPostParam('price'));
+			$article->setVat(getPostParam('vat'));
+			$article->setInventory(getPostParam('inventory'));
+			$article->setCategory(getPostParam('category'));
+			if(empty($data['error'])) {
+				$em->persist($article);
+				$em->flush();
+				$data['success'] = true;
+			}
 		}
-		else {
-			$data['article'] = array(
-				'id' => $article ? $article->getId() : 0,
-				'articlenumber' => $article ? $article->getArticlenumber() : '',
-				'name' => $article ? $article->getName() : '',
-				'image' => $article ? $article->getImage() : '',
-				'gender' => $article ? $article->getGender() : '',
-				'size' => $article ? $article->getSize() : '',
-				'color' => $article ? $article->getColor() : '',
-				'material' => $article ? $article->getMaterial() : '',
-				'description' => $article ? $article->getDescription() : '',
-				'price' => $article ? $article->getPrice() : '',
-				'vat' => $article ? $article->getVat() : '',
-				'inventory' => $article ? $article->getInventory() : '',
-				'category' => $article ? $article->getCategory() : '',
-			);
-		}
+		$data['article'] = $article;
+
 		return $data;
 	}
 	
@@ -101,6 +114,7 @@ class Article
 		return $this->articlenumber;
 	}
 	public function setArticlenumber($articlenumber) {
+		
 		$this->articlenumber = $articlenumber;
 	}
 	
@@ -179,5 +193,23 @@ class Article
 	}
 	public function setCategory($category) {
 		$this->category = $category;
+	}
+	
+	public static function getArticleData($article) {
+		return array(
+			'id' => $article ? $article->getId() : 0,
+			'articlenumber' => $article ? $article->getArticlenumber() : '',
+			'name' => $article ? $article->getName() : '',
+			'image' => $article ? $article->getImage() : '',
+			'gender' => $article ? $article->getGender() : '',
+			'size' => $article ? $article->getSize() : '',
+			'color' => $article ? $article->getColor() : '',
+			'material' => $article ? $article->getMaterial() : '',
+			'description' => $article ? $article->getDescription() : '',
+			'price' => $article ? $article->getPrice() : '',
+			'vat' => $article ? $article->getVat() : '',
+			'inventory' => $article ? $article->getInventory() : '',
+			'category' => $article ? $article->getCategory() : '',
+		);
 	}
 }
