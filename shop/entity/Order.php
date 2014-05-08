@@ -62,7 +62,9 @@ class Order {
 				unset($this->positions[$articleId]);
 			}
 		}
-		$data['positions'] = $this->getArticles($em)['positions'];		
+		$articles = $this->getArticles($em);
+		$data['positions'] = $articles['positions'];
+		$data['sumPrices'] = $articles['sumPrices'];
 		return $data;
 	}
 	
