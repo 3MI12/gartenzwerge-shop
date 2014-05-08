@@ -1,7 +1,8 @@
 <?php
 function validateEmail($email){
 	if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-		if(checkdnsrr(array_pop(explode("@",$email)),"MX")){
+		$domain = explode("@",$email);
+		if(checkdnsrr(array_pop($domain),"MX")){
         	return true;
 		}else{
 			return false;

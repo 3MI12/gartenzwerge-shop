@@ -32,76 +32,45 @@ class SysUser
 		return $entityManager->getRepository('SysUser')->findAll();
 	}
 	
-	public function getUserByEmail($entityManager, $email)
+	public static function getUserByEmail($entityManager, $email)
 	{
 		return $entityManager->getRepository('SysUser')->findOneByEmail($email);
 	}
 	
-	public function buildSysUser($entityManager, $title, $firstname, $lastname, $email, $password, $uid = NULL) {
+	public static function buildSysUser($entityManager, $uid) {
+		$email = getPostParam('email');
 		if (validateEmail($email) == false) {
-			return(false);
+			$data['error'][] = "Ungültige eMail!";
+			return $data;
 		} 
+		$sysuser = SysUser::getUserByEmail($entityManager, getPostParam('email',''));
 		
-		$sysuser = getUserByEmail($entityManager, $email);
-		
-		if ($sysuser->getUid() !== NULL) {
-			//email exist
-			$status = 0;
-		}elseif($sysuser->getUid() == $uid){
-			//existing user
-			$status = 1;
-		}else{
-			return(false);
-		}
-		
-		if ($status = 0){
-
-
-			try
-			{
+		if ($sysuser->getUid() == NULL && $uid == 0) {
+			// new user
 			$sysuser = new SysUser();
-			$sysuser->setUid();
-			$sysuser->setEmail($email);
-			$sysuser->setHash(crypt($password, SALT));
-			$sysuser->setTitle($title);
-			$sysuser->setFirstname($firstname);
-			$sysuser->setLastname($lastname);
+		}elseif($uid != getPostParam('UID')){
+			// wrong user
+			$data['error'][] = "Du kannst nur deinen eigenen Account bearbeiten!".$sysuser->getUid().getPostParam('UID').$uid;	
+			return $data;
+		}
+		if($sysuser->getUid() == $uid || $uid !== 0){
+			$sysuser->setEmail(getPostParam('email'));
+			$sysuser->setTitle(getPostParam('Title'));
+			$sysuser->setFirstname(getPostParam('Firstname'));
+			$sysuser->setLastname(getPostParam('Lastname'));
+			if (getPostParam('password',NULL) !== NULL && $uid !== 0) {
+				$sysuser->setHash(crypt(getPostParam('password'), SALT));
+			}elseif ($password !== NULL && $sysuser->getUid() == $uid){
+				$data['error'] = "Es wurde kein Passwort gesetzt!";
+				return $data;
+			}
 			$entityManager->persist($sysuser);
 			$entityManager->flush();
 			$uid = $sysuser->getUid();
-			}
-			catch ( Doctrine_Connection_Exception $e )
-			{
-			    echo 'Code : ' . $e->getPortableCode();
-			    echo 'Message : ' . $e->getPortableMessage();
-			}
-			return $uid;
-		}
-	}
-
-	public function editSysUser($entityManager, $uid, $title, $firstname, $lastname, $email, $password) {
-		if (validateEmail($email) == false) {
-			return(false);
-		} elseif (getUserID($entityManager, $email) !== $uid) {
-			return(false);
-		} else {
-			try
-			{
-			$sysuser = $entityManager->getRepository('SysUser')->findOneByUid($uid);
-			$sysuser->setEmail($email);
-			$sysuser->setHash(crypt($password, SALT));
-			$sysuser->setTitle($title);
-			$sysuser->setFirstname($firstname);
-			$sysuser->setLastname($lastname);
-			$entityManager->persist($sysuser);
-			$entityManager->flush();
-			}
-			catch ( Doctrine_Connection_Exception $e )
-			{
-			    echo 'Code : ' . $e->getPortableCode();
-			    echo 'Message : ' . $e->getPortableMessage();
-			}
-			return true;
+			return $sysuser;
+		}else{
+			$data['error'][] = "Der Nutzer konnte nicht bearbeitet oder erstellt werden!";
+			return $data;
 		}
 	}
 
