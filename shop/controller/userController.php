@@ -6,18 +6,19 @@ $data = null;
 switch($action) {
 	case 'list':
 		$data = SysUser::getAll($entityManager);
-		var_dump($data);
-		//$template = 'userList';
+		$template = 'userList';
 		break;
 	case 'show':
 		$data = SysUser::getById($entityManager, $email);
-		var_dump($data);
-		// $template = 'user';
+		$template = 'userShow';
 		break;
 	case 'edit':
 		$data = SysUser::editCreate($entityManager, $id);
-		echo $data;
-		//$template = 'userEdit';
+		$template = 'userEdit';
+		break;
+	case 'delete':
+		$data = SysUser::deleteSysuser($entityManager, $email);
+		$template = 'userDelete';
 		break;
 	default:
 }
