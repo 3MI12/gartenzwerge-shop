@@ -8,6 +8,8 @@ class Article
 {
 	/** @Id @GeneratedValue @Column(type="integer", unique=true, nullable=false) */
 	private $id;
+	/** @Column(type="boolean") */
+	private $active;
 	/** @Column(type="string", length=10, unique=true, nullable=false) */
 	private $articlenumber;
 	/** @Column(type="string", length=100, nullable=false) */
@@ -37,7 +39,8 @@ class Article
 	}
 	
 	public static function getAll($em) {
-		return $em->getRepository('Article')->findAll();
+		$articles = $em->getRepository('Article')->findAll();
+		return ['articles' => $articles, 'success' => $articles ? true : false];
 	}
 
 	public static function getById($em, $id) {
@@ -65,6 +68,7 @@ class Article
 			if($articleWithName && $articleWithName->getId() != $article->getId()) {
 				$data['error'][] = 'Artikel mit Name ' . getPostParam('name') . ' existiert bereits!';
 			}
+			$article->setActive(getPostParam('active', 0));
 			$article->setArticlenumber(getPostParam('articlenumber'));
 			$article->setName(getPostParam('name'));
 			$article->setImage(getPostParam('image'));
@@ -108,6 +112,14 @@ class Article
 	// getters/setters for private properties
 	public function getId() {
 		return $this->id;
+	}
+	
+	public function getActive() {
+		return $this->active;
+	}
+	
+	public function setActive($active) {
+		$this->active = $active;
 	}
 	
 	public function getArticlenumber() {

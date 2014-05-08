@@ -2,21 +2,11 @@
 
 RewriteEngine On
 
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^article/list/$ index.php?controller=article&action=list
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^article/show/([0-9]+)$ index.php?controller=article&action=show&id=$1
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^article/list/([0-9]+)$ index.php?controller=article&action=show&id=$1
 RewriteRule ^article/edit/([0-9]+)?$ index.php?controller=article&action=edit&id=$1
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^user/list/([0-9]+)?$ index.php?controller=user&action=list&id=$1
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^user/show/([0-9]+)?$ index.php?controller=user&action=show&id=$1
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^user/edit/([0-9]+)?$ index.php?controller=user&action=edit&id=$1
+RewriteRule ^cart/$ index.php?controller=order&action=show
+RewriteRule ^cart/(edit|order)/$ index.php?controller=order&action=$1
