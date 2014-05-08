@@ -1,25 +1,22 @@
 <?php
-require_once __DIR__.'/../entity/SysUser.php';
+require_once __DIR__.'/../entity/User.php';
 
 $data = null;
 
 switch($action) {
 	case 'list':
-		$data = SysUser::getAll($entityManager);
+		$data['user'] =  User::getAllUser($entityManager);
 		$template = 'userList';
 		break;
 	case 'show':
-		$data = SysUser::getById($entityManager, $email);
-		$template = 'userShow';
+		$data['user'] = User::getUserByUid($entityManager, $id);
+		var_dump($data);
+		$template = 'user';
 		break;
 	case 'edit':
-		$data = SysUser::buildSysUser($entityManager, $id);
-		var_dump($data);
-		$template = 'userEdit';
-		break;
-	case 'delete':
-		$data = SysUser::deleteSysuser($entityManager, $email);
-		$template = 'userDelete';
+		$data = User::buildUser($entityManager, $id);
+		$template = empty($data['success']) ? 'userEdit' : 'user';
+		$template = !empty($data['statusupdate']) ? 'userList' : $template;
 		break;
 	default:
 }
