@@ -21,7 +21,7 @@
         	<a href="../../template/profil.php"><button class="menuButton"> </button></a>
         </div>
         <div class="menuItemContainer">
-        	<a href="../../template/warenkorb.php"><button class="menuButton"> </button></a>
+        	<a href="/cart/"><button class="menuButton"> </button></a>
         </div>       
     </div>
 </div>

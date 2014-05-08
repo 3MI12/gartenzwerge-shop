@@ -1,3 +1,4 @@
+<?php //echo '<pre>'; var_dump($data); echo '</pre>'; ?>
 <?php if(!empty($data['article'])): $article = $data['article']; ?>
 	<h3><?php echo htmlspecialchars($article->getName()); ?></h3>
 	<?php if(!empty($article->getImage())): ?>
@@ -26,6 +27,10 @@
 		<dt>Lagerbestand:</dt>
 		<dd><?php echo htmlspecialchars($article->getInventory()); ?></dd>
 	</dl>
+	<form action="/cart/edit/" method="post">
+	<input type="number" min="0" max="<?php echo ($article->getInventory()); ?>" name="orderquantity[<?php echo $article->getid(); ?>]" value="<?php echo $_SESSION['order']->getQuantityById($article->getid()); ?>" size="2"> Stück im Warenkorb
+	<input type="submit" name="editcart" value="updaten">
+	</form>
 	<a href="/article/edit/<?php echo $article->getId(); ?>">[Bearbeiten]</a>
 <?php else: ?>
 Artikel nicht vorhanden.

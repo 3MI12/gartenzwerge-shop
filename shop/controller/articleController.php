@@ -1,11 +1,8 @@
 <?php
-require_once __DIR__.'/../entity/Article.php';
-
-$data = null;
 
 switch($action) {
 	case 'list':
-		$data['article'] = Article::getAll($entityManager);
+		$data = Article::getAll($entityManager);
 		$template = 'articleList';
 		break;
 	case 'show':
