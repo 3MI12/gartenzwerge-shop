@@ -25,5 +25,9 @@
 					<option value="plastik">Plastik</option>
 				</select>
 			</div>
+            <div id="rangeBox">
+                <label>20</label><input type="range" name="preis" value="80" min="20" max="160" onchange="updateRangeDisplay(this.value);" /><label>160</label>
+                <input type="text" id="rangeDisplay" value="80" />
+            </div>
 		</form>
 </div>
