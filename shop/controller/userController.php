@@ -13,7 +13,8 @@ switch($action) {
 		$template = 'userShow';
 		break;
 	case 'edit':
-		$data = SysUser::editCreate($entityManager, $id);
+		$data = SysUser::buildSysUser($entityManager, $id);
+		var_dump($data);
 		$template = 'userEdit';
 		break;
 	case 'delete':
