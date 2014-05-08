@@ -5,16 +5,16 @@ $data = null;
 
 switch($action) {
 	case 'list':
-		$data = Article::getAll($entityManager);
+		$data['article'] = Article::getAll($entityManager);
 		$template = 'articleList';
 		break;
 	case 'show':
-		$data = Article::getById($entityManager, $id);
+		$data['article'] = Article::getById($entityManager, $id);
 		$template = 'article';
 		break;
 	case 'edit':
 		$data = Article::editCreate($entityManager, $id);
-		$template = 'articleEdit';
+		$template = empty($data['success']) ? 'articleEdit' : 'article';
 		break;
 	default:
 }

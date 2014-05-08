@@ -1,7 +1,7 @@
 <h2>Artikelliste:</h2>
 
 <ul>
-<?php foreach($data as $article): ?>
+<?php foreach($data['article'] as $article): ?>
 	<li>
 		<h3><?php echo htmlspecialchars($article->getName()); ?></h3>
 		<?php if(!empty($article->getImage())): ?>

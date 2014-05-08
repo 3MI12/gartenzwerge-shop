@@ -10,7 +10,7 @@ class Order {
 	/** @Id @GeneratedValue @Column(type="integer", unique=true, nullable=false) */
 	private $id;
 	/**
-     * @OneToMany(targetEntity="user", mappedBy="order")
+     * @OneToMany(targetEntity="clientuser", mappedBy="order")
      **/
 	private $user;
 	/**

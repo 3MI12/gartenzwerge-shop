@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT']."/shop/shopHelper.php");
+
 /**
  * @Entity
  * @Table(name="sysuser")

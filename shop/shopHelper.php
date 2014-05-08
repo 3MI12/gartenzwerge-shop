@@ -10,3 +10,7 @@ function validateEmail($email){
 		return false;
 	}
 }
+
+function getPostParam($name, $defaultValue = null) {
+	return isset($_POST[$name]) ? $_POST[$name] : $defaultValue;
+}
