@@ -26,7 +26,8 @@
 				</select>
 			</div>
             <div id="rangeBox">
-                <label>20</label><input type="range" name="preis" value="80" min="20" max="160" onchange="updateRangeDisplay(this.value);" /><label>160</label>
+                <label>20cm</label><label>160cm</label>
+                <input type="range" name="preis" value="80" min="20" max="160" onchange="updateRangeDisplay(this.value);" />
                 <input type="text" id="rangeDisplay" value="80" />
             </div>
 		</form>

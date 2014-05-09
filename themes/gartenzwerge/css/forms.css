@@ -75,15 +75,26 @@ select option[val="rot"]{
 }
 
 #filter #rangeBox {
+  border: thin solid #FFFFFF;
+  height: 50px;
   margin-left: 10px;
   padding-top: 0;
-  position: relative;
-  top: 10px;
+  position: absolute;
+  top: 55px;
+  width: 215px;
 }
 
 #rangeBox label {
-  float: left;
-  font-size: 22px;
+  position:absolute;
+  top:0;
+  font-size: 18px;
+}
+
+#rangeBox label:nth-child(1){
+  left:0;
+}
+#rangeBox label:nth-child(2){
+  right:0;
 }
 
 #filter input[type="range"] {
