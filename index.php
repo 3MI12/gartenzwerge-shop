@@ -37,4 +37,3 @@ switch($controller) {
 }
 require (TEMPLATE_PATH.'documentheader.php');
 require (TEMPLATE_PATH.'body.php');
-require (TEMPLATE_PATH.'footer.php');

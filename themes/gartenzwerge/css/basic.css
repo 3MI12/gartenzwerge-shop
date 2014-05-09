@@ -237,21 +237,20 @@ body{
 #footerWrapper{
 	position:fixed;
 	bottom:0;
-	height:50px;
+	height:100px;
 	width:100%;
 	cursor:pointer;
 	transition:all 1s ease-out;
 	z-index:60;
-	border-top:2px solid #373D38;
-	background-color:#535D54;
 }
 
-#footerKontakt, #footerImpressum, #footerUp{
+#footerKontakt, #footerImpressum, #footerUp, #footerDown{
 	position:absolute;
-	top:-50px;
+	top:0px;
 	width:100px;
 	height:100px;
 	border-radius:60px;
+	z-index:5;
 	
 	background-size:80%;
 	background-position:center center;
@@ -277,40 +276,54 @@ body{
 	left:50%;
 	margin-left:-50px;}
 
+#footerDown{
+	background-image:url("../resourcen/icons/footerDown.png");
+	left:50%;
+	margin-left:-50px;
+	display:none;}
+
 #footerImpressum:hover, #footerKontakt:hover{
 	background-size:70%;}
 
-#footerWrapper:hover{
-	height:200px;}
-
-/*#footerDeko{
-	float:left;
-	position:relative;
-	top:0;
-	height:50px;
-	width:100%;
-	background-image:url("../resourcen/images/deko_grass2.png");
-	background-size:100%;
-	background-position:center top;
-	background-repeat:no-repeat;
-	}*/
+/*#footerWrapper:hover{
+	height:200px;}*/
 	
 #footerContent {
-  border: thin solid #FFFFFF;
+  background-color:#535D54;
   float: left;
-  height: 120px;
-  left: 50%;
-  margin-left: -600px;
-  position: relative;
+  height: 200px;
+  left: 0;
+  position: absolute;
   top: 50px;
-  width: 1200px;
+  width: 100%;
+  z-index:2;
+  border-top:2px solid #373D38;
 }
 
-#footerLinks{
-	position:relative;
-	top:0;
-	left:0;
+#footerLinks {
+  float: left;
+  height: 100px;
+  left: 50%;
+  margin-left: -380px;
+  position: relative;
+  top: 70px;
+  width: 640px;
+}
+
+#footerLinks div{
 	float:left;
-	height:50px;
-	width:auto;
-	border:thin solid white;}
+	margin-right:50px;}
+	
+#footerAdresse {
+  color: #AAAAAA;
+  float: left;
+  font-size: 28px;
+  font-weight: bold;
+  height: 100px;
+  left: 50%;
+  margin-left: -185px;
+  position: relative;
+  top: 83px;
+  width: 500px;
+  text-align:center;
+}
