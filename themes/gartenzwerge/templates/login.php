@@ -26,13 +26,9 @@
             <label>Lastname</label> <input type="text" name="lastname"><br>
             <label>eMail</label> <input type="text" name="email"><br>
             <label>Password</label> <input type="text" name="password"><br>
-            <input class="submit" type="submit" name="Registrieren" formmethod="post" value="Registrieren">
+            <input class="submit" type="submit" name="userRegister" formmethod="post" value="Registrieren">
 		</form>
   </div>
-
-
-
-
 
 
 

@@ -9,5 +9,8 @@ RewriteRule ^user/list/([0-9]+)?$ index.php?controller=user&action=list&id=$1
 RewriteRule ^user/show/([0-9]+)?$ index.php?controller=user&action=show&id=$1
 RewriteRule ^user/edit/([0-9]+)?$ index.php?controller=user&action=edit&id=$1
 RewriteRule ^user/login/([0-9]+)?$ index.php?controller=user&action=login&id=$1
+RewriteRule ^page/impressum/([0-9]+)?$ index.php?controller=page&action=impressum&id=$1
+RewriteRule ^page/contact/([0-9]+)?$ index.php?controller=page&action=contact&id=$1
+RewriteRule ^page/gtc/([0-9]+)?$ index.php?controller=page&action=gtc&id=$1
 RewriteRule ^cart/$ index.php?controller=order&action=show
 RewriteRule ^cart/(edit|order)/$ index.php?controller=order&action=$1

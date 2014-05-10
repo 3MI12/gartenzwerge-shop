@@ -1,5 +1,5 @@
 <div class="title">
-Kundenkonto <?php echo htmlspecialchars($data['user']->getUid()); ?>
+Mein Konto
 </div>
 <div id="userManagerWrapper" class="content">
 <?php if(!empty($data['user'])): $user = $data['user']; ?>
@@ -13,8 +13,13 @@ Kundenkonto <?php echo htmlspecialchars($data['user']->getUid()); ?>
 	<p>Bank: <?php echo htmlspecialchars($user->getBank()); ?></p>
 	<p>BIC: <?php echo htmlspecialchars($user->getBic()); ?></p>
 	<p>IBAN: <?php echo htmlspecialchars($user->getIban()); ?></p>
-	<p><a href="/user/edit/<?php echo $user->getUid(); ?>">////////BEARBEITEN////////</a></p>
+	<p><a href="/user/edit/<?php echo User::getSessionUid(); ?>">////////BEARBEITEN////////</a></p>
+
 <?php else: ?>
-User nicht vorhanden.
+Konto nicht vorhanden.
 <?php endif; ?>
 </div>
+
+<form id="loginForm" method="post" action="/user/login/">
+<input name="logout" class="submit" type="submit" formmethod="post" value="Ausloggen">
+</form>
