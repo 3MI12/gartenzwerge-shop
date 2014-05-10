@@ -189,30 +189,30 @@ input.submit:hover{
 	clear:both;
 	margin-bottom:40px;}
 
-#userUpdateForm input, #userCreateForm input{
+#userUpdateForm > input, #userCreateForm > input{
   position:relative;
   background-color: #BCC2BA;
   
   float: left;
-  font-size: 16px;
+  font-size: 14px;
   height: 30px;
   padding: 3px 7px;
-  width: 170px;
+  width: 180px;
 }
 
-#userUpdateForm input:nth-child(odd), #userCreateForm input:nth-child(odd){
+#userUpdateForm > input:nth-child(odd), #userCreateForm > input:nth-child(odd){
 	color:#BCC2BA;
   background-color: #636A63;
   border:thin solid #636A63;
 }
 
-#userUpdateForm input:nth-child(even), #userCreateForm input:nth-child(even){
+#userUpdateForm > input:nth-child(even), #userCreateForm > input:nth-child(even){
 	color: #636A63;
   background-color: #BCC2BA;
   border:thin solid #636A63;
 }
 
-#userUpdateForm input:first-child, #userCreateForm input:first-child{
+#userUpdateForm > input:first-child, #userCreateForm > input:first-child{
 	width:80px;
 	color:#BCC2BA;
 	padding-left:15px;
@@ -222,11 +222,111 @@ input.submit:hover{
   border-bottom-left-radius:15px;
 }
 
+#userUpdateForm > input:nth-child(4), #userCreateForm > inpu:nth-child(4){
+	width:220px;}
+
+/** checkbox **/
+input[type=checkbox] {
+	visibility: hidden;
+}
+
+#checkboxStatus {
+	margin-left:2px;
+  background: none repeat scroll 0 0 #636A63;
+  float: left;
+  height: 38px;
+  position: relative;
+  width: 80px;
+  line-height:15px;
+}
+
+#checkboxStatus:before {
+	content: 'On';
+	position: absolute;
+	top: 12px;
+	left: 10px;
+	height: 2px;
+	color: #BCC2BA;
+	font-size: 16px;
+}
+
+#checkboxStatus:after {
+	content: 'Off';
+	position: absolute;
+	top: 12px;
+	left: 49px;
+	height: 2px;
+	color: #444;
+	font-size: 16px;
+}
+
+#checkboxStatus label{
+	display: block;
+	width: 35px;
+	height: 22px;
+
+	/*-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	transition: all .5s ease;*/
+	cursor: pointer;
+	position: absolute;
+	top: 9px;
+	z-index: 1;
+	left: 5px;
+	background: #444;
+}
+
+#checkboxAdmin {
+	margin-left:2px;
+  background: none repeat scroll 0 0 #636A63;
+  float: left;
+  height: 38px;
+  position: relative;
+  width: 80px;
+  line-height:15px;
+}
+
+#checkboxAdmin:before {
+	content: 'On';
+	position: absolute;
+	top: 12px;
+	left: 10px;
+	height: 2px;
+	color: #BCC2BA;
+	font-size: 16px;
+}
+
+#checkboxAdmin:after {
+	content: 'Off';
+	position: absolute;
+	top: 12px;
+	left: 49px;
+	height: 2px;
+	color: #444;
+	font-size: 16px;
+}
+
+#checkboxAdmin label{
+	display: block;
+	width: 35px;
+	height: 22px;
+
+	cursor: pointer;
+	position: absolute;
+	top: 9px;
+	z-index: 1;
+	left: 5px;
+	background: #444;
+}
+
+
 .userButton{
 	position:relative;
   background-color: #636A63;
   float: left;
-  height: 30px;
+  height: 38px;
   width: 40px;
   cursor:pointer;
   background-position: center center;
@@ -249,8 +349,8 @@ input.submit:hover{
 	border-top-right-radius:15px;
 	border-bottom-right-radius:15px;}
 
-#btn-userDelete{
-	background-image: url("../resourcen/icons/delete.png");
+#btn-userDetail{
+	background-image: url("../resourcen/icons/bearbeiten.png");
 	border-top-right-radius:15px;
   	border-bottom-right-radius:15px;
 	padding-right:15px;}
@@ -275,7 +375,7 @@ input.submit:hover{
   font-weight:bold;
   height: 30px;
   padding: 3px 7px;
-  width: 152px;
+  width: 180px;
 }
 
 #userManagerLabels span:nth-child(odd){
@@ -291,13 +391,28 @@ input.submit:hover{
 }
 
 #userManagerLabels span:first-child{
-	width:58px;
+	width:80px;
 	color:#BCC2BA;
 	padding-left:15px;
   background-color: #636A63;
   border:thin solid #636A63;
   border-top-left-radius:15px;
   border-bottom-left-radius:15px;
+}
+
+#userManagerLabels span:nth-child(4){
+	width:220px;
+}
+
+#userManagerLabels span:nth-child(5),#userManagerLabels span:nth-child(6){
+	margin-left:2px;
+	width:66px;
+}
+
+#userManagerLabels span:nth-child(6){
+	color:#BCC2BA;
+  background-color: #636A63;
+  border:thin solid #636A63;
 }
 
 /** ArticleManager - Form **/
