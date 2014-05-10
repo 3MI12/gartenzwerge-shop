@@ -14,4 +14,5 @@ switch($action) {
 		$template = empty($data['success']) ? 'articleEdit' : 'article';
 		break;
 	default:
+		$template = '404';
 }
