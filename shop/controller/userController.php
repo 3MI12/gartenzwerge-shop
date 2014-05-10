@@ -10,23 +10,27 @@ switch($action) {
 			$template = 'userList';
 		}else{
 			$data['error'][] = "Bitte melden sie sich als Admin an!";
-			echo "Bitte melden sie sich als Admin an!";
-			$template = '';
+			$template = 'errorList';
 		}
 		break;
 	case 'show':
-		$data['user'] = User::getUserByUid($entityManager, $id);
-		$template = 'user';
+		if(User::checkUserSession($id) || User::checkAdmin()){
+			$data['user'] = User::getUserByUid($entityManager, $id);
+			$template = 'user';
+		}else{
+			$data['error'][] = "Sie können nur ihr eigenes Profil anzeigen!";
+			$template = 'errorList';
+		}
 		break;
 	case 'edit':
 		if(User::checkUserSession($id) || User::checkAdmin()){
 			$data = User::buildUser($entityManager, $id);
+			$template = empty($data['success']) ? 'userEdit' : 'user';
+			$template = !empty($data['statusupdate']) ? 'userList' : $template;
 		}else{
 			$data['error'][] = "Sie können nur ihr eigenes Profil bearbeiten!";
-			echo "Sie können nur ihr eigenes Profil bearbeiten!";
+			$template = 'errorList';
 		}
-		$template = empty($data['success']) ? 'userEdit' : 'user';
-		$template = !empty($data['statusupdate']) ? 'userList' : $template;
 		break;
 	case 'login':
 		if(User::loginStatus() && !isset($_POST['logout'])){
