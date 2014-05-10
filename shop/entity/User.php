@@ -11,46 +11,46 @@ class User
 	*/
 	private $uid;
 
-	/** @Column(type="string", length=5) */
+	/** @Column(type="string", length=5, nullable=true) */
 	private $title;
 
-	/** @Column(type="string", length=20) */
+	/** @Column(type="string", length=20, nullable=false) */
 	private $firstname;
 
-	/** @Column(type="string", length=20) */
+	/** @Column(type="string", length=20, nullable=false) */
 	private $lastname;
 
 	/** @Column(type="string", length=50, unique=true, nullable=false) */
 	private $email;
 
-	/** @Column(type="string", length=300) */
+	/** @Column(type="string", length=300, nullable=false) */
 	private $hash;
 	
-	/** @Column(type="string", length=100) */
+	/** @Column(type="string", length=100, nullable=true) */
 	private $street;
 	
-	/** @Column(type="string", length=5) */
+	/** @Column(type="string", length=5, nullable=true) */
 	private $zip;
 	
-	/** @Column(type="string", length=60) */
+	/** @Column(type="string", length=60, nullable=true) */
 	private $city;
 	
-	/** @Column(type="string", length=60) */
+	/** @Column(type="string", length=60, nullable=true) */
 	private $phone;
 	
-	/** @Column(type="string", length=20) */
+	/** @Column(type="string", length=20, nullable=true) */
 	private $iban;
 	
-	/** @Column(type="string", length=20) */
+	/** @Column(type="string", length=20, nullable=true) */
 	private $bic;
 	
-	/** @Column(type="string", length=60) */
+	/** @Column(type="string", length=60, nullable=true) */
 	private $bank;
 	
-	/** @Column(type="boolean") */
+	/** @Column(type="boolean", nullable=false) */
 	private $admin;
 	
-	/** @Column(type="boolean") */
+	/** @Column(type="boolean", nullable=false) */
 	private $status;
 	
 	public static function getAllUser($entityManager) {
@@ -70,7 +70,7 @@ class User
 		$user = $entityManager->getRepository('User')->findOneByUid($uid);
 		$data['user'] = $user;
 		if(!$user){
-			$user = new user();
+			$user = new User();
 		}
 		
 		if(isset($_POST['userStatus'])){
@@ -81,58 +81,43 @@ class User
 			$data['statusupdate'] = true;
 			$data['user'] = User::getAllUser($entityManager);
 		}
-
-		if(isset($_POST['userEdit'])){
-			$userPost = user::getUserByEmail($entityManager, getPostParam('email',''));
-			
-			$email = getPostParam('email');
-			if (validateEmail($email) == false) {
+		
+		if(isset($_POST['userEdit']) || isset($_POST['userRegister'])){
+			$userPost = User::getUserByEmail($entityManager, getPostParam('email',''));
+			if (validateEmail(getPostParam('email')) == false) {
 				$data['error'][] = "Ungültige eMail!";
 				return $data;
 			}
 			if($userPost && $userPost->getUid() != $user->getUid()){
 				$data['error'][] = "Die eingegebene eMail-Adresse existiert bereits!";
-				return $date;
-			}
-			
-			if($uid != getPostParam('UID')){
-				// wrong user
-				$data['error'][] = "Du kannst nur deinen eigenen Account bearbeiten!".$user->getUid().getPostParam('UID').$uid;	
 				return $data;
 			}
 			
-		if($user->getUid() == $uid || $uid !== NULL){
-			$user->setEmail(getPostParam('email'));
-			$user->setTitle(getPostParam('Title'));
-			$user->setFirstname(getPostParam('Firstname'));
-			$user->setLastname(getPostParam('Lastname'));
-			if(getPostParam('Street')){
-			$user->setStreet(getPostParam('Street'));
-			}
-			if(getPostParam('ZIP')){
-			$user->setZip(getPostParam('ZIP'));
-			}
-			if(getPostParam('City')){
-			$user->setCity(getPostParam('City'));
-			}
-			if(getPostParam('IBAN')){
-			$user->setIban(getPostParam('IBAN'));
-			}
-			if(getPostParam('BIC')){
-			$user->setBic(getPostParam('BIC'));
-			}	
-			if(getPostParam('Bank')){
-			$user->setBank(getPostParam('Bank'));
-			}
-			if(getPostParam('Phone')){
-			$user->setPhone(getPostParam('Phone'));
-			}
-			if (getPostParam('password',NULL) !== NULL && $uid !== 0) {
-				$user->setHash(crypt(getPostParam('password'), SALT));
-			}elseif ($password !== NULL && $user->getUid() == $uid){
-				$data['error'] = "Es wurde kein Passwort gesetzt!";
-				return $data;
-			}
+			if($user->getUid() == $uid || $uid == NULL){
+				$user->setEmail(getPostParam('email'));
+				$user->setTitle(getPostParam('title'));
+				$user->setFirstname(getPostParam('firstname'));
+				$user->setLastname(getPostParam('lastname'));
+			
+				if (getPostParam('password',NULL) !== NULL) {
+					$user->setHash(crypt(getPostParam('password'), SALT));
+				}
+			
+				if(isset($_POST['userEdit'])){
+					$user->setStreet(getPostParam('street'));
+					$user->setZip(getPostParam('zip'));
+					$user->setCity(getPostParam('city'));
+					$user->setIban(getPostParam('iban'));
+					$user->setBic(getPostParam('bic'));
+					$user->setBank(getPostParam('bank'));
+					$user->setPhone(getPostParam('phone'));
+				}
+				
+				if(isset($_POST['userRegister'])){
+					$user->setStatus(true);
+					$user->setAdmin(false);
+				}
+				
 			$entityManager->persist($user);
 			$entityManager->flush();
 						
@@ -141,6 +126,10 @@ class User
 			}else{
 				$data['error'][] = "Der Nutzer konnte nicht bearbeitet oder erstellt werden!";
 			}
+		}
+		if(isset($_POST['userRegister'])){
+			$user->setStatus(true);
+			$user->setAdmin(false);
 		}
 		return $data;
 	}
@@ -157,12 +146,40 @@ class User
 			}
 		}
 		if(isset($_POST['logout'])){
-			$_SESSION['user'] = NULL;
+			$_SESSION['user'] = new User();
 			$data['success'] = true;
 		}
 		return $data;
 	}
 
+	public static function loginStatus() {
+		if(null !== $_SESSION['user']->getUid()){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	public static function checkAdmin() {
+		if($_SESSION['user']->getAdmin() == true){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	public static function checkUserSession($uid = NULL) {
+		if($_SESSION['user']->getUid() == $uid){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	public static function getSessionUid() {
+		return $_SESSION['user']->getUid();
+	}
+	
 	public function setUid()
 	{
 		$this->uid;
