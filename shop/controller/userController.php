@@ -46,4 +46,5 @@ switch($action) {
 		}
 		break;
 	default:
+		$template = '404';
 }
