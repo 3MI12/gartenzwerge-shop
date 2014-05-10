@@ -11,4 +11,5 @@ switch($action) {
 		$template = 'agb';
 		break;
 	default:
+		$template = '404';
 }
