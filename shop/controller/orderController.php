@@ -19,4 +19,5 @@ switch($action) {
 		$template = 'order';
 		break;
 	default:
+		$template = '404';
 }
