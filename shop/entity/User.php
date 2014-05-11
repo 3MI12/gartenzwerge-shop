@@ -127,10 +127,6 @@ class User
 				$data['error'][] = "Der Nutzer konnte nicht bearbeitet oder erstellt werden!";
 			}
 		}
-		if(isset($_POST['userRegister'])){
-			$user->setStatus(true);
-			$user->setAdmin(false);
-		}
 		return $data;
 	}
 	
