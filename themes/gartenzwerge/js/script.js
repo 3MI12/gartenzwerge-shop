@@ -1,4 +1,34 @@
 $( document ).ready(function() {
+/** filter **/
+function filter(){
+	alert("test");
+	}
+
+/*$("#btn-filter").click(function(){
+	var genderMaleFilter;
+	var genderFemaleFilter; 
+	if($("#filter input[type='male']").is(":checked")){ genderMaleFilter = true } else { genderMaleFilter = false };
+	if($("#filter input[type='female']").is(":checked")){ genderFemaleFilter = true } else { genderFemaleFilter = false };
+	var colorFilter = $("#filter select[name='farbe']").prop("value");
+	var materialFilter = $("#filter select[name='material']").prop("value");
+	var minSizeFilter = $("#filter #rangeBoxMin input[type='range']").prop("value");
+	var maxSizeFilter = $("#filter #rangeBoxMax input[type='range']").prop("value");
+	
+	alert( genderMaleFilter + " " + genderFemaleFilter + " " + colorFilter + " " + materialFilter + " " + minSizeFilter + " " + maxSizeFilter);
+	
+	$(".articleListItemWrapper").each(function() {
+        var genderMaleArticle;
+		var genderMaleArticle;
+		if($(this).children("articleGender span").text() == "male"){ genderMaleArticle = true } else { genderMaleArticle = false };
+		if($(this).children("articleGender span").text() == "female"){ genderFemaleArticle = true } else { genderFemaleArticle = false };
+		var colorArticle = $(this).children("articleColor span").text()
+		var materialArticle = $(this).children("materialColor span").text()
+		
+		if( materialFilter == material() )
+    });
+	
+	})*/
+
 /** Artikelverwaltung **/
 
 /*** footer ausklappen ***/
@@ -19,31 +49,37 @@ $(".btn-articleText").click(function(){
 	$(this).parent("form").children(".articleText").toggle(1000);
 });
 
-$("#checkboxStatus").click(function(){
+$(".checkboxStatus").click(function(){
 	if( $(this).prop("checked") == true ){
 		$(this).prop("checked" , false);
-		$("#checkboxStatus label").animate( { left: 7, backgroundColor: "red" }, "slow");
+		$(this).children("label").animate( { left: 7, backgroundColor: "#444444" }, "slow");
 		}
 		else {
 			$(this).prop("checked" , true);
-			$("#checkboxStatus label").animate( { left: 40, backgroundColor: "white" }, "slow");
+			$(this).children("label").animate( { left: 40, backgroundColor: "#BCC2BA" }, "slow");
 			}
 	})
 
-$("#checkboxAdmin").click(function(){
+$(".checkboxAdmin").click(function(){
 	if( $(this).prop("checked") == true ){
 		$(this).prop("checked" , false);
-		$("#checkboxAdmin label").animate( { left: 7, backgroundColor: "red" }, "slow");
+		$(this).children("label").animate( { left: 7, backgroundColor: "#444444" }, "slow");
 		}
 		else {
 			$(this).prop("checked" , true);
-			$("#checkboxAdmin label").animate( { left: 40, backgroundColor: "white" }, "slow");
+			$(this).children("label").animate( { left: 40, backgroundColor: "#BCC2BA" }, "slow");
 			}
+	})
 	
-
-	
-/*	var c = this.checked ? '7' : '40';
-    $("#checkboxStatus label").animate( { left: c }, "slow");*/
+$(".checkboxArticleActive").click(function(){
+	if( $(this).prop("checked") == true ){
+		$(this).prop("checked" , false);
+		$(this).children("label").animate( { left: 7, backgroundColor: "#444444" }, "slow");
+		}
+		else {
+			$(this).prop("checked" , true);
+			$(this).children("label").animate( { left: 40, backgroundColor: "#BCC2BA" }, "slow");
+			}
 	})
 
 });

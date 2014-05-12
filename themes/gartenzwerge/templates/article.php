@@ -1,38 +1,75 @@
 <?php //echo '<pre>'; var_dump($data); echo '</pre>'; ?>
 <?php require TEMPLATE_PATH . 'filter.php'; ?>
 <?php if(!empty($data['article'])): $article = $data['article']; ?>
-	<h3><?php echo htmlspecialchars($article->getName()); ?></h3>
-	<?php if(!empty($article->getImage())): ?>
-		<img src="<?php echo htmlspecialchars(FE_THEME_PATH . 'resourcen/images/' . $article->getImage()); ?>" alt="<?php echo htmlspecialchars($article->getName()); ?>">
-	<?php else: ?>
-		[Kein Artikelbild verfügbar.]
-	<?php endif; ?>
-	<p><?php echo htmlspecialchars($article->getDescription()); ?></p>
-	<dl>
-		<dt>Kategorie:</dt>
-		<dd><?php echo htmlspecialchars($article->getCategory()); ?></dd>
-		<dt>Artikelnummer:</dt>
-		<dd><?php echo htmlspecialchars($article->getArticlenumber()); ?></dd>
-		<dt>Geschlecht:</dt>
-		<dd><?php echo htmlspecialchars($article->getGender()); ?></dd>
-		<dt>Größe:</dt>
-		<dd><?php echo htmlspecialchars($article->getSize()); ?></dd>
-		<dt>Farbe:</dt>
-		<dd><?php echo htmlspecialchars($article->getColor()); ?></dd>
-		<dt>Material:</dt>
-		<dd><?php echo htmlspecialchars($article->getMaterial()); ?></dd>
-		<dt>Preis:</dt>
-		<dd><?php echo htmlspecialchars(number_format($article->getPrice(), 2)); ?> EUR</dd>
-		<dt>MwSt:</dt>
-		<dd><?php echo htmlspecialchars(number_format($article->getVat(), 2)); ?> %</dd>
-		<dt>Lagerbestand:</dt>
-		<dd><?php echo htmlspecialchars($article->getInventory()); ?></dd>
-	</dl>
-	<form action="/cart/edit/" method="post">
-	<input type="number" min="0" max="<?php echo ($article->getInventory()); ?>" name="orderquantity[<?php echo $article->getid(); ?>]" value="<?php echo $_SESSION['order']->getQuantityById($article->getid()); ?>" size="2"> Stück im Warenkorb
-	<input type="submit" name="editcart" value="updaten">
-	</form>
-	<a href="/article/edit/<?php echo $article->getId(); ?>">[Bearbeiten]</a>
+       <div id="articleWrapper" class="content">
+    	<div class="title">
+        	<?php echo htmlspecialchars($article->getName()); ?>
+        </div>
+
+        <div class="article">
+			<div class="articleDetailsWrapper">
+				<div class="subtitle">
+					Produktdetails
+				</div>
+                <div class="titleHr"></div>
+			    <div class="articleDetails">
+					<div class="articleImgContainer">
+                    	<?php if(!empty($article->getImage())): ?>
+                            <img src="<?php echo htmlspecialchars(FE_THEME_PATH . 'resourcen/images/' . $article->getImage()); ?>" alt="<?php echo htmlspecialchars($article->getName()); ?>" style="height:100%; width:auto; margin:auto auto;" >
+                        <?php else: ?>
+                            [Kein Artikelbild verfügbar.]
+                        <?php endif; ?>
+					</div>
+                
+                    	<form id="articleForm" action="/cart/edit/" method="post">
+                            <div>
+                            	<label>Artikelnummer</label> <input type="text" name="articelnummer" value="<?php echo htmlspecialchars($article->getArticlenumber()); ?>" readonly="readonly">
+                            </div>
+                            <div>
+                            <label>Geschlecht</label> <input type="text" name="gender" value="<?php echo htmlspecialchars($article->getGender()); ?>" readonly="readonly">
+                            </div>
+                            <div>
+                            <label>Größe</label> <input type="text" name="size" value="<?php echo htmlspecialchars($article->getSize()); ?>" readonly="readonly">
+                            </div>
+                            <div>
+                            <label>Farbe</label> <input type="text" name="color" value="<?php echo htmlspecialchars($article->getColor()); ?>" readonly="readonly">
+                            </div>
+                            <div>
+                            <label>Material</label> <input type="text" name="material" value="<?php echo htmlspecialchars($article->getMaterial()); ?>" readonly="readonly">
+                            </div>
+                            <div>
+                            <label>Lagerbestand</label> <input type="text" name="inventory" value="<?php echo htmlspecialchars($article->getInventory()); ?>" readonly="readonly">
+                            </div>
+                            <div>
+                            <label>Menge</label> <input class="menge" value="1" type="number" min="0" max="<?php echo ($article->getInventory()); ?>" name="orderquantity[<?php echo $article->getid(); ?>]" value="<?php echo $_SESSION['order']->getQuantityById($article->getid()); ?>" size="2"> <span>Stück im Warenkorb</span>
+                            </div>
+                            <div>für nur <span id="price"> <?php echo htmlspecialchars($article->getPrice()); ?> </span> inkl. MWST (<?php echo htmlspecialchars(number_format($article->getVat(), 2)); ?> %) </div>
+                            <input id="btn-kaufen" type="submit" name="editcart" value="">
+                            <!--<button id="btn-kaufen" type="button"></button>--> 
+						</form>
+                   
+				</div>
+			</div>
+			<form class="bearbeitenButton" action="/article/edit/<?php echo $article->getId(); ?>">
+    			<input type="submit" value="Bearbeiten">
+			</form>
+            </div>
+            <div class="articleTextWrapper">
+				<div class="subtitle">
+					Produktbeschreibung
+				</div>
+                <div class="titleHr"></div>
+                <div class="articleText">
+                 
+					<p>
+                    	<?php echo htmlspecialchars($article->getDescription()); ?>
+                    </p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+    
 <?php else: ?>
 Artikel nicht vorhanden.
 <?php endif; ?>

@@ -13,3 +13,12 @@ a:active { font-weight:normal; color:#535D54; text-decoration:none; }
 #footerLinks a:active { font-weight:normal; color:#535D54; text-decoration:none; }
 
 
+
+.articleListItemLink a{ font-size:20px;}
+
+.articleListItemLink a:link { font-weight:normal; color:none; text-decoration:none; }
+.articleListItemLink a:visited { font-weight:normal; color:none; text-decoration:none; }
+.articleListItemLink a:focus { font-weight:normal; color:none; text-decoration:none; }
+.articleListItemLink a:hover { font-weight:normal; color:none; text-decoration:none; }
+.articleListItemLink a:active { font-weight:normal; color:none; text-decoration:none; }
+

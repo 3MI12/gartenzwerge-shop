@@ -24,7 +24,6 @@ form input{
 
 
 /** Filter - Formular **/
-
 #filterCheckbox {
   float: left;
   height: 40px;
@@ -75,19 +74,35 @@ select option[val="rot"]{
 }
 
 #filter #rangeBox {
-  border: thin solid #FFFFFF;
-  height: 50px;
+  height: 70px;
   margin-left: 10px;
   padding-top: 0;
   position: absolute;
   top: 55px;
-  width: 215px;
+  width: 330px;
+}
+
+#rangeBox > div{
+	float:left;
+	clear:both;}
+
+#rangeBox span {
+  background-color: #BAC0B4;
+  border: medium none;
+  color: #636A63;
+  float: left;
+  height: 25px;
+  line-height: 20px;
+  margin-right: 10px;
+  text-align: center;
+  width: 90px;
 }
 
 #rangeBox label {
-  position:absolute;
-  top:0;
-  font-size: 18px;
+  position:relative;
+  top:5px;
+  float:left;
+  font-size: 12px;
 }
 
 #rangeBox label:nth-child(1){
@@ -107,27 +122,55 @@ select option[val="rot"]{
   width: 80px;
 }
 
-#rangeDisplay {
+.rangeDisplay {
   background-color: #BAC0B4;
   border: medium none;
-  border-radius: 20px;
   color: #636A63;
   float: left;
-  height: 40px;
-  line-height: 40px;
+  height: 20px;
+  line-height: 20px;
   margin-left: 10px;
-  margin-top: -8px;
   text-align: center;
   width: 40px;
 }
 
+#filter button{
+	font-size:18px !important;
+	position:relative;
+	top:70px;
+	left:120px;
+	float:left;
+	clear:both;
+	background-color:#BAC0B4;
+	width:120px;
+	height:30px;
+	border:none;
+	color:#636A63;
+	cursor:pointer;}
+
+#filter button:hover{
+	background-color:#eaeaea;
+	color:#636A63;}
+
 /** Login/Registrierung - Formular **/
-#regForm, #loginForm, #profilForm{
+#regForm, #loginForm, #profilForm, #userEditForm{
 	clear:both;
 	float:left;
 	margin-bottom:50px;}
+	
+#articleEditForm{
+	float:left;}
+	
+#articleEditForm > div{
+	float:left;
+	margin-right:15px;}
 
-#regForm label, #loginForm label, #profilForm label{
+#articleEditForm > div:nth-child(4){
+	clear:both;
+	float:left;
+	margin-left:280px;}
+
+#regForm label, #loginForm label, #profilForm label, #userEditForm label, #articleEditForm > div > div > label{
   background-color: #636A63;
   color: #BCC2BA;
   float: left;
@@ -142,7 +185,10 @@ select option[val="rot"]{
   border-bottom-left-radius:15px;
 }
 
-#regForm input, #regForm select, #loginForm input, #profilForm input, #profilForm select{
+ #articleEditForm > div > div > label{
+	 width:120px !important;}
+
+#regForm input, #regForm select, #loginForm input, #profilForm input, #profilForm select, #userEditForm input, #articleEditForm > div > div > input, #articleEditForm > input{
   background-color: #BCC2BA;
   color: #636A63;
   float: left;
@@ -154,6 +200,22 @@ select option[val="rot"]{
   border-top-right-radius:15px;
   border-bottom-right-radius:15px;
 }
+
+#articleEditForm input{
+	width:130px !important;}
+
+#articleEditForm textarea{
+	 background-color: #BCC2BA;
+  	color: #636A63;
+ 	 float: left;
+  	font-size: 16px;
+  height: 80px;
+  resize:none;
+  padding: 5px 10px;
+  width:580px;
+  border:thin solid #636A63;
+  border-radius:15px;
+	}
 
 #regForm select{
 	height:37px;
@@ -171,9 +233,28 @@ input.submit{
 	height:40px !important;
 	transition:linear all 300ms;}
 
+
 input.submit:hover{
 	background-color:#636A63 !important;
 	color:#BCC2BA !important;}
+
+#articleEditForm input.submit{
+	margin-left:280px;
+	margin-top:20px;}
+
+/** userEditForm  **/
+
+#userEditForm div{
+	float:left;
+	position:relative;
+	margin-right:20px;}
+
+#userEditForm input[type="submit"] {
+  border-radius: 15px;
+  clear: both;
+  height: 40px;
+  margin-top: 20px;
+}
 
 
 /** UserManager - Form **/
@@ -222,15 +303,15 @@ input.submit:hover{
   border-bottom-left-radius:15px;
 }
 
-#userUpdateForm > input:nth-child(4), #userCreateForm > inpu:nth-child(4){
+#userUpdateForm > input:nth-child(4), #userCreateForm > input:nth-child(4){
 	width:220px;}
 
 /** checkbox **/
-input[type=checkbox] {
+#userUpdateForm input[type=checkbox], #userCreateForm input[type=checkbox], #articleEditForm input[type=checkbox]  {
 	visibility: hidden;
 }
 
-#checkboxStatus {
+.checkboxStatus {
 	margin-left:2px;
   background: none repeat scroll 0 0 #636A63;
   float: left;
@@ -240,7 +321,7 @@ input[type=checkbox] {
   line-height:15px;
 }
 
-#checkboxStatus:before {
+.checkboxStatus:before {
 	content: 'On';
 	position: absolute;
 	top: 12px;
@@ -250,7 +331,7 @@ input[type=checkbox] {
 	font-size: 16px;
 }
 
-#checkboxStatus:after {
+.checkboxStatus:after {
 	content: 'Off';
 	position: absolute;
 	top: 12px;
@@ -260,7 +341,7 @@ input[type=checkbox] {
 	font-size: 16px;
 }
 
-#checkboxStatus label{
+.checkboxStatus label{
 	display: block;
 	width: 35px;
 	height: 22px;
@@ -278,7 +359,7 @@ input[type=checkbox] {
 	background: #444;
 }
 
-#checkboxAdmin {
+.checkboxAdmin {
 	margin-left:2px;
   background: none repeat scroll 0 0 #636A63;
   float: left;
@@ -288,7 +369,7 @@ input[type=checkbox] {
   line-height:15px;
 }
 
-#checkboxAdmin:before {
+.checkboxAdmin:before {
 	content: 'On';
 	position: absolute;
 	top: 12px;
@@ -298,7 +379,7 @@ input[type=checkbox] {
 	font-size: 16px;
 }
 
-#checkboxAdmin:after {
+.checkboxAdmin:after {
 	content: 'Off';
 	position: absolute;
 	top: 12px;
@@ -308,11 +389,60 @@ input[type=checkbox] {
 	font-size: 16px;
 }
 
-#checkboxAdmin label{
+.checkboxAdmin label{
 	display: block;
 	width: 35px;
 	height: 22px;
 
+	cursor: pointer;
+	position: absolute;
+	top: 9px;
+	z-index: 1;
+	left: 5px;
+	background: #444;
+}
+
+
+.checkboxArticleActive {
+	margin-left:2px;
+  background: none repeat scroll 0 0 #636A63;
+  float: left;
+  height: 38px;
+  position: relative;
+  width: 80px;
+  line-height:15px;
+}
+
+.checkboxArticleActive:before {
+	content: 'On';
+	position: absolute;
+	top: 12px;
+	left: 10px;
+	height: 2px;
+	color: #BCC2BA;
+	font-size: 16px;
+}
+
+.checkboxArticleActive:after {
+	content: 'Off';
+	position: absolute;
+	top: 12px;
+	left: 49px;
+	height: 2px;
+	color: #444;
+	font-size: 16px;
+}
+
+.checkboxArticleActive label{
+	display: block;
+	width: 35px;
+	height: 22px;
+
+	/*-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	transition: all .5s ease;*/
 	cursor: pointer;
 	position: absolute;
 	top: 9px;
@@ -622,7 +752,7 @@ input[type=checkbox] {
 
 /** Artikel - Einzelansicht - Formular **/
 #articleForm{
-	margin-left:100px;
+	margin-left:50px;
 	float:left;}
 
 #articleForm input, #articleForm label{
@@ -646,17 +776,53 @@ input[type=checkbox] {
 
 #articleForm div{
 	float:left;
-	clear:both;
-	margin-top:40px;}
+	clear:both;}
+	
+#articleForm div:nth-child(7) span {
+  margin-left: 15px;
+  height: 25px;
+  line-height: 25px;
+}
 
-#articleForm div span{
+#articleForm div:nth-child(8){
+	margin-top:20px;}
+
+#articleForm div:nth-child(8) span{
 	font-size:30px;
 	font-weight:bold;}
 
+/** bearbeiten Button **/
+.bearbeitenButton {
+  clear: both;
+  float: left;
+  margin-bottom: 25px;
+  margin-top:-60px;
+  position: relative;
+}
 
+#articleList form.bearbeitenButton{
+	margin-top:-10px !important;}
+
+.bearbeitenButton input{
+  background-color: #BCC2BA;
+  color: #636A63;
+  float: left;
+  font-size: 18px;
+  height: 40px;
+  padding: 5px 10px;
+  width: 200px;
+	transition:linear all 300ms;
+	border:thin solid #636A63;
+  border-radius:15px;
+  clear:both;
+	cursor:pointer;}
+
+.bearbeitenButton input:hover{
+	background-color:#636A63;
+	color:#BCC2BA;}
 
 /** kaufen **/
-button#btn-kaufen {
+input#btn-kaufen {
   background-color: #535D54;
   background-image: url("../resourcen/icons/kaufen.png");
   background-position: center center;
@@ -666,9 +832,9 @@ button#btn-kaufen {
   border-radius: 90px;
   cursor: pointer;
   height: 160px;
-  left: 50px;
+  left: 200px;
   position: relative;
-  top: 55px;
+  top: -150px;
   width: 160px;
   transition: background-size 200ms ease-in;
   -moz-transition: background-size 200ms ease-in;
@@ -677,6 +843,6 @@ button#btn-kaufen {
   -webkit-transition: background-size 200ms ease-in;
 }
 
-button#btn-kaufen:hover{
+input#btn-kaufen:hover{
 	background-size:65%;
 	border:3px solid #4E544E;}
