@@ -11,11 +11,16 @@
 	<link href='http://fonts.googleapis.com/css?family=Lato:400,300italic,400italic,700,700italic,300' rel='stylesheet' type='text/css'>
 	
 	<script type="text/javascript" src="<?php echo FE_THEME_PATH; ?>js/jquery.js"></script>
+    <script type="text/javascript" src="<?php echo FE_THEME_PATH; ?>js/jqueryColor.js"></script>
 	<script type="text/javascript" src="<?php echo FE_THEME_PATH; ?>js/script.js"></script>
     
     <script type="text/javascript">
-    function updateRangeDisplay(val) {
-      document.getElementById('rangeDisplay').value=val; 
+    function updateRangeMinDisplay(val) {
+      document.getElementById('rangeMinDisplay').value=val; 
+    }
+	
+	function updateRangeMaxDisplay(val) {
+      document.getElementById('rangeMaxDisplay').value=val; 
     }
 	</script>
 </head>

@@ -1,7 +1,7 @@
 <body>
 	<?php require TEMPLATE_PATH . 'header.php'; ?>
 	<div id="slider">
-	<img src="<?php echo FE_THEME_PATH; ?>resourcen/images/slider1.jpg" width="100%" height="100%;"  />
+	<img src="<?php echo FE_THEME_PATH; ?>resourcen/images/slider2.jpg" width="100%" height="100%;"  />
 	</div>
 	<div id="deko"></div>
 	<div id="main">
@@ -20,8 +20,10 @@
 				echo 'Kein passendes Template gefunden!';
 			}
 		?>
+       		<!--<div id="contentDeko"></div>-->
 		</div>
 	</div>
+    
 	<?php require TEMPLATE_PATH . 'footer.php'; ?>
 </body>
 </html>
