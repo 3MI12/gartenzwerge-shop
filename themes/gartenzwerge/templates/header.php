@@ -2,7 +2,7 @@
 <div id="header">
 	<div id="logo">
     <div id="iconContainer">
-    	<a href="../../index.php"><img title="foobar" src="<?php echo FE_THEME_PATH; ?>resourcen/icons/zwerg-logo6.png" width="165px" height="165px" /></a>
+    	<a href="/"><img title="Logo" src="<?php echo FE_THEME_PATH; ?>resourcen/icons/zwerg-logo6.png" width="165px" height="165px" /></a>
     </div>
 
     <div id="headerTitle">Gartenzwerge24.eu</div>

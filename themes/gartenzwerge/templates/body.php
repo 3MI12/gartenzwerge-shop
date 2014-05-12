@@ -6,8 +6,10 @@
 	<div id="deko"></div>
 	<div id="main">
 		<div id="contentMenu">
-    	<?php require TEMPLATE_PATH . 'contentMenuAdmin.php'; ?>
-        <!-- require ($_SERVER['DOCUMENT_ROOT'] . '/template/contentMenuNoAdmin.php');  -->
+    	<?php 
+			$headeradmin = User::checkAdmin() ? 'contentMenuAdmin.php' : 'contentMenuNoAdmin.php';
+			require TEMPLATE_PATH . $headeradmin; 
+		?>
     	</div>
 		<div id="contentWrapper">
 		<?php
