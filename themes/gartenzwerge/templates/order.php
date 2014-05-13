@@ -23,10 +23,7 @@
             
          </div>
 	<?php endforeach; ?>
-    <div>
-            	<input id="warenkorbUpdate" type="submit" name="editcart" value="Warenkorb updaten">
-            </div>
-    
+    <input id="warenkorbUpdate" type="submit" name="editcart" value="Warenkorb updaten">
     <div id="sumPrice">
     	Summe Artikel <span style="color:#D8A758;"> <?php echo number_format($price['articles'], 2); ?> €</span>
     </div>
@@ -38,6 +35,7 @@
     <div id="sumPrice">
     	Gesamtsumme <span style="color:#D8A758;"> <?php echo number_format($price['total'], 2); ?> €</span>
     </div>
+    
 </form>
 
 <form id="orderShowBuy" action="/cart/order/" method="post">

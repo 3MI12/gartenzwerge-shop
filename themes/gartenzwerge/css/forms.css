@@ -24,14 +24,19 @@ form input{
 
 
 /** Filter - Formular **/
-#filterCheckbox {
+#filterCheckboxGender{
+	margin-left:10px;
   float: left;
   height: 40px;
-  left: 0;
   position: relative;
-  top: 0;
-  width: 165px;
+  width: 120px;
 }
+
+#filterCheckboxCategory{
+  float: left;
+  height: 40px;
+  position: relative;
+  width: 100px;}
 
 #filterCheckbox div{
 	float:left;
@@ -40,8 +45,12 @@ form input{
 	margin-bottom:5px;
 }
 
-#filterSelectbox{
-	position:relative;}
+#filterSelectbox {
+  float: left;
+  height: auto;
+  position: relative;
+  width: 200px;
+}
 
 #filterSelectbox label{
 	float:left;
@@ -62,6 +71,9 @@ form input{
   height:20px;
 }
 
+#filterSelectbox label:nth-child(3){
+	clear:both;}
+
 select option{
 	background-color:#blue;}
 
@@ -79,24 +91,27 @@ select option[val="rot"]{
   padding-top: 0;
   position: absolute;
   top: 55px;
-  width: 330px;
+  width: 530px;
 }
 
 #rangeBox > div{
-	float:left;
-	clear:both;}
+	float:left;}
 
-#rangeBox span {
+#rangeBox > div > div {
   background-color: #BAC0B4;
-  border: medium none;
+  border-radius: 50px;
   color: #636A63;
   float: left;
-  height: 25px;
-  line-height: 20px;
+  height: 45px;
+  line-height: 41px;
   margin-right: 10px;
-  text-align: center;
-  width: 90px;
+  padding: 6px;
+  position: relative;
+  width: 45px;
 }
+ 
+#rangeBox > div > div > span{
+	float:left;}
 
 #rangeBox label {
   position:relative;
@@ -116,10 +131,13 @@ select option[val="rot"]{
   float: left;
   height: 30px;
   line-height: 58px;
-  margin-left: 10px;
+  margin-top: 15px;
+  width: 131px;
+}
+
+#filter #rangeBoxMax input[type="range"] {
+  margin-left: -2px;
   margin-right: 10px;
-  margin-top: 0;
-  width: 80px;
 }
 
 .rangeDisplay {
@@ -128,25 +146,26 @@ select option[val="rot"]{
   color: #636A63;
   float: left;
   height: 20px;
-  line-height: 20px;
-  margin-left: 10px;
-  text-align: center;
-  width: 40px;
+  position: relative;
+  top: 10px;
+  width: 20px;
+  margin-right:3px;
 }
 
-#filter button{
-	font-size:18px !important;
-	position:relative;
-	top:70px;
-	left:120px;
-	float:left;
-	clear:both;
-	background-color:#BAC0B4;
-	width:120px;
-	height:30px;
-	border:none;
-	color:#636A63;
-	cursor:pointer;}
+#filter button {
+  background-color: #BAC0B4;
+  border: medium none;
+  clear: both;
+  color: #636A63;
+  cursor: pointer;
+  float: left;
+  font-size: 18px !important;
+  height: 30px;
+  left: 150px;
+  position: relative;
+  top: 50px;
+  width: 120px;
+}
 
 #filter button:hover{
 	background-color:#eaeaea;
@@ -849,11 +868,25 @@ input#btn-kaufen:hover{
 
 
 /** orderShowForm **/
-#orderShowForm, #orderShowBuy, #sumPrice{
+#orderShowForm{
 	position:relative;
 	float:left;
 	clear:both;
 	margin-top:30px;}
+
+#sumPrice{
+	position:relative;
+	float:left;
+	clear:both;
+	margin-top:0px;}
+
+
+#orderShowBuy {
+  float: left;
+  left: 360px;
+  position: relative;
+  top: -55px;
+}
 
 #sumPrice, #orderShowBuy label{
 	font-size:22px;}
@@ -870,7 +903,8 @@ input#btn-kaufen:hover{
 
 .orderShowArticle{
 	position:relative;
-	margin-top:15px;}
+	margin-top:15px;
+	margin-bottom:25px;}
 
 #orderShowForm > div > label{
 	position:relative;
@@ -909,7 +943,7 @@ input#btn-kaufen:hover{
   top: 30px;
 }
 
-#orderShowForm > div > div > input {
+#orderShowForm > input {
   background-color: #BCC2BA;
   border: thin solid #636A63;
   border-bottom-right-radius: 15px;
@@ -922,15 +956,17 @@ input#btn-kaufen:hover{
   width: 200px;
 }
 
-#orderShowForm > div > div > input{
-	clear:both;
-	cursor:pointer;
-	float:left !important;
-	border-radius:15px !important;
-	height:40px !important;
-	transition:linear all 300ms;}
+#orderShowForm > input {
+  border-radius: 15px !important;
+  clear: both;
+  cursor: pointer;
+  float: left !important;
+  height: 40px !important;
+  margin-top: 10px;
+  transition: all 300ms linear 0s;
+}
 	
-#orderShowForm > div > div > input:hover{
+#orderShowForm > input:hover{
 	background-color:#636A63 !important;
 	color:#BCC2BA !important;}
 

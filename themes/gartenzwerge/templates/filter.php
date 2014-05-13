@@ -1,11 +1,19 @@
 <div id="filter">
 		<form onsubmit="filter()">
-			<div id="filterCheckbox">
+			<div id="filterCheckboxGender">
 				<div>
-                    <input type="checkbox" name="male" value="Männlich"> Männlich
+                    <input type="checkbox" name="male" value="male"> Männlich
                 </div>	
                 <div>
-                    <input type="checkbox" name="female" value="Weiblich"> Weiblich
+                    <input type="checkbox" name="female" value="female"> Weiblich
+                </div>
+			</div>
+            <div id="filterCheckboxCategory">
+				<div>
+                    <input type="checkbox" name="male" value="indoor"> Indoor
+                </div>	
+                <div>
+                    <input type="checkbox" name="female" value="outdoor"> Outdoor
                 </div>
 			</div>
 
@@ -29,18 +37,17 @@
 			</div>
             <div id="rangeBox">
                 <div id="rangeBoxMin">
-                	<span>min. Größe</span>
-                    <label>20cm</label>
+                	<div>
+                		<input type="text" class="rangeDisplay" id="rangeMinDisplay" value="20" />cm
+                    </div>
                     <input type="range" name="groesseMin" value="20" min="20" max="80" onchange="updateRangeMinDisplay(this.value);" />
-                    <label>80cm</label>
-                    <input type="text" class="rangeDisplay" id="rangeMinDisplay" value="20" />
+                    
                 </div>
                  <div id="rangeBoxMax">
-                 	<span>max. Größe</span>
-                    <label>80cm</label>
                     <input type="range" name="groesseMax" value="160" min="80" max="160" onchange="updateRangeMaxDisplay(this.value);" />
-                    <label>160cm</label>
-                    <input type="text" class="rangeDisplay" id="rangeMaxDisplay" value="160" />
+                    <div>
+                    	<input type="text" class="rangeDisplay" id="rangeMaxDisplay" value="160" />cm
+                	</div>
                 </div>
             </div>
           		
