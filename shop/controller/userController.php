@@ -15,7 +15,7 @@ switch($action) {
 		break;
 	case 'show':
 		if(User::checkUserSession($id) || User::checkAdmin()){
-			$data['user'] = User::getUserByUid($entityManager, $id);
+			$data['user'] = User::getUserById($entityManager, $id);
 			$template = 'user';
 		}else{
 			$data['error'][] = "Sie können nur ihr eigenes Profil anzeigen!";
@@ -34,11 +34,11 @@ switch($action) {
 		break;
 	case 'login':
 		if(User::loginStatus() && !isset($_POST['logout'])){
-			$data['user'] = User::getUserByUid($entityManager, User::getSessionUid());
+			$data['user'] = User::getUserById($entityManager, User::getSessionId());
 			$template = 'userProfile';
 		}elseif(isset($_POST['login'])){
 			$data = User::loginUser($entityManager);
-			$data['user'] = User::getUserByUid($entityManager, User::getSessionUid());
+			$data['user'] = User::getUserById($entityManager, User::getSessionId());
 			$template = 'userProfile';			
 		}else{
 			$data = User::loginUser($entityManager);

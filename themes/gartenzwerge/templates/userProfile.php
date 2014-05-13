@@ -13,7 +13,7 @@ Mein Konto
     	<label>eMail</label><span><?php echo htmlspecialchars($user->getEmail()); ?></span>
     </div>
 	<div>
-    	<label>Kundennummer</label><span><?php echo number_format($user->getUid()); ?></span>
+    	<label>Kundennummer</label><span><?php echo number_format($user->getId()); ?></span>
     </div>
     <div>
     	<label>Postleitzahl</label><span><?php echo htmlspecialchars($user->getZip()); ?></span>
@@ -34,7 +34,7 @@ Mein Konto
     	<label>IBAN</label><span><?php echo htmlspecialchars($user->getIban()); ?></span>
     </div>
 	<div>
-    	<a href="/user/edit/<?php echo $user->getUid(); ?>">////////BEARBEITEN////////</a></p>
+    	<a href="/user/edit/<?php echo $user->getId(); ?>">////////BEARBEITEN////////</a></p>
 	</div>
 <?php else: ?>
 User nicht vorhanden.

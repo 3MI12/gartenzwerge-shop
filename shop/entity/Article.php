@@ -26,9 +26,9 @@ class Article
 	private $material;
 	/** @Column(type="string", length=500, nullable=false) */
 	private $description;
-	/** @Column(type="decimal", precision=5, scale=2, nullable=false) */
+	/** @Column(type="decimal", precision=10, scale=2, nullable=false) */
 	private $price;
-	/** @Column(type="decimal", precision=5, scale=2, nullable=false) */
+	/** @Column(type="decimal", precision=10, scale=2, nullable=false) */
 	private $vat;
 	/** @Column(type="integer", nullable=false) */
 	private $inventory;

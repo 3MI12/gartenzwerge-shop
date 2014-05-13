@@ -41,7 +41,7 @@
                             <label>Lagerbestand</label> <input type="text" name="inventory" value="<?php echo htmlspecialchars($article->getInventory()); ?>" readonly="readonly">
                             </div>
                             <div>
-                            <label>Menge</label> <input class="menge" value="1" type="number" min="0" max="<?php echo ($article->getInventory()); ?>" name="orderquantity[<?php echo $article->getid(); ?>]" value="<?php echo $_SESSION['order']->getQuantityById($article->getid()); ?>" size="2"> <span>Stück im Warenkorb</span>
+                            <label>Menge</label> <input class="menge" type="number" min="0" max="<?php echo ($article->getInventory()); ?>" name="orderquantity[<?php echo $article->getid(); ?>]" value="<?php echo $_SESSION['order']->getQuantityById($article->getid()); ?>" size="2"> <span>Stück im Warenkorb</span>
                             </div>
                             <div>für nur <span id="price"> <?php echo htmlspecialchars($article->getPrice()); ?> </span> inkl. MWST (<?php echo htmlspecialchars(number_format($article->getVat(), 2)); ?> %) </div>
                             <input id="btn-kaufen" type="submit" name="editcart" value="">

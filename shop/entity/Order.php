@@ -10,21 +10,14 @@ class Order {
 	/** @Id @GeneratedValue @Column(type="integer", unique=true, nullable=false) */
 	private $id;
 	/**
-<<<<<<< HEAD
-     * @OneToMany(targetEntity="user", mappedBy="order")
-=======
-     * @OneToMany(targetEntity="sysuser", mappedBy="order")
->>>>>>> master
+     * @ManyToMany(targetEntity="User")
      **/
 	private $user;
 	/**
-     * @OneToMany(targetEntity="article", mappedBy="order")
-	 * @var positions[]
+     * @ManyToMany(targetEntity="OrderArticle")
      **/
 	private $positions;
 
-	private $em;
-	
     public function __construct()
     {
         $this->positions = new ArrayCollection();
@@ -45,7 +38,6 @@ class Order {
 	public function add($em) {
 		$data = array('success' => true, 'error' => array());
 		$orderQuantity = getPostParam('orderquantity', array());
-		var_dump($orderQuantity);
 		foreach($orderQuantity as $articleId => $quantity) {
 			$article = Article::getById($em, $articleId);
 			if($quantity > 0) {
@@ -96,7 +88,7 @@ class Order {
 		}
 		if($data['success']) {
 			foreach($this->positions as $articleId => $quantity) {
-				$article = Article::getById($articleId);
+				$article = Article::getById($em, $articleId);
 				$article->setInventory($article->getInventory() - $quantity);
 			}
 		}
