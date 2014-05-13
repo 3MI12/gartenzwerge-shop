@@ -1,4 +1,6 @@
 <?php
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * @Entity
  * @Table(name="user")
@@ -223,6 +225,10 @@ class User
 	public function getLastname()
 	{
 		return $this->lastname;
+	}
+	
+	public function getName() {
+		return $this->firstname . ' ' . $this->lastname;
 	}
 	
 	public function setEmail($email)

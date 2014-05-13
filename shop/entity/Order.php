@@ -100,7 +100,7 @@ class Order {
 			$data['redirect'] = '/user/login/';
 			return $data;
 		}
-		$this->user = $_SESSION['user']->getId();
+		$this->user = User::getUserById($em, $_SESSION['user']->getId());
 		foreach($this->positions as $orderArticle) {
 			$article = Article::getById($em, $orderArticle->getArticleId());
 			if($orderArticle->getQuantity() > $article->getInventory()) {
@@ -117,6 +117,7 @@ class Order {
 			}
 		}
 		$this->ordertime = new DateTime();
+		$this->canceled = false;
 		$em->persist($this);
 		$em->flush();
 		return $data;
