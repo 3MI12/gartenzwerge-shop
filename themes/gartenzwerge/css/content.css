@@ -46,6 +46,14 @@
 	margin-top:-1px;
 	margin-bottom:30px;}
 
+.orderHr{
+	clear:both;
+	float:left;
+	width:1000px;
+	height:1px;
+	background-color:#535d54;
+	margin-top:-1px;}
+
 
 /** Artikel - Ansicht **/
 .articleText,.articleDetails{

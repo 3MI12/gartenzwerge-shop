@@ -480,7 +480,7 @@ input.submit:hover{
 	border-bottom-right-radius:15px;}
 
 #btn-userDetail{
-	background-image: url("../resourcen/icons/bearbeiten.png");
+	background-image: url("../resourcen/icons/profileEdit.png");
 	border-top-right-radius:15px;
   	border-bottom-right-radius:15px;
 	padding-right:15px;}
@@ -844,5 +844,111 @@ input#btn-kaufen {
 }
 
 input#btn-kaufen:hover{
+	background-size:65%;
+	border:3px solid #4E544E;}
+
+
+/** orderShowForm **/
+#orderShowForm, #orderShowBuy, #sumPrice{
+	position:relative;
+	float:left;
+	clear:both;
+	margin-top:30px;}
+
+#sumPrice, #orderShowBuy label{
+	font-size:22px;}
+
+#sumPrice span, #orderShowBuy label{
+	font-weight:bold;
+	margin-right:40px;}
+
+#orderShowForm > div{
+	position:relative;
+	float:left;
+	margin-right:20px;
+	top:20px;}
+
+.orderShowArticle{
+	position:relative;
+	margin-top:15px;}
+
+#orderShowForm > div > label{
+	position:relative;
+	float:left;
+	background-color:#535D54;
+	border-top-left-radius:15px;
+	border-bottom-left-radius:15px;
+	height:30px;
+	width:120px;
+	line-height:30px;
+	color:#E6E6E6;
+	margin-top:5px;
+	text-align:center;}
+
+#orderShowForm label:nth-child(5){
+	clear:both;}
+
+#orderShowForm > div > input{
+	position:relative;
+	float:left;
+	width:auto;
+	padding-left:10px;
+	padding-right:10px;
+	min-width:220px;
+	width:auto;
+	height:29px;
+	line-height:30px;
+	margin-top:6px;
+	border:none;
+	background-color:transparent;
+	border-bottom:1px solid #535D54;}
+
+#orderShowForm > div > div {
+  left: 730px;
+  position: absolute;
+  top: 30px;
+}
+
+#orderShowForm > div > div > input {
+  background-color: #BCC2BA;
+  border: thin solid #636A63;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  color: #636A63;
+  float: left;
+  font-size: 18px;
+  height: 25px;
+  padding: 5px 10px;
+  width: 200px;
+}
+
+#orderShowForm > div > div > input{
+	clear:both;
+	cursor:pointer;
+	float:left !important;
+	border-radius:15px !important;
+	height:40px !important;
+	transition:linear all 300ms;}
+	
+#orderShowForm > div > div > input:hover{
+	background-color:#636A63 !important;
+	color:#BCC2BA !important;}
+
+#orderShowBuy input{
+  background-color: #535D54;
+  background-image: url("../resourcen/icons/warenkorbBuy.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 70% auto;
+  border: medium none;
+  border-radius: 60px;
+  cursor: pointer;
+  height: 120px;
+  position: relative;
+  transition: background-size 200ms ease-in 0s;
+  width: 120px;
+}
+
+#orderShowBuy input:hover{
 	background-size:65%;
 	border:3px solid #4E544E;}

@@ -36,19 +36,19 @@ $(window).scroll(function(){
 		var scrollPosition = $(this).scrollTop();
 		var menuPosition = $("#menu").css("top");
 		if(scrollPosition > 280 && menuPosition == "65px"){
-			$("#menu").animate({
+			$("#menu").stop( true, true ).animate({
 				top: 10
 				},"slow");
-			$("#iconContainer").animate({
+			$("#iconContainer").stop( true, true ).animate({
 				top: 5, width: 100, height: 100
 				},"slow");
 			}
 			
 		if(scrollPosition <= 280 && menuPosition == "10px"){
-			$("#menu").animate({
+			$("#menu").stop( true, true ).animate({
 				top: 65
 				},"slow");
-			$("#iconContainer").animate({
+			$("#iconContainer").stop( true, true ).animate({
 				top: 20, width: 165, height: 165
 				},"slow");
 			}
