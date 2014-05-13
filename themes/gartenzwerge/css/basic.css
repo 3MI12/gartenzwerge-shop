@@ -113,7 +113,25 @@ body{
 
 .menuItemContainer:nth-child(3) .menuButton{
 	background-image: url("../resourcen/icons/warenkorb.png");}
+
+@media (max-width: 1200px){
+#menu {
+  left: 180px;
+  position: absolute;
+  top: 65px;
+}
+
+#headerTitle{
+	display:none;
+}
+
+#headerSubtitle{
+	display:none;
+}
+	} 
  
+ 
+/** slider **/ 
 #slider{
 	float:left;
 	position:fixed;
@@ -162,8 +180,8 @@ body{
 	position:absolute;
 	top:0;
 	right:0;
-	height:160px;
-	width:350px;
+	height:140px;
+	width:440px;
 	padding:5px;
 	background-color:#636a63;
 	color:#bac0b4;
