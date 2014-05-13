@@ -9,7 +9,7 @@ class User
 	* @Id @Column(type="integer")
 	* @GeneratedValue
 	*/
-	private $uid;
+	private $id;
 
 	/** @Column(type="string", length=5, nullable=true) */
 	private $title;
@@ -53,12 +53,17 @@ class User
 	/** @Column(type="boolean", nullable=false) */
 	private $status;
 	
+	/**
+	 * @ManyToMany(targetEntity="Order")
+	*/
+	private $orders;
+	
 	public static function getAllUser($entityManager) {
 		return $entityManager->getRepository('User')->findAll();
 	}
 	
-	public static function getUserByUid($entityManager, $id) {
-		return $entityManager->getRepository('User')->findOneByUid($id);
+	public static function getUserById($entityManager, $id) {
+		return $entityManager->getRepository('User')->findOneById($id);
 	}
 	
 	public static function getUserByEmail($entityManager, $email)
@@ -66,8 +71,8 @@ class User
 		return $entityManager->getRepository('User')->findOneByEmail($email);
 	}
 	
-	public static function buildUser($entityManager, $uid = NULL) {
-		$user = $entityManager->getRepository('User')->findOneByUid($uid);
+	public static function buildUser($entityManager, $id = NULL) {
+		$user = $entityManager->getRepository('User')->findOneById($id);
 		$data['user'] = $user;
 		if(!$user){
 			$user = new User();
@@ -89,12 +94,12 @@ class User
 				$data['error'][] = "Ungültige eMail!";
 				return $data;
 			}
-			if($userPost && $userPost->getUid() != $user->getUid()){
+			if($userPost && $userPost->getId() != $user->getId()){
 				$data['error'][] = "Die eingegebene eMail-Adresse existiert bereits!";
 				return $data;
 			}
 			
-			if($user->getUid() == $uid || $uid == NULL){
+			if($user->getId() == $id || $id == NULL){
 				$user->setEmail(getPostParam('email'));
 				$user->setTitle(getPostParam('title'));
 				$user->setFirstname(getPostParam('firstname'));
@@ -153,7 +158,7 @@ class User
 	}
 
 	public static function loginStatus() {
-		if(null !== $_SESSION['user']->getUid()){
+		if(null !== $_SESSION['user']->getId()){
 			return true;
 		}else{
 			return false;
@@ -168,30 +173,30 @@ class User
 		}
 	}
 	
-	public static function checkUserSession($uid = NULL) {
-		if($_SESSION['user']->getUid() == $uid){
+	public static function checkUserSession($id = NULL) {
+		if($_SESSION['user']->getId() == $id){
 			return true;
 		}else{
 			return false;
 		}
 	}
 	
-	public static function getSessionUid() {
-		return $_SESSION['user']->getUid();
+	public static function getSessionId() {
+		return $_SESSION['user']->getId();
 	}
 	
 	public static function getSessionUsername() {
 		return $_SESSION['user']->getFirstname().' '.$_SESSION['user']->getLastname();
 	}
 	
-	public function setUid()
+	public function setId()
 	{
-		$this->uid;
+		$this->id;
 	}
 
-	public function getUid()
+	public function getId()
 	{
-		return $this->uid;
+		return $this->id;
 	}
 
 	public function setTitle($title)

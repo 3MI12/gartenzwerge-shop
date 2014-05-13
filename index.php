@@ -5,6 +5,7 @@ require_once 'bootstrap.php';
 require_once 'config/config.php';
 require_once 'shop/shopHelper.php';
 require_once 'shop/entity/Article.php';
+require_once 'shop/entity/OrderArticle.php';
 require_once 'shop/entity/User.php';
 require_once 'shop/entity/Order.php';
 
@@ -12,7 +13,7 @@ session_start();
 $_SESSION['user'] = isset($_SESSION['user']) ? $_SESSION['user'] : new User();
 $_SESSION['order'] = isset($_SESSION['order']) ? $_SESSION['order'] : new Order();
 
-//echo '<pre>'; var_dump($_GET, $_POST); echo '</pre>';
+//echo '<pre>'; var_dump($_GET, $_POST, $_SERVER); echo '</pre>'; exit;
 
 $controller = isset($_GET['controller']) ? $_GET['controller'] : 'article';
 $action = isset($_GET['action']) ? $_GET['action'] : ($controller == 'article' ? 'list' : null);
@@ -35,5 +36,11 @@ switch($controller) {
 	default:
 		$template = '404';
 }
+
+if(!empty($data['redirect'])) {
+	header('Location: http' . (empty($_SERVER['HTTPS']) ? '' : 's') . '://' . $_SERVER['HTTP_HOST'] . $data['redirect']);
+	exit;
+}
+
 require (TEMPLATE_PATH.'documentheader.php');
 require (TEMPLATE_PATH.'body.php');

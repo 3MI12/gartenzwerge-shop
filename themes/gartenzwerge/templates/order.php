@@ -23,7 +23,7 @@
 		</tbody>
 	</table>
 </form>
-<form action="/cart/order" method="post">
+<form action="/cart/order/" method="post">
 <input type="submit" name="ordercart" value="Kostenpflichtig bestellen">
 </form>
 <?php else: ?>
