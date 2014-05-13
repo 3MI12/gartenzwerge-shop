@@ -4,6 +4,7 @@
   margin:0;}
 
 html, body{
+	width:100%;
 	height:100%;}
 
 body{
@@ -11,21 +12,28 @@ body{
 	color:#535d54;
 	background-image:url("../resourcen/icons/brushed.png");}
 
+#wrapper{
+	width:1200px;
+	margin-right:auto;
+	margin-left:auto;}
+
 #header {
   	float: left;
 	height: 115px;
 	position: fixed;
-	width: 100%;
+	width: 1200px;
 	z-index: 150;
 	background-image:url("../resourcen/icons/brushed.png");
+	-webkit-box-shadow: 0 8px 6px -6px black;
+	   -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;
 }
 
 #logo {
   float: left;
   height: 115px;
-  left: 50%;
-  margin-left: -600px;
-  position: relative;
+  left: 0
+  position: absolute;
   width: 675px;
   z-index: 55;
 }
@@ -59,9 +67,8 @@ body{
 /** Menü **/
 
 #menu {
-  left: 50%;
-  margin-left: 245px;
-  position: relative;
+  right: 0;
+  position: absolute;
   top: 65px;
 }
 
@@ -106,80 +113,19 @@ body{
 .menuItemContainer:nth-child(3) .menuButton{
 	background-image: url("../resourcen/icons/warenkorb.png");}
  
-#f1_container {
-  width: 90px;
-  height: 90px;
-  border-radius:50px;
-  z-index: 1;
-}
-
-#f1_container {
-  perspective: 1000;
-}
-
-#f1_card {
-  width: 100%;
-  height: 100%;
-  border-radius:50px;
-  transform-style: preserve-3d;
-  transition: all 1.0s linear;
-}
-
-#f1_container:hover #f1_card {
-  transform: rotateY(180deg);
-}
-
-.face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius:50px;
-  backface-visibility: hidden;
-  background-color:#535d54;
-}
-
-.face.back {
-  display: block;
-  transform: rotateY(180deg);
-  background-color: #94ac96;
-}
-
-#f1_container img{
-	position:relative;
-	top:15px;
-	left:15px;
-	width:60px;
-	height:60px;}
-
-
-
 #slider{
 	float:left;
 	position:fixed;
 	top:115px;
 	width:100%;
-	height:auto;
-	border-top:3px solid #535D54;}
+	height:auto;}
 
-/*#deko {
-  background-image: url("../resourcen/images/deko_grass.png");
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  float: left;
-  height: 177px;
-  position: relative;
-  top: 115px;
-  width: 100%;
-  z-index: 40;
-}*/
 
 #main{
 	width:1200px;
 	min-height:800px;
-	position:absolute;
-	left:50%;
-	margin-left:-600px;
+	position:relative;
+	left:0;
 	top:450px;
 	padding-bottom:50px;
 	z-index:50;
@@ -307,7 +253,9 @@ body{
   top: 50px;
   width: 100%;
   z-index:2;
-  border-top:2px solid #373D38;
+-moz-box-shadow:    3px 3px 5px 6px black;
+  -webkit-box-shadow: 3px 3px 5px 6px black;
+  box-shadow:         3px 3px 5px 6px black;
 }
 
 #footerLinks {

@@ -23,12 +23,12 @@ Nutzerverwaltung
 			<input type="text" name="Firstname" value="Max">      
 			<input type="text" name="email" value="max.mustermann@brokkolimails.de">
 			<div class="checkboxStatus">
-                <input type="checkbox" id="checkboxInput" checked="checked" name="Status" value="1"/>
-                <label id="checkboxInput"></label>
+                <input type="checkbox" checked="" name="Status" value=""/>
+                <label ></label>
   			</div>
             <div class="checkboxAdmin">
-                <input type="checkbox" id="checkboxInput" name="Admin" value="1"/>
-                <label id="checkboxInput"></label>
+                <input type="checkbox" checked="" name="Admin" value=""/>
+                <label></label>
   			</div>
 			<button class="userButton" name="userStatus" id="btn-userUpdate" type="submit" formaction="/user/edit/" formmethod="post"></button>
 		</form>
@@ -46,20 +46,15 @@ Nutzerverwaltung
 			<input disabled type="text" name="Firstname" value="<?php echo htmlspecialchars($sysuser->getFirstname()); ?>">      
 			<input disabled type="text" name="email" value="<?php echo htmlspecialchars($sysuser->getEmail()); ?>">
             <div class="checkboxStatus">
-                <input type="checkbox" id="checkboxInput" checked="checked" name="Status" value="1" <?php echo $sysuser->getStatus() ? 'checked' : ''; ?> />
-                <label id="checkboxInput"></label>
+                <input type="checkbox" name="Status" value="" checked="<?php echo $sysuser->getStatus() ? 'checked' : ''; ?>" />
+                <label></label>
   			</div>
             
             <div class="checkboxAdmin">
-                <input type="checkbox" id="checkboxInput" name="Admin" value="1" <?php echo $sysuser->getAdmin() ? 'checked' : ''; ?> />
-                <label id="checkboxInput"></label>
+                <input type="checkbox" name="Admin" value="" checked="<?php echo $sysuser->getAdmin() ? 'checked' : ''; ?>" />
+                <label ></label>
   			</div>
-            
-            <!--
-			<input type="checkbox" name="Status" value="1" <?php echo $sysuser->getStatus() ? 'checked' : ''; ?>>
-			<input type="checkbox" name="Admin" value="1" <?php echo $sysuser->getAdmin() ? 'checked' : ''; ?>>
-			
-            -->
+
             <button class="userButton" name="userStatus" id="btn-userUpdate" type="submit" formaction="/user/edit/<?php echo $sysuser->getUid(); ?>" formmethod="post"></button>
 			<button class="userButton" name="userDetail" id="btn-userDetail" type="submit" formaction="/user/show/<?php echo $sysuser->getUid(); ?>" formmethod="post"></button>
 		</form>

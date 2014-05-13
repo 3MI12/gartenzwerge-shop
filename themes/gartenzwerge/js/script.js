@@ -1,4 +1,59 @@
 $( document ).ready(function() {
+	if( $(".checkboxStatus").prop("checked") == true ){
+		$(".checkboxStatus").children("label").css( { left: 7, backgroundColor: "#444444" } );
+		}
+		else {
+			$(".checkboxStatus").children("label").css( { left: 40, backgroundColor: "#BCC2BA" } );
+			}
+	
+	if( $(".checkboxAdmin").prop("checked") == true ){
+		$(".checkboxAdmin").children("label").css( { left: 7, backgroundColor: "#444444" } );
+		}
+		else {
+			$(".checkboxAdmin").children("label").css( { left: 40, backgroundColor: "#BCC2BA" } );
+			}
+	
+	if( $(".checkboxArticleActive").prop("checked") == true ){
+		$(".checkboxArticleActive").children("label").css( { left: 7, backgroundColor: "#444444" } );
+		}
+		else {
+			$(".checkboxArticleActive").children("label").css( { left: 40, backgroundColor: "#BCC2BA" } );
+			}
+	
+	
+	});
+
+$( document ).ready(function() {
+/** header items fadeOut on contentSrcolling **/	
+/*	$(window).scroll(function(){
+		var scrollPosition = $(this).scrollTop();
+		if(scrollPosition > 280){
+			$("#menu").fadeOut("slow");}
+			else { $("#menu").fadeIn("slow"); }
+		})*/
+		
+$(window).scroll(function(){
+		var scrollPosition = $(this).scrollTop();
+		var menuPosition = $("#menu").css("top");
+		if(scrollPosition > 280 && menuPosition == "65px"){
+			$("#menu").animate({
+				top: 10
+				},"slow");
+			$("#iconContainer").animate({
+				top: 5, width: 100, height: 100
+				},"slow");
+			}
+			
+		if(scrollPosition <= 280 && menuPosition == "10px"){
+			$("#menu").animate({
+				top: 65
+				},"slow");
+			$("#iconContainer").animate({
+				top: 20, width: 165, height: 165
+				},"slow");
+			}
+		})
+	
 /** filter **/
 function filter(){
 	alert("test");
@@ -50,15 +105,16 @@ $(".btn-articleText").click(function(){
 });
 
 $(".checkboxStatus").click(function(){
-	if( $(this).prop("checked") == true ){
-		$(this).prop("checked" , false);
+	alert($(this).children("input").prop("checked"));
+	if( $(this).children("input").prop("checked") == true ){
+		$(this).children("input").attr("checked" , false);
 		$(this).children("label").animate( { left: 7, backgroundColor: "#444444" }, "slow");
 		}
-		else {
-			$(this).prop("checked" , true);
+		 else {
+			$(this).children("input").attr("checked" , true);
 			$(this).children("label").animate( { left: 40, backgroundColor: "#BCC2BA" }, "slow");
 			}
-	})
+})
 
 $(".checkboxAdmin").click(function(){
 	if( $(this).prop("checked") == true ){
