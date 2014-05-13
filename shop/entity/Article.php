@@ -71,7 +71,9 @@ class Article
 			$article->setActive(getPostParam('active', 0));
 			$article->setArticlenumber(getPostParam('articlenumber'));
 			$article->setName(getPostParam('name'));
-			$article->setImage(getPostParam('image'));
+			if($_FILES["image"]["tmp_name"] !== ''){
+				$article->setImage(media::uploadPicture($_FILES["image"]["tmp_name"]));
+			}
 			$article->setGender(getPostParam('gender'));
 			$article->setSize(getPostParam('size'));
 			$article->setColor(getPostParam('color'));

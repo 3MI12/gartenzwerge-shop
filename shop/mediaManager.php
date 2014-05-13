@@ -1,7 +1,8 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT']."/bootstrap.php");
-
-function generateSmall($file,$name){
+class media{
+	
+public static function generateSmall($file,$name){
 	$im = new Imagick($file);
 	if($im->getImageWidth() > $im->getImageHeight()){
 		$im->resizeImage(IMAGE_SMALL, 0, imagick::FILTER_LANCZOS, 1); 
@@ -15,7 +16,7 @@ function generateSmall($file,$name){
 	$im->destroy();
 }
 
-function generateMedium($file,$name){
+public static function generateMedium($file,$name){
 	$im = new Imagick($file);
 	if($im->getImageWidth() > $im->getImageHeight()){
 		$im->resizeImage(IMAGE_MEDIUM, 0, imagick::FILTER_LANCZOS, 1); 
@@ -29,7 +30,7 @@ function generateMedium($file,$name){
 	$im->destroy();
 }
 
-function generateLarge($file,$name){
+public static function generateLarge($file,$name){
 	$im = new Imagick($file);
 	if($im->getImageWidth() > $im->getImageHeight()){
 		$im->resizeImage(IMAGE_BIG, 0, imagick::FILTER_LANCZOS, 1); 
@@ -43,16 +44,16 @@ function generateLarge($file,$name){
 	$im->destroy();
 }
 
-function uploadPicture(){
-	if($_FILES["file"]["type"] && $_FILES["file"]["type"]=="image/jpeg"){
-		$file = $_FILES["file"]["tmp_name"];
+public static function uploadPicture($file){
+	if(true){
 		$name = hash_file('MD5', $file);
-		generateSmall($file,$name);
-		generateMedium($file,$name);
-		generateLarge($file,$name);
+		media::generateSmall($file,$name);
+		media::generateMedium($file,$name);
+		media::generateLarge($file,$name);
 	}else{
 		$name = NULL;
 		$data['error'] = "Bitte laden sie ein Bild im Format JPG hoch.";
 	}
 	return $name;
+}
 }

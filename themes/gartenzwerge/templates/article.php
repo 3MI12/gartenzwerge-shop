@@ -15,7 +15,7 @@
 			    <div class="articleDetails">
 					<div class="articleImgContainer">
                     	<?php if(!empty($article->getImage())): ?>
-                            <img src="<?php echo htmlspecialchars(FE_THEME_PATH . 'resourcen/images/' . $article->getImage()); ?>" alt="<?php echo htmlspecialchars($article->getName()); ?>" style="height:100%; width:auto; margin:auto auto;" >
+                            <img src="<?php echo htmlspecialchars('/media/'. $article->getImage() . '-large.jpg'); ?>" alt="<?php echo htmlspecialchars($article->getName()); ?>" style="height:100%; width:auto; margin:auto auto;" >
                         <?php else: ?>
                             [Kein Artikelbild verfügbar.]
                         <?php endif; ?>
@@ -50,7 +50,7 @@
                    
 				</div>
 			</div>
-			<?php echo User::checkAdmin() ? '<form class="bearbeitenButton" action="/article/edit/<?php echo $article->getId(); ?>"><input type="submit" value="Bearbeiten"></form>' : '';?>
+			<?php echo User::checkAdmin() ? '<form class="bearbeitenButton" action="/article/edit/'.$article->getId().'"><input type="submit" value="Bearbeiten"></form>' : '';?>
             </div>
             <div class="articleTextWrapper">
 				<div class="subtitle">

@@ -11,7 +11,7 @@
 		<div class="articleListItemWrapper">
             <div class="articleListImgContainer">
                 <?php if(!empty($article->getImage())): ?>
-                    <img src="<?php echo htmlspecialchars(FE_THEME_PATH . 'resourcen/images/' . $article->getImage()); ?>" alt="<?php echo htmlspecialchars($article->getName()); ?>" style="height:100%; width:auto; margin:auto auto;">
+                    <img src="<?php echo htmlspecialchars('/media/' . $article->getImage() .'-small.jpg'); ?>" alt="<?php echo htmlspecialchars($article->getName()); ?>" style="height:100%; width:auto; margin:auto auto;">
                 <?php else: ?>
                     Kein<br />Artikelbild<br />verfügbar.
                 <?php endif; ?>
@@ -26,7 +26,7 @@
             </div>
         </div>
 		</a>
-		<?php echo User::checkAdmin() ? '<form class="bearbeitenButton" action="/article/edit/<?php echo $article->getId(); ?>"><input type="submit" value="Bearbeiten"></form>' : '';?>
+		<?php echo User::checkAdmin() ? '<form class="bearbeitenButton" action="/article/edit/'.$article->getId().'"><input type="submit" value="Bearbeiten"></form>' : '';?>
 <?php endforeach; ?>
 
 </div>

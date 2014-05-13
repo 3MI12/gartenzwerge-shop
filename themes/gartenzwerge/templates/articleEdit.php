@@ -16,9 +16,13 @@
 				<div class="articleDetails">
 					
                 
-                    	<form id="articleEditForm" action="" method="post">
+                    	<form id="articleEditForm" action="" method="post" enctype="multipart/form-data">
                         	<div class="articleImgContainer">
-                  				<?php echo htmlspecialchars($article->getimage()); ?>
+                  				<?php if(!empty($article->getImage())): ?>
+		                            <img src="<?php echo htmlspecialchars('/media/'. $article->getImage() . '-large.jpg'); ?>" alt="<?php echo htmlspecialchars($article->getName()); ?>" style="height:100%; width:auto; margin:auto auto;" >
+		                        <?php else: ?>
+		                            [Kein Artikelbild verfügbar.]
+		                        <?php endif; ?>
                     		</div>
                             <div>
                                 <div>
@@ -27,6 +31,9 @@
                                 <div>
                                     <label>Name</label> <input type="text" name="name" value="<?php echo htmlspecialchars($article->getname()); ?>">
                                 </div>
+								<div>
+			                    	<label>Bild</label> <input type="file" name="image" value="<?php echo htmlspecialchars($article->getimage()); ?>">
+			                    </div>
                                 <div>
                                     <label>Geschlecht</label> <input type="text" name="gender" value="<?php echo htmlspecialchars($article->getgender()); ?>">
                                 </div>
