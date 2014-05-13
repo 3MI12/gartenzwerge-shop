@@ -7,10 +7,7 @@
 <div id="articleList">
 
 <?php foreach($data['articles'] as $article): ?>
-
-	
-
-		<a class="articleListItemLink" href="/article/list/<?php echo $article->getId(); ?>">
+	<a class="articleListItemLink" href="/article/list/<?php echo $article->getId(); ?>">
 		<div class="articleListItemWrapper">
             <div class="articleListImgContainer">
                 <?php if(!empty($article->getImage())): ?>
@@ -26,13 +23,10 @@
                 <div class="articleGender"><label>Geschlecht</label><span><?php echo htmlspecialchars($article->getGender(), 2); ?></span></div>
                 <div class="articleMaterial"><label>Material</label><span><?php echo htmlspecialchars($article->getMaterial(), 2); ?></span></div>
                 <div class="articleColor"><label>Farbe</label><span><?php echo htmlspecialchars($article->getColor(), 2); ?></span></div>
-        		
             </div>
         </div>
 		</a>
-        <form class="bearbeitenButton" action="/article/edit/<?php echo $article->getId(); ?>">
-    		<input type="submit" value="Bearbeiten">
-		</form>
+		<?php echo User::checkAdmin() ? '<form class="bearbeitenButton" action="/article/edit/<?php echo $article->getId(); ?>"><input type="submit" value="Bearbeiten"></form>' : '';?>
 <?php endforeach; ?>
 
 </div>

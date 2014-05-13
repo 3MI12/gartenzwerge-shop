@@ -1,3 +1,2 @@
-
-<div id="contentMenuLogin" class="contentMenuItem"><a href="login.php">Hallo! Hier anmelden!</a></div>
+<div id="contentMenuLogin" class="contentMenuItem"><?php echo User::loginStatus() ? '<a href="/user/login/">Hallo '.htmlspecialchars(User::getSessionUsername()).'</a>' : '<a href="/user/login/">Anmeldung</a>'; ?></div>
 <?php require ('suche.php'); ?>
