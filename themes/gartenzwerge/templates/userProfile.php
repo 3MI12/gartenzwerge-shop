@@ -1,9 +1,8 @@
+<?php if(!empty($data['user'])): $user = $data['user']; ?>
 <div class="title">
 Mein Konto
 </div>
 <div id="userShowWrapper" class="content">
-<?php if(!empty($data['user'])): $user = $data['user']; ?>
-
     <div class="subtitle">
     	<?php echo htmlspecialchars($user->getTitle()." ".$user->getFirstname()." ".$user->getLastname()); ?>
     </div>
@@ -36,11 +35,10 @@ Mein Konto
 	<div>
     	<a href="/user/edit/<?php echo $user->getUid(); ?>">////////BEARBEITEN////////</a></p>
 	</div>
+	<form id="loginForm" method="post" action="/user/login/">
+	<input name="logout" class="submit" type="submit" formmethod="post" value="Ausloggen">
+	</form>
+</div>
 <?php else: ?>
 User nicht vorhanden.
 <?php endif; ?>
-
-<form id="loginForm" method="post" action="/user/login/">
-<input name="logout" class="submit" type="submit" formmethod="post" value="Ausloggen">
-</form>
-</div>

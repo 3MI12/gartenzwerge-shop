@@ -50,9 +50,7 @@
                    
 				</div>
 			</div>
-			<form class="bearbeitenButton" action="/article/edit/<?php echo $article->getId(); ?>">
-    			<input type="submit" value="Bearbeiten">
-			</form>
+			<?php echo User::checkAdmin() ? '<form class="bearbeitenButton" action="/article/edit/<?php echo $article->getId(); ?>"><input type="submit" value="Bearbeiten"></form>' : '';?>
             </div>
             <div class="articleTextWrapper">
 				<div class="subtitle">

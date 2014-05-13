@@ -12,14 +12,10 @@
         	<label>Password</label> <input type="text" name="password"><br>
         	<input name="login" class="submit" type="submit" value="Einloggen">
         </form>
-		<form id="loginForm" method="post" action="/user/login/">
-    	<input name="logout" class="submit" type="submit" formmethod="post" value="Ausloggen">
-    	</form>
      <div class="subtitle">
     	Registrierung
     </div>
     <div class="titleHr"></div>
-   
        	<form id="regForm" method="post" action="/user/edit/">
             <label>Titel</label> <select id="" name="title" size="1"> <option value="Herr">Herr</option> <option value="Frau">Frau</option> </select><br>
             <label>Firstname</label> <input type="text" name="firstname"><br>
