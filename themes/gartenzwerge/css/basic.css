@@ -21,6 +21,7 @@ body{
   	float: left;
 	height: 115px;
 	position: fixed;
+	top:0;
 	width: 1200px;
 	z-index: 150;
 	background-image:url("../resourcen/icons/brushed.png");
