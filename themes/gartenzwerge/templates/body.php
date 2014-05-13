@@ -1,7 +1,7 @@
 <body>
 	<div id="wrapper">
 		<?php require TEMPLATE_PATH . 'header.php'; ?>
-       
+       XXX
         <div id="main">
             <div id="contentMenu">
             <?php 
@@ -11,6 +11,7 @@
             </div>
             <div id="contentWrapper">
             <?php
+				include TEMPLATE_PATH. 'messages.php';
                 $template = isset($template) ? $template : '404';
                 $templateFile = TEMPLATE_PATH.$template.'.php';
                 if(file_exists($templateFile)) {
