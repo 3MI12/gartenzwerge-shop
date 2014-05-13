@@ -18,7 +18,7 @@ Nutzerverwaltung
     <div class="titleHr"></div>
     <div>
     	<form id="userCreateForm" method="post" action="/user/edit/">
-			<input disabled type="text" name="UID" value="">
+			<input disabled type="text" name="ID" value="">
 			<input type="text" name="Lastname" value="Mustermann">
 			<input type="text" name="Firstname" value="Max">      
 			<input type="text" name="email" value="max.mustermann@brokkolimails.de">
@@ -41,7 +41,7 @@ Nutzerverwaltung
     
 		<?php foreach($data['user'] as $sysuser): ?>
 		<form id="userUpdateForm" method="post" action="/user/edit/">
-			<input disabled type="text" name="UID" value="<?php echo number_format($sysuser->getUid()); ?>">
+			<input disabled type="text" name="ID" value="<?php echo number_format($sysuser->getId()); ?>">
 			<input disabled type="text" name="Lastname" value="<?php echo htmlspecialchars($sysuser->getLastname()); ?>">
 			<input disabled type="text" name="Firstname" value="<?php echo htmlspecialchars($sysuser->getFirstname()); ?>">      
 			<input disabled type="text" name="email" value="<?php echo htmlspecialchars($sysuser->getEmail()); ?>">
@@ -55,8 +55,8 @@ Nutzerverwaltung
                 <label ></label>
   			</div>
 
-            <button class="userButton" name="userStatus" id="btn-userUpdate" type="submit" formaction="/user/edit/<?php echo $sysuser->getUid(); ?>" formmethod="post"></button>
-			<button class="userButton" name="userDetail" id="btn-userDetail" type="submit" formaction="/user/show/<?php echo $sysuser->getUid(); ?>" formmethod="post"></button>
+            <button class="userButton" name="userStatus" id="btn-userUpdate" type="submit" formaction="/user/edit/<?php echo $sysuser->getId(); ?>" formmethod="post"></button>
+			<button class="userButton" name="userDetail" id="btn-userDetail" type="submit" formaction="/user/show/<?php echo $sysuser->getId(); ?>" formmethod="post"></button>
 		</form>
 		<?php endforeach; ?>
 	</div>
