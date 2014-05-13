@@ -7,7 +7,7 @@ switch($action) {
 		$template = 'orderList';
 		break;
 	case 'show':
-		$data = $_SESSION['order']->getArticles($entityManager);
+		$data = $_SESSION['order']->getOrderData();
 		$template = 'order';
 		break;
 	case 'edit':

@@ -4,17 +4,23 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @Entity
- * @Table(name="order")
+ * @Table(name="`order`")
  */
 class Order {
 	/** @Id @GeneratedValue @Column(type="integer", unique=true, nullable=false) */
 	private $id;
 	/**
-     * @ManyToMany(targetEntity="User")
+     * @ManyToOne(targetEntity="User", inversedBy="orders")
      **/
 	private $user;
+	/** @date @Column(type="datetime") */
+	private $ordertime;
+	/** @Column(type="decimal", precision=10, scale=2, nullable=false) */
+	private $price;
+	/** @Column(type="boolean") */
+	private $canceled;
 	/**
-     * @ManyToMany(targetEntity="OrderArticle")
+     * @ManyToMany(targetEntity="OrderArticle", cascade={"persist"})
      **/
 	private $positions;
 
@@ -40,58 +46,77 @@ class Order {
 		$orderQuantity = getPostParam('orderquantity', array());
 		foreach($orderQuantity as $articleId => $quantity) {
 			$article = Article::getById($em, $articleId);
+			$orderArticle = $this->positions->get($articleId);
+			if(!$orderArticle) {
+				$orderArticle = OrderArticle::createFromArticle($article);
+				$this->positions->set($articleId, $orderArticle);
+			}
 			if($quantity > 0) {
 				if($article->getInventory() >= $quantity) {
-					$this->positions[$articleId] = $quantity;
+					$orderArticle->setQuantity($quantity);
 				}
 				else {
-					$this->positions[$articleId] = $article->getInventory();
+					$orderArticle->setQuantity($article->getInventory());
 					$data['success'] = false;
-					$data['error'][] = 'Von Artikel ' . $article->getName() . ' sind nur noch ' . $article->getInventory() . ' Stück auf Lager!';
+					$data['error'][] = 'Von Artikel ' . $orderArticle->getName() . ' sind nur noch ' . $article->getInventory() . ' Stück auf Lager!';
 				}
 			}
 			else {
-				unset($this->positions[$articleId]);
+				$this->positions->remove($articleId);
 			}
 		}
-		$articles = $this->getArticles($em);
-		$data['positions'] = $articles['positions'];
-		$data['sumPrices'] = $articles['sumPrices'];
+		$data['positions'] = $this->positions;
+		$data['price'] = $this->calcPrice();
 		return $data;
 	}
 	
-	public function getArticles($em) {
-		$data = ['positions' => []];
-		$sumPrices = 0;
-		foreach($this->positions as $articleId => $quantity) {
-			$article = Article::getById($em, $articleId);
-			$data['positions'][] = ['article' => $article, 'quantity' => $quantity];
-			$sumPrices += $article->getPrice() * $quantity;
+	public function calcPrice() {
+		$price['articles'] = 0;
+		foreach($this->positions as $orderArticle) {
+			$price['articles'] += $orderArticle->getPrice() * $orderArticle->getQuantity();
 		}
-		$data['sumPrices'] = $sumPrices;
-		return $data;
+		$price['shipping'] = $price['articles'] < SHIPPING_FREE_FROM ? SHIPPING_FEE : 0;
+		$price['total'] = $price['articles'] + $price['shipping'];
+		$this->price = $price['total'];
+		return $price;
 	}
 	
 	public function getQuantityById($articleId) {
-		return isset($this->positions[$articleId]) ? $this->positions[$articleId] : 0;
+		$orderArticle = $this->positions->get($articleId);
+		return $orderArticle ? $orderArticle->getQuantity() : 0;
+	}
+	
+	public function getOrderData() {
+		return array(
+			'positions' => $this->positions,
+			'price' => $this->calcPrice(),
+		);
 	}
 	
 	public function finalize($em) {
 		$data = array('success' => true, 'error' => array());
-		foreach($this->positions as $articleId => $quantity) {
-			$article = Article::getById($em, $articleId);
-			if($quantity > $article->getInventory()) {
+		if(!$_SESSION['user']->getId()) {
+			$_SESSION['messages'][] = 'Sie müssen sich zunächst anmelden!';
+			$data['redirect'] = '/user/login/';
+			return $data;
+		}
+		$this->user = $_SESSION['user']->getId();
+		foreach($this->positions as $orderArticle) {
+			$article = Article::getById($em, $orderArticle->getArticleId());
+			if($orderArticle->getQuantity() > $article->getInventory()) {
 				$data['success'] = false;
 				$data['error'][] = 'Von Artikel ' . $article->getName() . ' sind nur noch ' . $article->getInventory() . ' Stück auf Lager!';
-				$this->positions[$articleId] = $article->getInventory();
+				$orderArticle->getQuatity($article->getInventory());
 			}
 		}
 		if($data['success']) {
-			foreach($this->positions as $articleId => $quantity) {
-				$article = Article::getById($em, $articleId);
-				$article->setInventory($article->getInventory() - $quantity);
+			foreach($this->positions as $orderArticle) {
+				$article = Article::getById($em, $orderArticle->getArticleId());
+				$article->setInventory($article->getInventory() - $orderArticle->getQuantity());
+				$em->persist($article);
 			}
 		}
+		$this->ordertime = new DateTime();
 		$em->persist($this);
 		$em->flush();
 		return $data;

@@ -54,9 +54,13 @@ class User
 	private $status;
 	
 	/**
-	 * @ManyToMany(targetEntity="Order")
+	 * @OneToMany(targetEntity="Order", mappedBy="user")
 	*/
 	private $orders;
+	
+	public function __construct() {
+		$this->orders = new ArrayCollection();
+	}
 	
 	public static function getAllUser($entityManager) {
 		return $entityManager->getRepository('User')->findAll();
@@ -79,7 +83,6 @@ class User
 		}
 		
 		if(isset($_POST['userStatus'])){
-			var_dump($_POST);
 			$user->setStatus(getPostParam('Status',false));
 			$user->setAdmin(getPostParam('Admin',false));
 			$entityManager->persist($user);
@@ -129,9 +132,6 @@ class User
 						
 			$data['success'] = true;
 			$data['user'] = $user;
-				if (!User::checkAdmin()){
-					$_SESSION['user'] = $user;
-				}
 			}else{
 				$data['error'][] = "Der Nutzer konnte nicht bearbeitet oder erstellt werden!";
 			}
@@ -183,10 +183,6 @@ class User
 	
 	public static function getSessionId() {
 		return $_SESSION['user']->getId();
-	}
-	
-	public static function getSessionUsername() {
-		return $_SESSION['user']->getFirstname().' '.$_SESSION['user']->getLastname();
 	}
 	
 	public function setId()
