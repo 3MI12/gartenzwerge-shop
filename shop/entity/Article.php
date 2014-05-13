@@ -10,7 +10,7 @@ class Article
 	private $id;
 	/** @Column(type="boolean") */
 	private $active;
-	/** @Column(type="string", length=10, unique=true, nullable=false) */
+	/** @Column(type="string", length=10, unique=true, nullable=true) */
 	private $articlenumber;
 	/** @Column(type="string", length=100, nullable=false) */
 	private $name;

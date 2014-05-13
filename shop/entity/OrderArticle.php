@@ -30,7 +30,7 @@ class OrderArticle extends Article
 		$orderArticle = new OrderArticle();
 		$orderArticle->setArticleid($article->getId());
 		$orderArticle->setActive($article->getActive());
-		$orderArticle->setArticlenumber($article->getArticlenumber());
+		$orderArticle->setArticlenumber(NULL); //$article->getArticlenumber());
 		$orderArticle->setName($article->getName());
 		$orderArticle->setImage($article->getImage());
 		$orderArticle->setGender($article->getGender());
