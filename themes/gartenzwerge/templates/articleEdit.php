@@ -19,7 +19,7 @@
                     	<form id="articleEditForm" action="" method="post" enctype="multipart/form-data">
                         	<div class="articleImgContainer">
                   				<?php if(!empty($article->getImage())): ?>
-		                            <img src="<?php echo htmlspecialchars('/media/'. $article->getImage() . '-large.jpg'); ?>" alt="<?php echo htmlspecialchars($article->getName()); ?>" style="height:100%; width:auto; margin:auto auto;" >
+		                            <img src="<?php echo htmlspecialchars('/media/'. $article->getImage() . '-medium.jpg'); ?>" alt="<?php echo htmlspecialchars($article->getName()); ?>" style="height:100%; width:auto; margin:auto auto;" >
 		                        <?php else: ?>
 		                            [Kein Artikelbild verfügbar.]
 		                        <?php endif; ?>
