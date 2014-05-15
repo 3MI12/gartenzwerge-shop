@@ -1,37 +1,59 @@
 $( document ).ready(function() {
-	if( $(".checkboxStatus").prop("checked") == true ){
-		$(".checkboxStatus").children("label").css( { left: 7, backgroundColor: "#444444" } );
+/** checkbox **/
+$(".checkboxStatus").each(function(){
+	if( $(this).children("input").val() == "true" ) {
+		$(this).children("label").css( { left: 40, backgroundColor: "#BCC2BA" } );
 		}
 		else {
-			$(".checkboxStatus").children("label").css( { left: 40, backgroundColor: "#BCC2BA" } );
+			$(this).children("label").css( { left: 7, backgroundColor: "#444444" } );
 			}
-	
-	if( $(".checkboxAdmin").prop("checked") == true ){
-		$(".checkboxAdmin").children("label").css( { left: 7, backgroundColor: "#444444" } );
+	})
+
+$(".checkboxAdmin").each(function(){
+	if( $(this).children("input").val() == "true" ) {
+		$(this).children("label").css( { left: 40, backgroundColor: "#BCC2BA" } );
 		}
 		else {
-			$(".checkboxAdmin").children("label").css( { left: 40, backgroundColor: "#BCC2BA" } );
+			$(this).children("label").css( { left: 7, backgroundColor: "#444444" } );
 			}
-	
-	if( $(".checkboxArticleActive").prop("checked") == true ){
-		$(".checkboxArticleActive").children("label").css( { left: 7, backgroundColor: "#444444" } );
+	})
+
+$(".checkboxStatus").click(function(){
+	if( $(this).children("input").val() == "true" ){
+		$(this).children("input").val("false");
+		$(this).children("label").animate( { left: 7, backgroundColor: "#444444" }, "slow");
+		}
+		 else {
+			$(this).children("input").val("true");
+			$(this).children("label").animate( { left: 40, backgroundColor: "#BCC2BA" }, "slow");
+			}
+})
+
+$(".checkboxAdmin").click(function(){
+	if( $(this).children("input").val() == "true" ){
+		$(this).children("input").val("false");
+		$(this).children("label").animate( { left: 7, backgroundColor: "#444444" }, "slow");
 		}
 		else {
-			$(".checkboxArticleActive").children("label").css( { left: 40, backgroundColor: "#BCC2BA" } );
+			$(this).children("input").val("true");
+			$(this).children("label").animate( { left: 40, backgroundColor: "#BCC2BA" }, "slow");
 			}
+	})
 	
-	
-	});
+$(".checkboxArticleActive").click(function(){
+	if( $(this).children("input").val() == "true" ){
+		$(this).children("input").val("false");
+		$(this).children("label").animate( { left: 7, backgroundColor: "#444444" }, "slow");
+		}
+		else {
+			$(this).children("input").val("true");;
+			$(this).children("label").animate( { left: 40, backgroundColor: "#BCC2BA" }, "slow");
+			}
+	})
+});
 
 $( document ).ready(function() {
 /** header items fadeOut on contentSrcolling **/	
-/*	$(window).scroll(function(){
-		var scrollPosition = $(this).scrollTop();
-		if(scrollPosition > 280){
-			$("#menu").fadeOut("slow");}
-			else { $("#menu").fadeIn("slow"); }
-		})*/
-		
 $(window).scroll(function(){
 		var scrollPosition = $(this).scrollTop();
 		var menuPosition = $("#menu").css("top");
@@ -55,34 +77,70 @@ $(window).scroll(function(){
 		})
 	
 /** filter **/
-function filter(){
-	alert("test");
-	}
-
-/*$("#btn-filter").click(function(){
-	var genderMaleFilter;
-	var genderFemaleFilter; 
-	if($("#filter input[type='male']").is(":checked")){ genderMaleFilter = true } else { genderMaleFilter = false };
-	if($("#filter input[type='female']").is(":checked")){ genderFemaleFilter = true } else { genderFemaleFilter = false };
-	var colorFilter = $("#filter select[name='farbe']").prop("value");
-	var materialFilter = $("#filter select[name='material']").prop("value");
-	var minSizeFilter = $("#filter #rangeBoxMin input[type='range']").prop("value");
-	var maxSizeFilter = $("#filter #rangeBoxMax input[type='range']").prop("value");
+$("#btn-filter").click(function(){
+	var genderFilter;
+	var categoryFilter;
 	
-	alert( genderMaleFilter + " " + genderFemaleFilter + " " + colorFilter + " " + materialFilter + " " + minSizeFilter + " " + maxSizeFilter);
-	
-	$(".articleListItemWrapper").each(function() {
-        var genderMaleArticle;
-		var genderMaleArticle;
-		if($(this).children("articleGender span").text() == "male"){ genderMaleArticle = true } else { genderMaleArticle = false };
-		if($(this).children("articleGender span").text() == "female"){ genderFemaleArticle = true } else { genderFemaleArticle = false };
-		var colorArticle = $(this).children("articleColor span").text()
-		var materialArticle = $(this).children("materialColor span").text()
-		
-		if( materialFilter == material() )
-    });
-	
-	})*/
+	if( (($("#filter input[name='male']").is(":checked") || $("#filter input[name='female']").is(":checked")) == true) && (($("#filter input[name='indoor']").is(":checked") || $("#filter input[name='outdoor']").is(":checked")) == true) )
+		{	
+		  	if( $("#filter input[name='male']").is(":checked") && $("#filter input[name='female']").is(":checked") )
+				{ genderFilter = 3 } 
+				else if( $("#filter input[name='female']").is(":checked") )
+						{ genderFilter = 2; }
+						else { genderFilter = 1; }
+						
+			if( $("#filter input[name='indoor']").is(":checked") && $("#filter input[name='outdoor']").is(":checked") )
+				{ categoryFilter = 3 } 
+				else if( $("#filter input[name='outdoor']").is(":checked") )
+						{ categoryFilter = 2; }
+						else { categoryFilter = 1; }
+			
+			var colorFilter = $("#filter select[name='farbe']").prop("value");
+			var materialFilter = $("#filter select[name='material']").prop("value");
+			var minSizeFilter = parseInt($("#filter #rangeBoxMin input[type='range']").prop("value"));
+			var maxSizeFilter = parseInt($("#filter #rangeBoxMax input[type='range']").prop("value"));
+				
+			$(".articleListItemWrapper").each(function() {
+				var showStatus;
+				var genderArticle;
+				var categoryArticle
+				var sizeArticle;
+				var genderStatus;
+				var colorStatus;
+				var materialStatus;
+				var sizeStatus;
+				var categoryStatus;
+						
+				if( ($(this).children(".articleInfos").children(".articleGender").children("span").text()) == "male" ){ genderArticle = 1 } else { genderArticle = 2 };
+				if( ($(this).children(".articleInfos").children(".articleCategory").children("span").text()) == "indoor" ){ categoryArticle = 1 } else { categoryArticle = 2 };
+				
+				var colorArticle = $(this).children(".articleInfos").children(".articleColor").children("span").text();
+				var materialArticle = $(this).children(".articleInfos").children(".articleMaterial").children("span").text();
+				var sizeArticle = parseInt($(this).children(".articleInfos").children(".articleSize").children("span").text());
+				
+				if( categoryFilter == 3) { categoryStatus = true }
+					else if ( categoryFilter == genderArticle ) { categoryStatus = true }
+						else { categoryStatus = false }
+				
+				if( genderFilter == 3) { genderStatus = true }
+					else if ( genderFilter == genderArticle ) { genderStatus = true }
+						else { genderStatus = false }
+						
+				if(	colorFilter == "-") { colorStatus = true } 
+					else if( colorFilter == colorArticle ) { colorStatus = true } else { colorStatus = false } 
+				
+				if(	materialFilter == "-") { materialStatus = true }
+					else if( materialFilter == materialArticle ) { materialStatus = true } else { materialStatus = false }
+					
+				if( (sizeArticle > minSizeFilter) && (sizeArticle < maxSizeFilter)  ) { sizeStatus = true; } else { sizeStatus = false }
+				
+				if( (genderStatus && categoryStatus && colorStatus && materialStatus && sizeStatus) == true) { $(this).fadeIn("slow") } else { $(this).fadeOut("slow") }
+			});
+		}
+	else{
+			$("#filterError").fadeIn("slow").delay(5000).fadeOut("slow");	
+		}
+	})
 
 /** Artikelverwaltung **/
 
@@ -104,38 +162,5 @@ $(".btn-articleText").click(function(){
 	$(this).parent("form").children(".articleText").toggle(1000);
 });
 
-$(".checkboxStatus").click(function(){
-	alert($(this).children("input").prop("checked"));
-	if( $(this).children("input").prop("checked") == true ){
-		$(this).children("input").attr("checked" , false);
-		$(this).children("label").animate( { left: 7, backgroundColor: "#444444" }, "slow");
-		}
-		 else {
-			$(this).children("input").attr("checked" , true);
-			$(this).children("label").animate( { left: 40, backgroundColor: "#BCC2BA" }, "slow");
-			}
-})
-
-$(".checkboxAdmin").click(function(){
-	if( $(this).prop("checked") == true ){
-		$(this).prop("checked" , false);
-		$(this).children("label").animate( { left: 7, backgroundColor: "#444444" }, "slow");
-		}
-		else {
-			$(this).prop("checked" , true);
-			$(this).children("label").animate( { left: 40, backgroundColor: "#BCC2BA" }, "slow");
-			}
-	})
-	
-$(".checkboxArticleActive").click(function(){
-	if( $(this).prop("checked") == true ){
-		$(this).prop("checked" , false);
-		$(this).children("label").animate( { left: 7, backgroundColor: "#444444" }, "slow");
-		}
-		else {
-			$(this).prop("checked" , true);
-			$(this).children("label").animate( { left: 40, backgroundColor: "#BCC2BA" }, "slow");
-			}
-	})
 
 });

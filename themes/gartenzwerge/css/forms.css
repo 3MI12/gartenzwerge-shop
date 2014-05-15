@@ -101,13 +101,14 @@ select option[val="rot"]{
   background-color: #BAC0B4;
   border-radius: 50px;
   color: #636A63;
+  text-align:center;
   float: left;
-  height: 45px;
+  height: 55px;
   line-height: 41px;
   margin-right: 10px;
   padding: 6px;
   position: relative;
-  width: 45px;
+  width: 55px;
 }
  
 #rangeBox > div > div > span{
@@ -145,12 +146,18 @@ select option[val="rot"]{
   border: medium none;
   color: #636A63;
   float: left;
-  height: 20px;
+  height: 15px;
+  margin-right: 9px;
   position: relative;
   top: 10px;
-  width: 20px;
-  margin-right:3px;
+  width: 30px;
 }
+
+#rangeBoxMax .rangeDisplay{
+	left:11px;}
+
+#rangeBoxMin .rangeDisplay{
+	left:17px;}
 
 #filter button {
   background-color: #BAC0B4;
@@ -364,12 +371,6 @@ input.submit:hover{
 	display: block;
 	width: 35px;
 	height: 22px;
-
-	/*-webkit-transition: all .5s ease;
-	-moz-transition: all .5s ease;
-	-o-transition: all .5s ease;
-	-ms-transition: all .5s ease;
-	transition: all .5s ease;*/
 	cursor: pointer;
 	position: absolute;
 	top: 9px;
@@ -377,6 +378,18 @@ input.submit:hover{
 	left: 5px;
 	background: #444;
 }
+
+/*.checkboxStatus < input[value="false"]{
+	display: block;
+	width: 35px;
+	height: 22px;
+	cursor: pointer;
+	position: absolute;
+	top: 9px;
+	z-index: 1;
+	left: 5px;
+	background: #fff !important;
+}*/
 
 .checkboxAdmin {
 	margin-left:2px;
@@ -819,8 +832,12 @@ input.submit:hover{
   position: relative;
 }
 
-#articleList form.bearbeitenButton{
-	margin-top:-10px !important;}
+#articleList form.bearbeitenButton {
+  bottom: -43px;
+  margin-top: 0 !important;
+  position: absolute;
+  right: 60px;
+}
 
 .bearbeitenButton input{
   background-color: #BCC2BA;

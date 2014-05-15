@@ -23,10 +23,12 @@
                 <div class="articleGender"><label>Geschlecht</label><span><?php echo htmlspecialchars($article->getGender(), 2); ?></span></div>
                 <div class="articleMaterial"><label>Material</label><span><?php echo htmlspecialchars($article->getMaterial(), 2); ?></span></div>
                 <div class="articleColor"><label>Farbe</label><span><?php echo htmlspecialchars($article->getColor(), 2); ?></span></div>
+                <div class="articleCategory"><label>Kategorie</label><span><?php echo htmlspecialchars($article->getCategory(), 2); ?></span></div>
             </div>
+            <?php echo User::checkAdmin() ? '<form class="bearbeitenButton" action="/article/edit/'.$article->getId().'"><input type="submit" value="Bearbeiten"></form>' : '';?>
         </div>
 		</a>
-		<?php echo User::checkAdmin() ? '<form class="bearbeitenButton" action="/article/edit/'.$article->getId().'"><input type="submit" value="Bearbeiten"></form>' : '';?>
+		
 <?php endforeach; ?>
 
 </div>

@@ -187,16 +187,33 @@ body{
 	color:#bac0b4;
 	font-size:16px;
 	font-family:"Lato";}
+
+#filterError {
+	display:none;
+  background-color: #EEEEEE;
+  border: 3px solid #D8A758;
+  color: #D8A758;
+  font-size: 18px;
+  height: auto;
+  left: 102px;
+  padding: 15px 20px;
+  position: absolute;
+  text-align: center;
+  top: 2px;
+  width: 200px;
+  z-index: 250;
+}
 	
-#contentWrapper{
-	position:relative;
-	float:left;
-	width:1000px;
-	min-height:800px;
-	background-image:url("../resourcen/icons/brushed.png");
-	border-bottom-left-radius:25px;
-	border-bottom-right-radius:25px;
-	padding:40px 100px;}
+#contentWrapper {
+  background-image: url("../resourcen/icons/brushed.png");
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  float: left;
+  min-height: 800px;
+  padding: 40px 100px 200px;
+  position: relative;
+  width: 1000px;
+}
 
 #contentDeko{
 	position:absolute;
