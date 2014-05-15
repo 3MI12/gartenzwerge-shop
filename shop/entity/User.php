@@ -85,8 +85,24 @@ class User
 		}
 		
 		if(isset($_POST['userStatus'])){
-			$user->setStatus(getPostParam('Status',false));
-			$user->setAdmin(getPostParam('Admin',false));
+			switch(getPostParam('Status')) {
+				case 'true':
+					$user->setStatus(true);
+					break;
+				case 'false':
+					$user->setStatus(false);
+					break;
+				default:
+			}
+			switch(getPostParam('Admin')) {
+				case 'true':
+					$user->setAdmin(true);
+					break;
+				case 'false':
+					$user->setAdmin(false);
+					break;
+				default:
+			}
 			$entityManager->persist($user);
 			$entityManager->flush();
 			$data['statusupdate'] = true;

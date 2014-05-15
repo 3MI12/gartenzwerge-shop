@@ -83,7 +83,7 @@ dt { float:left; cear:left; width:10em; }
 	position:relative;
 	float:left;
 	clear:both;
-	margin-bottom:20px;
+	margin-bottom:35px;
 	height:120px;
 	width:1000px;
 	padding:10px 15px;
@@ -113,11 +113,12 @@ dt { float:left; cear:left; width:10em; }
 /*#userShowWrapper div:nth-child(5){
 	clear:none;}*/
 
-.articleInfos div{
-	position:relative;
-	float:left;
-	margin-left:25px;
-	margin-top:15px;}
+.articleInfos div {
+  float: left;
+  margin-left: 25px;
+  margin-top: 8px;
+  position: relative;
+}
 
 .articleInfos div label{
 	position:relative;
