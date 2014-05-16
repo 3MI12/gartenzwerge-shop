@@ -143,6 +143,21 @@ $("#btn-filter").click(function(){
 	})
 
 /** Artikelverwaltung **/
+/** selectBoxen **/
+var selectedMaterial = $("#articleEditForm select[name='material'] option:selected").val();
+$("#articleEditForm select[name='material'] option").each(function(){
+	if( $(this).val() == selectedMaterial ){
+		$(this).css("display" , "none");
+		}	
+})
+
+var selectedColor = $("#articleEditForm select[name='color'] option:selected").val();
+$("#articleEditForm select[name='color'] option").each(function(){
+	if( $(this).val() == selectedColor ){
+		$(this).css("display" , "none");
+		}	
+})
+
 
 /*** footer ausklappen ***/
 $("#footerUp").click(function(){
