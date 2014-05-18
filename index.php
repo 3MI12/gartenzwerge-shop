@@ -4,10 +4,13 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 require_once 'bootstrap.php';
 
 session_start();
+if (isset($_SESSION['activity']) && (time() - $_SESSION['activity'] > 3600)) {
+    session_unset();
+    session_destroy();
+}
+$_SESSION['activity'] = time();
 $_SESSION['user'] = isset($_SESSION['user']) ? $_SESSION['user'] : new User();
 $_SESSION['order'] = isset($_SESSION['order']) ? $_SESSION['order'] : new Order();
-
-//echo '<pre>'; var_dump($_GET, $_POST, $_SERVER); echo '</pre>'; exit;
 
 $controller = isset($_GET['controller']) ? $_GET['controller'] : 'article';
 $action = isset($_GET['action']) ? $_GET['action'] : ($controller == 'article' ? 'list' : null);
