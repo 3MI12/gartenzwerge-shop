@@ -203,9 +203,11 @@ select option[val="rot"]{
 #articleEditForm{
 	float:left;}
 	
-#articleEditForm > div{
-	float:left;
-	margin-right:15px;}
+#articleEditForm > div {
+  float: left;
+  margin-right: 15px;
+  width: 310px;
+}
 
 #articleEditForm > div:nth-child(4){
 	clear:both;
@@ -874,7 +876,7 @@ input.submit:hover{
   right: 60px;
 }
 
-.bearbeitenButton input, #userShowWrapper a {
+.bearbeitenButton input, #neuerArtikel input, #userShowWrapper a {
   background-color: #BCC2BA;
   border: thin solid #636A63;
   border-radius: 15px;
@@ -891,10 +893,16 @@ input.submit:hover{
   width: 200px;
 }
 
+#neuerArtikel{
+	position:relative;
+	float:left;
+	clear:both;
+	margin-bottom:25px;}
+
 #userShowWrapper a{
 	padding:0 !important;}
 
-.bearbeitenButton input:hover, #userShowWrapper a:hover{
+.bearbeitenButton input:hover, #neuerArtikel input:hover, #userShowWrapper a:hover{
 	background-color:#636A63;
 	color:#BCC2BA;}
 
