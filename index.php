@@ -34,6 +34,8 @@ switch($controller) {
 		$template = '404';
 }
 
+//echo '<pre>'; var_dump($data); echo '</pre>';
+
 if(!empty($data['redirect'])) {
 	header('Location: http' . (empty($_SERVER['HTTPS']) ? '' : 's') . '://' . $_SERVER['HTTP_HOST'] . $data['redirect']);
 	exit;

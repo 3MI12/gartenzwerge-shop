@@ -11,6 +11,10 @@ class OrderArticle extends Article
 	
 	/** @Column(type="integer", nullable=false) */
 	private $quantity;
+	// /**
+    // * @OneToOne(targetEntity="Order")
+    // **/	
+	//private $order;
 	
 	public function getArticleid() {
 		return $this->articleid;
