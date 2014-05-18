@@ -8,7 +8,7 @@
     </div>
     <div class="titleHr"></div>
         <form id="loginForm" method="post" action="/user/login/">
-       		<label>eMail</label> <input type="text" name="email" required="required"><br>
+       		<label>eMail</label> <input type="email" name="email" required="required"><br>
         	<label>Password</label> <input type="password" name="password" required="required"><br>
         	<input name="login" class="submit" type="submit" value="Einloggen">
         </form>

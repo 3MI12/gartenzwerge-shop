@@ -128,7 +128,7 @@ body{
 #headerSubtitle{
 	display:none;
 }
-	} 
+}
  
  
 /** slider **/ 
@@ -175,6 +175,33 @@ body{
 	padding:5px 10px;
 	line-height:30px;
 	font-size:18px;}
+
+#suche > form{
+	float:left;}
+
+#suche > button {
+  float: left;
+  height: 30px;
+  position: relative;
+  width: 30px;
+  z-index: 40;
+  border:none;
+  background: transparent;
+  background-image:url("../resourcen/icons/searchIcon.png");
+  margin-left:7px;
+  cursor:pointer;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 90% auto;
+  transition: background-size 200ms ease-in, border 200ms ease-in;
+  -moz-transition: background-size 200ms ease-in, border 200ms ease-in;
+  -ms-transition: background-size 200ms ease-in, border 200ms ease-in;
+  -o-transition: background-size 200ms ease-in, border 200ms ease-in;
+  -webkit-transition: background-size 200ms ease-in, border 200ms ease-in;
+}
+
+#suche > button:hover{
+	background-size:75%;}
 
 #filter{
 	position:absolute;
@@ -320,4 +347,19 @@ body{
   top: 83px;
   width: 500px;
   text-align:center;
+}
+
+#errorBox{
+	position:relative;
+	float:left;
+	clear:both;
+  background-color: #EEEEEE;
+  border: 3px solid #D8A758;
+  color: #D8A758;
+  font-size: 18px;
+  height: auto;
+  padding: 15px 20px;
+  position: absolute;
+  text-align: center;
+  z-index: 250;
 }

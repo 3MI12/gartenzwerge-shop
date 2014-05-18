@@ -1,8 +1,8 @@
 <div id="footerWrapper">
-	<div id="footerKontakt"></div>
+	<a href="/page/contact/" style="height:100%; width:100%;"><div id="footerKontakt"></div></a>
     <div id="footerUp"></div> 
     <div id="footerDown"></div> 
-    <div id="footerImpressum"></div>  
+    <a href="/page/impressum/" style="height:100%; width:100%;"><div id="footerImpressum"></div></a>  
     <div id="footerContent">
     	<div id="footerLinks">
         	<div>
@@ -13,8 +13,8 @@
           	</div>
             <div>
             	<a href="/cart/">Warenkorb</a><br />
-            	<a href="/contact/">Kontakt</a><br />
-            	<a href="/impressum/">Impressum</a><br />
+            	<a href="/page/contact/">Kontakt</a><br />
+            	<a href="/page/impressum/">Impressum</a><br />
         	</div>
         </div>
         <div id="footerAdresse">
