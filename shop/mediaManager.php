@@ -45,7 +45,7 @@ public static function generateLarge($file,$name){
 }
 
 public static function uploadPicture($file){
-	if(true){
+	if(exif_imagetype($file) == IMAGETYPE_JPEG){
 		$name = hash_file('MD5', $file);
 		media::generateSmall($file,$name);
 		media::generateMedium($file,$name);
