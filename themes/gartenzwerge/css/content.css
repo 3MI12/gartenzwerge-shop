@@ -1,4 +1,8 @@
 /** Wrapper **/
+a img{
+	border:none;
+	text-decoration:none;}
+
 .content{
 	float:left;}
 
@@ -100,6 +104,7 @@ dt { float:left; cear:left; width:10em; }
 	top:0;
 	width:120px;
 	height:120px;
+	border:none;
 	border:1px solid #535d54;
 	background-color:white;
 	text-align:center;}	
@@ -132,7 +137,7 @@ dt { float:left; cear:left; width:10em; }
 	color:#E6E6E6;
 	text-align:center;}
 
-.articleInfos div span{
+.articleInfos div > span{
 	position:relative;
 	float:left;
 	width:auto;

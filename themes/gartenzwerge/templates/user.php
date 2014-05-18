@@ -34,7 +34,7 @@ Kundenkonto <?php echo htmlspecialchars($data['user']->getId()); ?>
     	<label>IBAN</label><span><?php echo htmlspecialchars($user->getIban()); ?></span>
     </div>
 	<div>
-    	<a href="/user/edit/<?php echo $user->getId(); ?>">////////BEARBEITEN////////</a></p>
+    	<a href="/user/edit/<?php echo $user->getId(); ?>">Bearbeiten</a>
 	</div>
 <?php else: ?>
 User nicht vorhanden.

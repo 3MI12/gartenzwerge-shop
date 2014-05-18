@@ -1,21 +1,20 @@
 <div id="footerWrapper">
-	<div id="footerKontakt"></div>
+	<a href="/page/contact/" style="height:100%; width:100%;"><div id="footerKontakt"></div></a>
     <div id="footerUp"></div> 
     <div id="footerDown"></div> 
-    <div id="footerImpressum"></div>  
+    <a href="/page/impressum/" style="height:100%; width:100%;"><div id="footerImpressum"></div></a>  
     <div id="footerContent">
     	<div id="footerLinks">
         	<div>
             	<a href="../../index.php">Startseite</a><br />
-            	<a href="../../template/indoor.php">Indoor</a><br />
-            	<a href="../../template/outdoor.php">Outdoor</a><br />
-            	<a href="../../template/anmeldung.php">Mein Profil</a><br />
+            	<a href="/user/login/">Anmeldung</a><br />
+            	<a href="/article/list/">Shop</a><br />
+            	<a href="/user/login/">Mein Profil</a><br />
           	</div>
             <div>
-            	<a href="../../template/profil.php">Warenkorb</a><br />
-            	<a href="../../template/warenkorb.php">Anmeldung</a><br />
-            	<a href="../../template/kontakt.php">Kontakt</a><br />
-            	<a href="../../template/impressum.php">Impressum</a><br />
+            	<a href="/cart/">Warenkorb</a><br />
+            	<a href="/page/contact/">Kontakt</a><br />
+            	<a href="/page/impressum/">Impressum</a><br />
         	</div>
         </div>
         <div id="footerAdresse">

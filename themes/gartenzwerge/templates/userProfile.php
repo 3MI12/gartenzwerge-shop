@@ -33,7 +33,7 @@ Mein Konto
     	<label>IBAN</label><span><?php echo htmlspecialchars($user->getIban()); ?></span>
     </div>
 	<div>
-    	<a href="/user/edit/<?php echo $user->getId(); ?>">////////BEARBEITEN////////</a></p>
+    	<a class="userEdit" href="/user/edit/<?php echo $user->getId(); ?>">Bearbeiten</a></p>
 	</div>
 	<form id="loginForm" method="post" action="/user/login/">
 	<input name="logout" class="submit" type="submit" formmethod="post" value="Ausloggen">

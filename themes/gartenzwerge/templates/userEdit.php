@@ -6,11 +6,11 @@
 <?php require THEME_PATH . 'templates/errorList.php'; ?>
 <form id="userEditForm" action="" method="post">
 <div>
-    <label>Titel</label> <input type="text" name="title" value="<?php echo htmlspecialchars($user->getTitle()); ?>">
-    <label>Vorname</label> <input type="text" name="firstname" value="<?php echo htmlspecialchars($user->getFirstname()); ?>">
-    <label>Nachname</label><input type="text" name="lastname" value="<?php echo htmlspecialchars($user->getLastname()); ?>">
-    <label>eMail</label><input type="text" name="email" value="<?php echo htmlspecialchars($user->getEmail()); ?>">
-    <label>Passwort</label><input type="text" name="password" value="">
+    <label>Titel</label> <input type="text" name="title" value="<?php echo htmlspecialchars($user->getTitle()); ?>" required="required">
+    <label>Vorname</label> <input type="text" name="firstname" value="<?php echo htmlspecialchars($user->getFirstname()); ?>" required="required">
+    <label>Nachname</label><input type="text" name="lastname" value="<?php echo htmlspecialchars($user->getLastname()); ?>" required="required">
+    <label>eMail</label><input type="text" name="email" value="<?php echo htmlspecialchars($user->getEmail()); ?>" required="required">
+    <label>Passwort</label><input type="password" name="password" value="" required="required">
     <input type="submit" class="submit" name="userEdit" value="Speichern">
 </div>
 <div>

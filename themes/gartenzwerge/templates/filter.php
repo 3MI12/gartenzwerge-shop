@@ -24,10 +24,10 @@
     			<label>Farbe</label>
 	        	<select name="farbe" size="1">
                		<option value="-">-</option>
-			  		<option value="blau">blau</option>
+					<option value="blau">blau</option>
 					<option value="rot">rot</option>
-					<option value="braun">braun</option>
 					<option value="gelb">gelb</option>
+					<option value="grün">grün</option>
 	    		</select>
 		
                 <label>Material</label>
@@ -35,6 +35,8 @@
                 	<option value="-">-</option>
 					<option value="Keramik">Keramik</option>
 					<option value="Plastik">Plastik</option>
+					<option value="Papier">Papier</option>
+					<option value="Holz">Holz</option>
 				</select>
 			</div>
             <div id="rangeBox">

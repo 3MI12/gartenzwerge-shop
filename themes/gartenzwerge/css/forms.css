@@ -45,10 +45,22 @@ form input{
 	margin-bottom:5px;
 }
 
+
+
 #filterSelectbox {
   float: left;
   height: auto;
   position: relative;
+  width: 200px;
+}
+
+#filterSelectbox select {
+  background-color: #BCC2BA;
+  border: thin solid #636A63;
+  color: #636A63;
+  float: left;
+  font-size: 14px;
+  height: 25px;
   width: 200px;
 }
 
@@ -65,10 +77,14 @@ form input{
   float:left;
   border: none;
   font-family: "Lato";
-  font-size: 16px;
+  font-size: 14px;
   width: 100px;
   margin-bottom:5px;
   height:20px;
+  background-color: #BCC2BA;
+  border: thin solid #636A63;
+  color: #636A63;
+  font-size: 14px;
 }
 
 #filterSelectbox label:nth-child(3){
@@ -179,7 +195,7 @@ select option[val="rot"]{
 	color:#636A63;}
 
 /** Login/Registrierung - Formular **/
-#regForm, #loginForm, #profilForm, #userEditForm{
+#regForm, #loginForm, #profilForm, #userEditForm, #contactForm{
 	clear:both;
 	float:left;
 	margin-bottom:50px;}
@@ -196,7 +212,7 @@ select option[val="rot"]{
 	float:left;
 	margin-left:280px;}
 
-#regForm label, #loginForm label, #profilForm label, #userEditForm label, #articleEditForm > div > div > label{
+#regForm label, #loginForm label, #contactForm label, #profilForm label, #userEditForm label, #articleEditForm > div > div > label{
   background-color: #636A63;
   color: #BCC2BA;
   float: left;
@@ -214,7 +230,7 @@ select option[val="rot"]{
  #articleEditForm > div > div > label{
 	 width:120px !important;}
 
-#regForm input, #regForm select, #loginForm input, #profilForm input, #profilForm select, #userEditForm input, #articleEditForm > div > div > input, #articleEditForm > input{
+#regForm input, #regForm select, #loginForm input, #contactForm input, #profilForm input, #profilForm select, #userEditForm input, #articleEditForm > div > div > input, #articleEditForm > input, #articleEditForm select{
   background-color: #BCC2BA;
   color: #636A63;
   float: left;
@@ -230,7 +246,7 @@ select option[val="rot"]{
 #articleEditForm input{
 	width:130px !important;}
 
-#articleEditForm textarea{
+#articleEditForm textarea, #contactForm textarea{
 	 background-color: #BCC2BA;
   	color: #636A63;
  	 float: left;
@@ -241,6 +257,7 @@ select option[val="rot"]{
   width:580px;
   border:thin solid #636A63;
   border-radius:15px;
+  margin-bottom:20px;
 	}
 
 #regForm select{
@@ -250,6 +267,24 @@ select option[val="rot"]{
 #profilForm select{
 	height:37px;
 	width:222px;}
+
+#articleEditForm select{
+	height:37px;
+	width:150px;}
+
+#articleEditForm input[name="image"]{
+	position:relative;
+	top:0;
+	left:-152px;
+	opacity:0;
+	z-index:5;
+	cursor:pointer;}
+
+#articleEditForm input[name="imagePlaceholder"]{
+	position:relative;
+	top:0;
+	left:0;
+	z-index:1;}
 
 input.submit{
 	clear:both;
@@ -800,7 +835,7 @@ input.submit:hover{
 	clear:both;}
 
 #articleForm input.menge{
-	background-color:white;
+	background-color:#BCC2BA;);
 	border:thin solid #535d54;
 	width:80px;
 	text-align:center;
@@ -839,21 +874,27 @@ input.submit:hover{
   right: 60px;
 }
 
-.bearbeitenButton input{
+.bearbeitenButton input, #userShowWrapper a {
   background-color: #BCC2BA;
+  border: thin solid #636A63;
+  border-radius: 15px;
+  clear: both;
   color: #636A63;
+  cursor: pointer;
   float: left;
   font-size: 18px;
   height: 40px;
+  line-height: 40px;
   padding: 5px 10px;
+  text-align: center;
+  transition: all 300ms linear 0s;
   width: 200px;
-	transition:linear all 300ms;
-	border:thin solid #636A63;
-  border-radius:15px;
-  clear:both;
-	cursor:pointer;}
+}
 
-.bearbeitenButton input:hover{
+#userShowWrapper a{
+	padding:0 !important;}
+
+.bearbeitenButton input:hover, #userShowWrapper a:hover{
 	background-color:#636A63;
 	color:#BCC2BA;}
 
@@ -899,8 +940,9 @@ input#btn-kaufen:hover{
 
 
 #orderShowBuy {
+  clear: both;
   float: left;
-  left: 360px;
+  left: 268px;
   position: relative;
   top: -55px;
 }

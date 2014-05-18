@@ -14,7 +14,7 @@ a:active { font-weight:normal; color:#535D54; text-decoration:none; }
 
 
 
-.articleListItemLink a{ font-size:20px;}
+.articleListItemLink a{ font-size:20px; text-decoration:none; border:none;}
 
 .articleListItemLink a:link { font-weight:normal; color:none; text-decoration:none; }
 .articleListItemLink a:visited { font-weight:normal; color:none; text-decoration:none; }

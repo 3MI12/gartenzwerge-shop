@@ -1,4 +1,77 @@
 $( document ).ready(function() {
+	
+/** suche **/
+$("#btn-search").click(function(){
+	var showStatus = false;
+	var nameCompare;
+	var genderCompare;
+	var materialCompare;
+	var colorCompare;
+	var categoryCompare;
+	var searchText = $("#searchField").val().toLowerCase();
+	
+	if( searchText.length >= 3 ){
+	
+	$(".articleListItemWrapper").each(function() {
+		var labelName = $(this).children(".articleInfos").children(".articleName").children("span").text().toLowerCase();
+		var labelGender = $(this).children(".articleInfos").children(".articleGender").children("span").text().toLowerCase();
+		var labelMaterial = $(this).children(".articleInfos").children(".articleMaterial").children("span").text().toLowerCase();
+		var labelColor = $(this).children(".articleInfos").children(".articleColor").children("span").text().toLowerCase();
+		var labelCategory = $(this).children(".articleInfos").children(".articleCategory").children("span").text().toLowerCase();
+
+		
+		if( labelName.indexOf(searchText) >= 0){
+			 nameCompare = true;
+			 var startSearchText = labelName.indexOf(searchText);
+			 var s1 = labelName.substr(0,startSearchText);
+			 var s2 = labelName.substr(startSearchText + searchText.length);
+			 $(this).children(".articleInfos").children(".articleName").children("span").html(s1 + "<span style='color:#D8A758'>" + searchText + "</span>" + s2);
+			  }
+			 else { nameCompare = false }
+		
+		if( labelGender.indexOf(searchText) >= 0){
+			 genderCompare = true;
+			 var startSearchText = labelGender.indexOf(searchText);
+			 var s1 = labelGender.substr(0,startSearchText);
+			 var s2 = labelGender.substr(startSearchText + searchText.length);
+			 $(this).children(".articleInfos").children(".articleGender").children("span").html(s1 + "<span style='color:#D8A758'>" + searchText + "</span>" + s2); }
+			 else { genderCompare = false }
+			 
+		if( labelMaterial.indexOf(searchText) >= 0){
+			 materialCompare = true;
+			 var startSearchText = labelMaterial.indexOf(searchText);
+			 var s1 = labelMaterial.substr(0,startSearchText);
+			 var s2 = labelMaterial.substr(startSearchText + searchText.length);
+			 $(this).children(".articleInfos").children(".articleMaterial").children("span").html(s1 + "<span style='color:#D8A758'>" + searchText + "</span>" + s2); }
+			 else { materialCompare = false }
+		
+		if( labelColor.indexOf(searchText) >= 0){
+			 colorCompare = true;
+			 var startSearchText = labelColor.indexOf(searchText);
+			 var s1 = labelColor.substr(0,startSearchText);
+			 var s2 = labelColor.substr(startSearchText + searchText.length);
+			 $(this).children(".articleInfos").children(".articleColor").children("span").html(s1 + "<span style='color:#D8A758'>" + searchText + "</span>" + s2);  }
+			 else { colorCompare = false }
+		
+		if( labelCategory.indexOf(searchText) >= 0){
+			 categoryCompare = true;
+			 var startSearchText = labelCategory.indexOf(searchText);
+			 var s1 = labelCategory.substr(0,startSearchText);
+			 var s2 = labelCategory.substr(startSearchText + searchText.length);
+			 $(this).children(".articleInfos").children(".articleCategory").children("span").html(s1 + "<span style='color:#D8A758'>" + searchText + "</span>" + s2);  }
+			 else { categoryCompare = false }
+		
+		if( (genderCompare || nameCompare || colorCompare || materialCompare || categoryCompare) == true) { $(this).fadeIn("slow") } else { $(this).fadeOut("slow") }
+		})
+		
+		} else {
+			$("#filterError").html("Das Suchwort muss mindestens 3 Zeichen lang sein.");
+			$("#filterError").fadeIn("slow").delay(5000).fadeOut("slow");
+			}
+		
+	
+})	
+	
 /** checkbox **/
 $(".checkboxStatus").each(function(){
 	if( $(this).children("input").val() == "true" ) {
@@ -137,12 +210,28 @@ $("#btn-filter").click(function(){
 				if( (genderStatus && categoryStatus && colorStatus && materialStatus && sizeStatus) == true) { $(this).fadeIn("slow") } else { $(this).fadeOut("slow") }
 			});
 		}
-	else{
+	else{	
+	     	$("#filterError").html("Es muss mindestens ein Geschlecht und mindestens eine Kategorie ausgewählt werden!");	     
 			$("#filterError").fadeIn("slow").delay(5000).fadeOut("slow");	
 		}
 	})
 
 /** Artikelverwaltung **/
+/** selectBoxen **/
+var selectedMaterial = $("#articleEditForm select[name='material'] option:selected").val();
+$("#articleEditForm select[name='material'] option").each(function(){
+	if( $(this).val() == selectedMaterial ){
+		$(this).css("display" , "none");
+		}	
+})
+
+var selectedColor = $("#articleEditForm select[name='color'] option:selected").val();
+$("#articleEditForm select[name='color'] option").each(function(){
+	if( $(this).val() == selectedColor ){
+		$(this).css("display" , "none");
+		}	
+})
+
 
 /*** footer ausklappen ***/
 $("#footerUp").click(function(){
