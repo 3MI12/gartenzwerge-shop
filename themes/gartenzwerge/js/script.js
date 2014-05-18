@@ -2,29 +2,44 @@ $( document ).ready(function() {
 	
 /** suche **/
 $("#btn-search").click(function(){
-	var showStatus = false;
-	var nameCompare;
-	var genderCompare;
-	var materialCompare;
-	var colorCompare;
-	var categoryCompare;
+	var nameCompare = false;
+	var genderCompare = false;
+	var materialCompare = false;
+	var colorCompare = false;
+	var categoryCompare = false;
 	var searchText = $("#searchField").val().toLowerCase();
 	
 	if( searchText.length >= 3 ){
 	
 	$(".articleListItemWrapper").each(function() {
-		var labelName = $(this).children(".articleInfos").children(".articleName").children("span").text().toLowerCase();
-		var labelGender = $(this).children(".articleInfos").children(".articleGender").children("span").text().toLowerCase();
-		var labelMaterial = $(this).children(".articleInfos").children(".articleMaterial").children("span").text().toLowerCase();
-		var labelColor = $(this).children(".articleInfos").children(".articleColor").children("span").text().toLowerCase();
-		var labelCategory = $(this).children(".articleInfos").children(".articleCategory").children("span").text().toLowerCase();
-
 		
+		var labelName = $(this).children(".articleInfos").children(".articleName").children("span").text();
+		var labelGender = $(this).children(".articleInfos").children(".articleGender").children("span").text();
+		var labelMaterial = $(this).children(".articleInfos").children(".articleMaterial").children("span").text();
+		var labelColor = $(this).children(".articleInfos").children(".articleColor").children("span").text();
+		var labelCategory = $(this).children(".articleInfos").children(".articleCategory").children("span").text();
+		
+		$(this).children(".articleInfos").children(".articleName").children("span").html(labelName);
+		$(this).children(".articleInfos").children(".articleGender").children("span").html(labelGender);
+		$(this).children(".articleInfos").children(".articleMaterial").children("span").html(labelMaterial);
+		$(this).children(".articleInfos").children(".articleColor").children("span").html(labelColor);
+		$(this).children(".articleInfos").children(".articleCategory").children("span").html(labelCategory);
+		
+		labelName = labelName.toLowerCase();
+		labelGender = labelGender.toLowerCase();
+		labelMaterial = labelMaterial.toLowerCase();
+		labelColor = labelColor.toLowerCase();
+		labelCategory = labelCategory.toLowerCase();
+				
 		if( labelName.indexOf(searchText) >= 0){
 			 nameCompare = true;
 			 var startSearchText = labelName.indexOf(searchText);
 			 var s1 = labelName.substr(0,startSearchText);
 			 var s2 = labelName.substr(startSearchText + searchText.length);
+			 
+			 if( labelName.indexOf(searchText) == 0 ){ searchText = searchText.charAt(0).toUpperCase() + searchText.slice(1); } 
+			 else { s1 = s1.charAt(0).toUpperCase() + s1.slice(1); }
+			 
 			 $(this).children(".articleInfos").children(".articleName").children("span").html(s1 + "<span style='color:#D8A758'>" + searchText + "</span>" + s2);
 			  }
 			 else { nameCompare = false }
@@ -42,6 +57,10 @@ $("#btn-search").click(function(){
 			 var startSearchText = labelMaterial.indexOf(searchText);
 			 var s1 = labelMaterial.substr(0,startSearchText);
 			 var s2 = labelMaterial.substr(startSearchText + searchText.length);
+			 
+			 if( labelMaterial.indexOf(searchText) == 0 ){ searchText = searchText.charAt(0).toUpperCase() + searchText.slice(1); } 
+			 else { s1 = s1.charAt(0).toUpperCase() + s1.slice(1); }
+			 
 			 $(this).children(".articleInfos").children(".articleMaterial").children("span").html(s1 + "<span style='color:#D8A758'>" + searchText + "</span>" + s2); }
 			 else { materialCompare = false }
 		

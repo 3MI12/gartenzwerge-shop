@@ -6,6 +6,8 @@
 
 <div id="articleList">
 
+<?php echo User::checkAdmin() ? '<form id="neuerArtikel" action="/article/edit/"><input type="submit" value="Neuer Artikel"></form>' : '';?>
+
 <?php foreach($data['articles'] as $article): ?>
 	<a class="articleListItemLink" href="/article/list/<?php echo $article->getId(); ?>">
 		<div class="articleListItemWrapper">
