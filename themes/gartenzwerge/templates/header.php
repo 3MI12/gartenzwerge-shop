@@ -6,7 +6,7 @@
     </div>
 
     <div id="headerTitle">Gartenzwerge24.eu</div>
-    <div id="headerSubtitle">... in allen Gr&ouml;&szlig;en zum kleinen Preis</div>
+    <div id="headerSubtitle">... in allen Größen zum kleinen Preis</div>
 
   </div>
 

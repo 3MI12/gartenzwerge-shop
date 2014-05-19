@@ -10,3 +10,4 @@ define('IMAGE_MEDIUM', '260');
 define('IMAGE_BIG', '800');
 define('SHIPPING_FEE', 4);
 define('SHIPPING_FREE_FROM', 30);
+define('DATE_FORMAT', 'Y-m-d H:i:s');

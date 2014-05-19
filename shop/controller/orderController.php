@@ -3,8 +3,16 @@ $data = array();
 
 switch($action) {
 	case 'list':
-		$data['article'] = Order::getAll($entityManager);
+		$data = Order::getAllByUser($entityManager);
 		$template = 'orderList';
+		break;
+	case 'listall':
+		$data = Order::getAll($entityManager);
+		$template = 'orderList';
+		break;
+	case 'detail':
+		$data = Order::getById($entityManager, $id);
+		$template = 'orderDetail';
 		break;
 	case 'show':
 		$data = $_SESSION['order']->getOrderData();

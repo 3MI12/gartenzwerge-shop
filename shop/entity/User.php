@@ -56,7 +56,7 @@ class User
 	private $status;
 	
 	/**
-	 * @OneToMany(targetEntity="Order", mappedBy="user")
+	 * @OneToMany(targetEntity="Order", mappedBy="user", cascade={"all"})
 	*/
 	private $orders;
 	
@@ -355,6 +355,10 @@ class User
 	public function getBic()
 	{
 		return $this->bic;
+	}
+	
+	public function getOrders() {
+		return $this->orders;
 	}
 }
 

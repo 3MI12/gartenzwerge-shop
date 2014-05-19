@@ -1,7 +1,7 @@
 <body>
 	<div id="wrapper">
 		<?php require TEMPLATE_PATH . 'header.php'; ?>
-       XXX
+
         <div id="main">
             <div id="contentMenu">
             <?php 
