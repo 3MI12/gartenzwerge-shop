@@ -143,6 +143,7 @@ class User
 				if(isset($_POST['userRegister'])){
 					$user->setStatus(true);
 					$user->setAdmin(false);
+					mail(getPostParam('email'),SUBJECT_NEWUSER,"Hallo ".getPostParam('firstname')." ".getPostParam('lastname').MESSAGE_NEWUSER,SENDER_MAIL);
 				}
 				
 			$entityManager->persist($user);
