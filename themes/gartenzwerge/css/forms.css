@@ -188,6 +188,7 @@ select option[val="rot"]{
   position: relative;
   top: 50px;
   width: 120px;
+  border-radius:15px;
 }
 
 #filter button:hover{
@@ -195,7 +196,7 @@ select option[val="rot"]{
 	color:#636A63;}
 
 /** Login/Registrierung - Formular **/
-#regForm, #loginForm, #profilForm, #userEditForm, #contactForm{
+#regForm, #loginForm, #profilForm, #userEditForm, #contactForm, #orderForm{
 	clear:both;
 	float:left;
 	margin-bottom:50px;}
@@ -232,7 +233,7 @@ select option[val="rot"]{
  #articleEditForm > div > div > label{
 	 width:120px !important;}
 
-#regForm input, #regForm select, #loginForm input, #contactForm input, #profilForm input, #profilForm select, #userEditForm input, #articleEditForm > div > div > input, #articleEditForm > input, #articleEditForm select{
+#regForm input, #regForm select, #loginForm input, #contactForm input, #profilForm input, #profilForm select, #userEditForm input, #articleEditForm > div > div > input, #articleEditForm > input, #articleEditForm select, #orderForm input{
   background-color: #BCC2BA;
   color: #636A63;
   float: left;
@@ -249,6 +250,7 @@ select option[val="rot"]{
 	width:130px !important;}
 
 #articleEditForm textarea, #contactForm textarea{
+	clear:both;
 	 background-color: #BCC2BA;
   	color: #636A63;
  	 float: left;
@@ -274,13 +276,19 @@ select option[val="rot"]{
 	height:37px;
 	width:150px;}
 
-#articleEditForm input[name="image"]{
-	position:relative;
-	top:0;
-	left:-152px;
-	opacity:0;
-	z-index:5;
-	cursor:pointer;}
+#articleEditForm input[name="image"] {
+  cursor: pointer;
+  float: none !important;
+  opacity: 0;
+  position: relative;
+  top: -37px;
+  z-index: 5;
+}
+
+#articleEditForm div:nth-child(3) {
+  position: relative;
+  margin-bottom: -20px;
+}
 
 #articleEditForm input[name="imagePlaceholder"]{
 	position:relative;
@@ -876,7 +884,7 @@ input.submit:hover{
   right: 60px;
 }
 
-.bearbeitenButton input, #neuerArtikel input, #userShowWrapper a {
+.bearbeitenButton input, #neuerArtikel input, #userShowWrapper a, .orderDetailButton input{
   background-color: #BCC2BA;
   border: thin solid #636A63;
   border-radius: 15px;
@@ -892,6 +900,10 @@ input.submit:hover{
   transition: all 300ms linear 0s;
   width: 200px;
 }
+
+.orderDetailButton input{
+	width:70px !important;
+	margin-left:20px;}
 
 #neuerArtikel{
 	position:relative;

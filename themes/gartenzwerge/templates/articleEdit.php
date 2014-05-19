@@ -37,14 +37,19 @@
                                     <input type="file" name="image" value="<?php echo htmlspecialchars($article->getimage()); ?>">
 			                    </div>
                                 <div>
-                                    <label>Geschlecht</label> <input type="text" name="gender" value="<?php echo htmlspecialchars($article->getgender()); ?>" required="required">
+                                    <label>Geschlecht</label> 
+                                    <select name="gender" required="required" >
+                                    	<option selected="selected"><?php echo htmlspecialchars($article->getgender()); ?></option> 
+                                    	<option value="male">male</option>
+                                        <option value="female">female</option>
+                                    </select>   
                                 </div>
                                 <div>
-                                    <label>Größe</label> <input type="number" name="size" value="<?php echo htmlspecialchars($article->getsize()); ?>" required="required">
+                                    <label>Größe</label> <input type="number" name="size" min="5" step="1" value="<?php echo htmlspecialchars($article->getsize()); ?>" required="required">
                                 </div>
                                 <div>
                                     <label>Farbe</label> 
-                                    <select name="color" >
+                                    <select name="color" required="required" >
                                     	<option selected="selected"><?php echo htmlspecialchars($article->getcolor()); ?></option> 
                                     	<option value="blau">blau</option>
                                         <option value="rot">rot</option>
@@ -54,7 +59,7 @@
                                 </div>
                                 <div>
                                     <label>Material</label>
-                                    <select name="material" >
+                                    <select name="material" required="required">
                                     	<option selected="selected"><?php echo htmlspecialchars($article->getmaterial()); ?></option> 
                                     	<option value="Keramik">Keramik</option>
                                         <option value="Plastik">Plastik</option>
@@ -68,13 +73,18 @@
                                     <label>Lagerbestand</label> <input type="text" name="inventory" value="<?php echo htmlspecialchars($article->getinventory()); ?>" required="required">
                                 </div>
                                <div>
-                                    <label>Preis </label> <input type="number" name="price" value="<?php echo htmlspecialchars(number_format($article->getprice(), 2)); ?>"required="required">
+                                    <label>Preis </label> <input type="number" min="1" step="1" name="price" value="<?php echo htmlspecialchars(number_format($article->getprice(), 2)); ?>"required="required">
                                 </div>
                                 <div>
-                                    <label>MwSt</label> <input type="number" name="vat" value="<?php echo htmlspecialchars(number_format($article->getvat(), 2)); ?>"required="required">
+                                    <label>MwSt</label> <input type="number" name="vat" min="19" step="1" value="<?php echo htmlspecialchars(number_format($article->getvat(), 2)); ?>"required="required">
                                 </div>
                                 <div>
-                                    <label>Kategorie</label> <input type="text" name="category" value="<?php echo htmlspecialchars($article->getcategory()); ?>" required="required">
+                                    <label>Kategorie</label> 
+                                     <select name="category" required="required" >
+                                    	<option selected="selected"><?php echo htmlspecialchars($article->getcategory()); ?></option> 
+                                    	<option value="Indoor">Indoor</option>
+                                        <option value="Outdoor">Outdoor</option>
+                                    </select> 
                                 </div>
                                 
                                 <div>
@@ -92,12 +102,8 @@
                             <!--<button id="btn-kaufen" type="button"></button>--> 
                             	<input type="hidden" name="id" value="<?php echo htmlspecialchars($article->getid()); ?>">
 						</form>
-                   
-				</div>
-		
-            
+                </div>
 		</div>
-
 	</div>
 </div>
     

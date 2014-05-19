@@ -35,6 +35,11 @@ Mein Konto
 	<div>
     	<a class="userEdit" href="/user/edit/<?php echo $user->getId(); ?>">Bearbeiten</a></p>
 	</div>
+    
+    <form id="orderForm" method="post" action="/order/list/">
+	<input name="orderShow" class="submit" type="submit" formmethod="post" value="Meine Bestellungen">
+	</form>
+    
 	<form id="loginForm" method="post" action="/user/login/">
 	<input name="logout" class="submit" type="submit" formmethod="post" value="Ausloggen">
 	</form>

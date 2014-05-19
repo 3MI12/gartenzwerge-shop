@@ -149,7 +149,7 @@ $( document ).ready(function() {
 $(window).scroll(function(){
 		var scrollPosition = $(this).scrollTop();
 		var menuPosition = $("#menu").css("top");
-		if(scrollPosition > 280 && menuPosition == "65px"){
+		if(scrollPosition > 100 && menuPosition == "65px"){
 			$("#menu").stop( true, true ).animate({
 				top: 10
 				},"slow");
@@ -158,7 +158,7 @@ $(window).scroll(function(){
 				},"slow");
 			}
 			
-		if(scrollPosition <= 280 && menuPosition == "10px"){
+		if(scrollPosition <= 100 && menuPosition == "10px"){
 			$("#menu").stop( true, true ).animate({
 				top: 65
 				},"slow");
@@ -247,6 +247,20 @@ $("#articleEditForm select[name='material'] option").each(function(){
 var selectedColor = $("#articleEditForm select[name='color'] option:selected").val();
 $("#articleEditForm select[name='color'] option").each(function(){
 	if( $(this).val() == selectedColor ){
+		$(this).css("display" , "none");
+		}	
+})
+
+var selectedCategory = $("#articleEditForm select[name='category'] option:selected").val();
+$("#articleEditForm select[name='category'] option").each(function(){
+	if( $(this).val() == selectedCategory ){
+		$(this).css("display" , "none");
+		}	
+})
+
+var selectedGender = $("#articleEditForm select[name='gender'] option:selected").val();
+$("#articleEditForm select[name='gender'] option").each(function(){
+	if( $(this).val() == selectedGender ){
 		$(this).css("display" , "none");
 		}	
 })

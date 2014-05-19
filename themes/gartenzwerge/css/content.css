@@ -118,14 +118,14 @@ dt { float:left; cear:left; width:10em; }
 /*#userShowWrapper div:nth-child(5){
 	clear:none;}*/
 
-.articleInfos div {
+.articleInfos div, .orderInfos div{
   float: left;
   margin-left: 25px;
   margin-top: 8px;
   position: relative;
 }
 
-.articleInfos div label{
+.articleInfos div label, .orderInfos div label{
 	position:relative;
 	float:left;
 	background-color:#535D54;
@@ -137,7 +137,10 @@ dt { float:left; cear:left; width:10em; }
 	color:#E6E6E6;
 	text-align:center;}
 
-.articleInfos div > span{
+.orderDetailWrapper .orderInfos div label{
+	width:170px !important;}
+
+.articleInfos div > span, .orderInfos div span{
 	position:relative;
 	float:left;
 	width:auto;
@@ -148,6 +151,9 @@ dt { float:left; cear:left; width:10em; }
 	height:29px;
 	line-height:30px;
 	border-bottom:1px solid #535D54;}
+	
+.orderInfos div span{
+	min-width:100px !important;}
 
 /** userShowWrapper **/
 #userShowWrapper{
@@ -194,3 +200,31 @@ dt { float:left; cear:left; width:10em; }
 	height:29px;
 	line-height:30px;
 	border-bottom:1px solid #535D54;}
+	
+/** orderForm **/
+.orderListItemWrapper {
+  float: left;
+  position: relative;
+  clear: both;
+  margin-bottom: 20px;
+}
+
+.orderDetailWrapper {
+  clear: both;
+  float: left;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.orderInfos{
+	position:relative;
+	float:left;}
+
+.orderDetailButton {
+  float: left;
+  position: relative;
+}
+
+#orderDetailButton{
+	position:relative;
+	float:left;}
