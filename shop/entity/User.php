@@ -144,7 +144,9 @@ class User
 					$user->setStatus(true);
 					$user->setAdmin(false);
 					mail(getPostParam('email'),SUBJECT_NEWUSER,"Hallo ".getPostParam('firstname')." ".getPostParam('lastname').MESSAGE_NEWUSER,SENDER_MAIL);
+					if(!checkAdmin()){
 					$_SESSION['user'] = $user;
+					}
 				}
 				
 			$entityManager->persist($user);
