@@ -5,8 +5,7 @@ require_once 'bootstrap.php';
 
 session_start();
 if (isset($_SESSION['activity']) && (time() - $_SESSION['activity'] > 3600)) {
-    session_unset();
-    session_destroy();
+    $_SESSION['user'] = new User();
 }
 $_SESSION['activity'] = time();
 $_SESSION['user'] = isset($_SESSION['user']) ? $_SESSION['user'] : new User();
