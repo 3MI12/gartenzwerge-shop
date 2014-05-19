@@ -106,7 +106,7 @@ body{
 	border:2px solid #4E544E;}
 
 .menuItemContainer:nth-child(1) .menuButton{
-	background-image: url("../resourcen/icons/indoor.png");}
+	background-image: url("../resourcen/icons/shop.png");}
 
 .menuItemContainer:nth-child(2) .menuButton{
 	background-image: url("../resourcen/icons/profil.png");}
