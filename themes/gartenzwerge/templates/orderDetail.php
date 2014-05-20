@@ -12,6 +12,15 @@
                 <div><label>Summe Artikel</label><span><?php echo number_format($price['articles'], 2); ?> €</span></div>
                 <div><label>Verpackung & Versand</label><span><?php echo number_format($price['shipping'], 2); ?> €</span></div>
                 <div><label>Preis gesamt</label><span style="color:#D8A758;"><?php echo number_format($price['total'], 2); ?> €</span></div>
+				<?php if($order['canceled']): ?>
+					<span class="orderCanceled">Diese Bestellung wurde storniert!</span>
+				<?php else: ?>
+					<?php if(User::checkAdmin()): ?>
+					<form class="orderCancelButton" action="/order/cancel/<?php echo $order['id']; ?>">
+						<input class="submit" type="submit" value="Stornieren">
+					</form>
+					<?php endif; ?>
+				<?php endif; ?>
             </div>
 </div>
 

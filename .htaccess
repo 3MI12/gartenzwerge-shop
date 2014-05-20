@@ -16,4 +16,4 @@ RewriteRule ^cart/$ index.php?controller=order&action=show
 RewriteRule ^cart/(edit|order)/$ index.php?controller=order&action=$1
 RewriteRule ^order/$ index.php?controller=order&action=list
 RewriteRule ^order/list/$ index.php?controller=order&action=listall
-RewriteRule ^order/detail/([0-9]+)$ index.php?controller=order&action=detail&id=$1
+RewriteRule ^order/(detail|cancel)/([0-9]+)$ index.php?controller=order&action=$1&id=$2

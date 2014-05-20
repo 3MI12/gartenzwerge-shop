@@ -39,7 +39,12 @@ class Article
 	}
 	
 	public static function getAll($em) {
-		$articles = $em->getRepository('Article')->findAll();
+		if($_SESSION['user']->checkAdmin()) {
+			$articles = $em->getRepository('Article')->findAll();
+		}
+		else {
+			$articles = $em->getRepository('Article')->findBy(['active' => true]);
+		}
 		return ['articles' => $articles, 'success' => $articles ? true : false];
 	}
 

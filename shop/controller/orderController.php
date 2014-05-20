@@ -14,6 +14,10 @@ switch($action) {
 		$data = Order::getById($entityManager, $id);
 		$template = 'orderDetail';
 		break;
+	case 'cancel':
+		($order = $entityManager->getRepository('Order')->findOneById($id))
+			&& ($data = $order->cancel($entityManager));
+		break;
 	case 'show':
 		$data = $_SESSION['order']->getOrderData();
 		$template = 'order';

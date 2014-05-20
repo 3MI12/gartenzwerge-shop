@@ -36,7 +36,7 @@ Mein Konto
     	<a class="userEdit" href="/user/edit/<?php echo $user->getId(); ?>">Bearbeiten</a></p>
 	</div>
     
-    <form id="orderForm" method="post" action="/order/list/">
+    <form id="orderForm" method="post" action="/order/">
 	<input name="orderShow" class="submit" type="submit" formmethod="post" value="Meine Bestellungen">
 	</form>
     

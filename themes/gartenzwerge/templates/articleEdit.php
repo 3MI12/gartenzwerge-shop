@@ -73,10 +73,10 @@
                                     <label>Lagerbestand</label> <input type="text" name="inventory" value="<?php echo htmlspecialchars($article->getinventory()); ?>" required="required">
                                 </div>
                                <div>
-                                    <label>Preis </label> <input type="number" min="1" step="1" name="price" value="<?php echo htmlspecialchars(number_format($article->getprice(), 2)); ?>"required="required">
+                                    <label>Preis </label> <input type="number" min="1" step=".01" name="price" value="<?php echo htmlspecialchars(number_format($article->getprice(), 2)); ?>"required="required">
                                 </div>
                                 <div>
-                                    <label>MwSt</label> <input type="number" name="vat" min="19" step="1" value="<?php echo htmlspecialchars(number_format($article->getvat(), 2)); ?>"required="required">
+                                    <label>MwSt</label> <input type="number" name="vat" min="19" step=".01" value="<?php echo htmlspecialchars(number_format($article->getvat(), 2)); ?>"required="required">
                                 </div>
                                 <div>
                                     <label>Kategorie</label> 
@@ -90,7 +90,7 @@
                                 <div>
                                     <label>Aktiv</label>
                                     <div class="checkboxArticleActive">
-                                        <input type="checkbox" name="active" value="1" <?php echo $article->getactive() ? 'checked' : ''; ?>>
+                                        <input type="checkbox" name="active" value="1" <?php echo $article->getActive() ? 'checked' : ''; ?>>
                                         <label id="checkboxInput"></label>
   									</div>
                                 </div> 

@@ -30,7 +30,7 @@ class Order {
     }
 	
 	public static function getAll($em) {
-		if(!$_SESSION['user']->checkAdmin()) {
+		if(!User::checkAdmin()) {
 			$_SESSION['messages'][] = 'Sie müssen als Administrator angemeldet sein, um alle Bestellungen anzusehen!';
 			return;
 		}
@@ -82,6 +82,7 @@ class Order {
 		$data = array('success' => true, 'error' => array());
 		$orderQuantity = getPostParam('orderquantity', array());
 		foreach($orderQuantity as $articleId => $quantity) {
+			$quantity = (int)$quantity;
 			$article = Article::getById($em, $articleId);
 			$orderArticle = $this->positions->get($articleId);
 			if(!$orderArticle) {
@@ -125,17 +126,29 @@ class Order {
 	
 	public function getOrderData() {
 		return array(
+			'id' => $this->getId(),
 			'positions' => $this->positions,
 			'price' => $this->calcPrice(),
 			'user' => $this->user,
 			'ordertime' => $this->ordertime,
+			'canceled' => $this->canceled,
 		);
 	}
 	
 	public function finalize($em) {
 		$data = array('success' => true, 'error' => array());
+		if(!count($this->positions)) {
+			$_SESSION['messages'][] = 'Ihr Warenkorb ist noch leer!';
+			$data['redirect'] = '/cart/';
+			return $data;
+		}
 		if(!$_SESSION['user']->getId()) {
 			$_SESSION['messages'][] = 'Sie müssen sich zunächst anmelden!';
+			$data['redirect'] = '/user/login/';
+			return $data;
+		}
+		if(!$_SESSION['user']->ableToOrder()) {
+			$_SESSION['messages'][] = 'Sie müssen zunächst ihr Profil vervollständigen!';
 			$data['redirect'] = '/user/login/';
 			return $data;
 		}
@@ -157,11 +170,31 @@ class Order {
 		}
 		$this->ordertime = new DateTime();
 		$this->canceled = false;
-		//$this->user->getOrders()->add($this);
-		//var_dump($this->user->getOrders());
 		$em->persist($this->user);
 		$em->persist($this);
 		$em->flush();
+		$_SESSION['messages'][] = 'Bestellung ausgeführt!';
+		$_SESSION['order'] = new Order();
+		return $data;
+	}
+	
+	public function cancel($em) {
+		if(!$_SESSION['user']->checkAdmin()) {
+			$_SESSION['messages'][] = 'Sie müssen als Administrator angemeldet sein, um Bestellungen stornieren zu können!';
+			return;
+		}
+		if(!$this->canceled) {
+			foreach($this->positions as $orderArticle) {
+				$article = Article::getById($em, $orderArticle->getArticleid());
+				$article->setInventory($article->getInventory() + $orderArticle->getQuantity());
+				$em->persist($article);
+			}
+			$this->canceled = true;
+			$em->persist($this);
+			$em->flush();
+			$_SESSION['messages'][] = 'Bestellung storniert!';
+		}
+		$data['redirect'] = '/order/list/';
 		return $data;
 	}
 	
@@ -171,4 +204,5 @@ class Order {
 	public function getUser() {
 		return $this->user;
 	}
+	
 }
