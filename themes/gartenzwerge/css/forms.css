@@ -200,6 +200,16 @@ select option[val="rot"]{
 	clear:both;
 	float:left;
 	margin-bottom:50px;}
+
+#userEditBtn{
+	margin-bottom:10px;
+	clear:both;
+	float:left;}
+
+#deleteOrderBtn{
+	margin-bottom:10px;
+	clear:both;
+	float:left;}
 	
 #articleEditForm{
 	float:left;}
@@ -233,7 +243,7 @@ select option[val="rot"]{
  #articleEditForm > div > div > label{
 	 width:120px !important;}
 
-#regForm input, #regForm select, #loginForm input, #contactForm input, #profilForm input, #profilForm select, #userEditForm input, #articleEditForm > div > div > input, #articleEditForm > input, #articleEditForm select, #orderForm input{
+#regForm input, #regForm select, #loginForm input, #contactForm input, #profilForm input, #profilForm select, #userEditForm input, #articleEditForm > div > div > input, #articleEditForm > input, #articleEditForm select, #orderForm input, #userEditBtn input, #deleteOrderBtn input{
   background-color: #BCC2BA;
   color: #636A63;
   float: left;
@@ -320,7 +330,7 @@ input.submit:hover{
 	position:relative;
 	margin-right:20px;}
 
-#userEditForm input[type="submit"] {
+#userEditForm input[type="submit"], #userEditBtn input[type="submit"], #deleteOrderBtn input[type="submit"]{
   border-radius: 15px;
   clear: both;
   height: 40px;
@@ -894,7 +904,7 @@ input.submit:hover{
   float: left;
   font-size: 18px;
   height: 40px;
-  line-height: 40px;
+  line-height: 30px;
   padding: 5px 10px;
   text-align: center;
   transition: all 300ms linear 0s;
@@ -904,6 +914,9 @@ input.submit:hover{
 .orderDetailButton input{
 	width:70px !important;
 	margin-left:20px;}
+
+#userShowWrapper a{
+	line-height:40px !important;}
 
 #neuerArtikel{
 	position:relative;

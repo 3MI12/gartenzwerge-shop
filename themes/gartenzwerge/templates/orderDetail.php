@@ -40,4 +40,8 @@
 </div>
 <?php endforeach; ?>
 
+<form id="deleteOrderBtn" method="post" action="">
+	<input name="orderDelete" class="submit" type="submit" formmethod="post" value="Bestellung löschen">
+</form>
+
 <?php endif; ?>
