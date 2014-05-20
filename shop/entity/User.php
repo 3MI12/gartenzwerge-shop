@@ -108,15 +108,16 @@ class User
 			$data['statusupdate'] = true;
 			$data['user'] = User::getAllUser($entityManager);
 		}
-		
 		if(isset($_POST['userEdit']) || isset($_POST['userRegister'])){
 			$userPost = User::getUserByEmail($entityManager, getPostParam('email',''));
 			if (validateEmail(getPostParam('email')) == false) {
-				$data['error'][] = "Ungültige eMail!";
+				$data['error'][] = getPostParam('email')."ist keine gültige Email-Adresse!";
+				$data['success'] = false;
 				return $data;
 			}
 			if($userPost && $userPost->getId() != $user->getId()){
-				$data['error'][] = "Die eingegebene eMail-Adresse existiert bereits!";
+				$data['error'][] = "Die Email-Adresse '".getPostParam('email')."' existiert bereits!";
+				$data['success'] = false;
 				return $data;
 			}
 			
@@ -126,8 +127,14 @@ class User
 				$user->setFirstname(getPostParam('firstname'));
 				$user->setLastname(getPostParam('lastname'));
 			
-				if (getPostParam('password',NULL) !== NULL) {
-					$user->setHash(crypt(getPostParam('password'), SALT));
+				if (getPostParam('password','') !== '') {
+					if(strlen(getPostParam('password',NULL)) > 7){
+						$user->setHash(crypt(getPostParam('password'), SALT));
+					}else{
+					$data['error'][] = "Das Passwort muss mindestens aus 8 Zeichen bestehen!";
+					$data['success'] = false;
+					return $data;
+					}
 				}
 			
 				if(isset($_POST['userEdit'])){
@@ -153,12 +160,11 @@ class User
 				}
 				
 			$entityManager->persist($user);
-			$entityManager->flush();
-						
+			$entityManager->flush();			
 			$data['success'] = true;
 			$data['user'] = $user;
 			}else{
-				$data['error'][] = "Der Nutzer konnte nicht bearbeitet oder erstellt werden!";
+				$data['error'][] = "Der Nutzer ".getPostParam('firstname')." ".getPostParam('lastname')."konnte nicht bearbeitet oder erstellt werden!";
 			}
 		}
 		return $data;

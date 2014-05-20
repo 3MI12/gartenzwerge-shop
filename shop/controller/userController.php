@@ -2,7 +2,6 @@
 require_once __DIR__.'/../entity/User.php';
 
 $data = null;
-
 switch($action) {
 	case 'list':
 		if(User::checkAdmin()){
@@ -27,12 +26,16 @@ switch($action) {
 			$data = User::buildUser($entityManager, $id);
 			$template = empty($data['success']) ? 'userEdit' : 'user';
 			$template = !empty($data['statusupdate']) ? 'userList' : $template;
+			$template = (isset($_POST['userRegister']) && !User::loginStatus()) ? 'login' : $template;
 		}else{
 			$data['error'][] = "Sie können nur ihr eigenes Profil bearbeiten!";
 			$template = 'errorList';
 		}
 		break;
 	case 'login':
+		if(User::loginStatus() && !$_SESSION['user']->ableToOrder()){
+			$data['error'][] = "Bitte vervollständigen Sie ihr Profil um Bestellungen tätigen zu können!";
+		}
 		if(User::loginStatus() && !isset($_POST['logout'])){
 			$data['user'] = User::getUserById($entityManager, User::getSessionId());
 			$template = 'userProfile';

@@ -1,7 +1,6 @@
 <div class="title">
 Nutzerverwaltung
 </div>
-
 <div id="userManagerWrapper" class="content">
 	<div id="userManagerLabels">
 		<span>Knr.</span>

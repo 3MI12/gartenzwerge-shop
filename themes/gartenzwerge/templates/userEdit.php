@@ -2,8 +2,6 @@
 <div class="title">
     Nutzerkonto bearbeiten
 </div>
-
-<?php require THEME_PATH . 'templates/errorList.php'; ?>
 <form id="userEditForm" action="" method="post">
 <div>
     <label>Titel</label> <input type="text" name="title" value="<?php echo htmlspecialchars($user->getTitle()); ?>" required="required">

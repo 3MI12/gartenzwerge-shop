@@ -37,7 +37,7 @@ Mein Konto
     </div>
    
     <form id="userEditBtn" method="post" action="/user/edit/<?php echo $user->getId(); ?>">
-	<input name="userEdit" class="submit" type="submit" formmethod="post" value="Bearbeiten">
+	<input name="edit" class="submit" type="submit" formmethod="post" value="Bearbeiten">
 	</form>
     
     <form id="orderForm" method="post" action="/order/">
