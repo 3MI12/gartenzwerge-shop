@@ -41,7 +41,7 @@
                             <label>Lagerbestand</label> <input type="text" name="inventory" value="<?php echo htmlspecialchars($article->getInventory()); ?>" readonly="readonly">
                             </div>
                             <div>
-                            <label>Menge</label> <input type="number" min="1" step="1" class="menge" max="<?php echo ($article->getInventory()); ?>" name="orderquantity[<?php echo $article->getid(); ?>]" value="1">
+                            <label>Menge</label> <input type="number" min="1" step="1" class="menge" max="<?php echo ($article->getInventory()); ?>" name="orderquantity[<?php echo $article->getid(); ?>]" value="<?php echo $_SESSION['order']->getQuantityById($article->getid()) ? $_SESSION['order']->getQuantityById($article->getid()) : 1; ?>">
 								<span>
 									<?php if($_SESSION['order']->getQuantityById($article->getid())) : ?>
 										Stück im Warenkorb

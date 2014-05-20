@@ -5,7 +5,10 @@
 </div>
 
 <?php require THEME_PATH . 'templates/errorList.php'; ?>
-<?php if(!empty($data['positions'])): ?>
+
+<?php if(!count($data['positions'])): ?>
+	<div>Noch keine Artikel im Warenkorb.</div>
+<?php endif; ?>
 
 <form id="orderShowForm" action="/cart/edit/" method="post">
 	<?php $count = 1; $price = $data['price']; ?>
@@ -41,7 +44,3 @@
 <form id="orderShowBuy" action="/cart/order/" method="post">
 	<label>jetzt <span style="color:#D8A758;">kostenpflichtig</span> bestellen</label><input type="submit" name="ordercart" value="">
 </form>
-
-<?php else: ?>
-<p>Noch keine Artikel im Warenkorb.</p>
-<?php endif; ?>

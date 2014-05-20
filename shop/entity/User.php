@@ -206,9 +206,8 @@ class User
 		}
 	}
 	
-	public static function ableToOrder($entityManager, $id) {
-		$user = $entityManager->getRepository('User')->findOneById($id);
-		if ($user->getTitle()==''||$user->getLastname()==''||$user->getFirstname()==''||$user->getStreet()==''||$user->getIban()==''||$user->getBic()==''||$user->getBank()==''||$user->getPhone()==''){
+	public function ableToOrder() {
+		if ($this->getTitle()==''||$this->getLastname()==''||$this->getFirstname()==''||$this->getStreet()==''||$this->getIban()==''||$this->getBic()==''||$this->getBank()==''||$this->getPhone()==''){
 			return false;
 		}else{
 			return true;
