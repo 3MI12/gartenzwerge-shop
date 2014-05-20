@@ -1,5 +1,3 @@
-<?php //echo '<pre>'; var_dump($data); echo '</pre>'; ?>
-<?php require TEMPLATE_PATH . 'filter.php'; ?>
 <?php if(!empty($data['article'])): $article = $data['article']; ?>
        <div id="articleWrapper" class="content">
     	<div class="title">

@@ -11,6 +11,7 @@
             </div>
             <div id="contentWrapper">
             <?php
+				include TEMPLATE_PATH. 'errorList.php';
 				include TEMPLATE_PATH. 'messages.php';
                 $template = isset($template) ? $template : '404';
                 $templateFile = TEMPLATE_PATH.$template.'.php';

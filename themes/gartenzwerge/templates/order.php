@@ -1,11 +1,6 @@
-<?php //echo '<pre>'; var_dump($data); echo '</pre>'; ?>
-
 <div class="title">
     Warenkorb
 </div>
-
-<?php require THEME_PATH . 'templates/errorList.php'; ?>
-
 <?php if(!count($data['positions'])): ?>
 	<div>Noch keine Artikel im Warenkorb.</div>
 <?php endif; ?>

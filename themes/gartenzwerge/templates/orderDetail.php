@@ -1,5 +1,3 @@
-<?php require THEME_PATH . 'templates/errorList.php'; ?>
-
 <?php if(!empty($data['order'])): $order = $data['order']; $price = $order['price']; ?>
 <div class="title">
     Bestellung im Detail

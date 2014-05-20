@@ -1,9 +1,4 @@
-<?php //echo '<pre>'; var_dump($data); echo '</pre>'; ?>
-
 <?php if(!empty($data['article'])): $article = $data['article']; ?>
-
-<?php require THEME_PATH . 'templates/errorList.php'; ?>
-
 <?php endif; ?>
 
 <div id="articleWrapper" class="content">
