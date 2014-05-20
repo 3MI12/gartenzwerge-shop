@@ -175,6 +175,7 @@ class Order {
 		$em->flush();
 		$_SESSION['messages'][] = 'Bestellung ausgeführt!';
 		$_SESSION['order'] = new Order();
+		sendOrderConfirmMail($this, $this->user);		
 		return $data;
 	}
 	

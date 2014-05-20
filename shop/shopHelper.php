@@ -15,3 +15,8 @@ function validateEmail($email){
 function getPostParam($name, $defaultValue = null) {
 	return isset($_POST[$name]) ? $_POST[$name] : $defaultValue;
 }
+
+function sendOrderConfirmMail($order, $user) {
+	$mailData = require TEMPLATE_PATH . 'orderConfirmMail.php';
+	$sent = mail($user->getEmail(), SUBJECT_ORDER, $mailData, 'Content-type: text/html; charset=utf-8'. "\r\n" .SENDER_MAIL);
+}

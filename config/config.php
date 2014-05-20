@@ -14,3 +14,4 @@ define('DATE_FORMAT', 'Y-m-d H:i:s');
 define('SENDER_MAIL', 'FROM: Gartenzwerge24.eu <info@gartenzwerge24.eu>');
 define('SUBJECT_NEWUSER', 'Neues Nutzerkonto auf Gartenzwerge24.eu!');
 define('MESSAGE_NEWUSER', ', ihr Nutzerkonto wurde erfolgreich auf Gartenzwerge24.eu angelegt!');
+define('SUBJECT_ORDER', 'Ihre Bestellung auf Gartenzwerge24.eu!');
