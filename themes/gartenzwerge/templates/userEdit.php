@@ -10,7 +10,7 @@
     <label>Vorname</label> <input type="text" name="firstname" value="<?php echo htmlspecialchars($user->getFirstname()); ?>" required="required">
     <label>Nachname</label><input type="text" name="lastname" value="<?php echo htmlspecialchars($user->getLastname()); ?>" required="required">
     <label>eMail</label><input type="text" name="email" value="<?php echo htmlspecialchars($user->getEmail()); ?>" required="required">
-    <label>Passwort</label><input type="password" name="password" value="" required="required">
+    <label>Passwort</label><input type="password" name="password" value="" >
     <input type="submit" class="submit" name="userEdit" value="Speichern">
 </div>
 <div>

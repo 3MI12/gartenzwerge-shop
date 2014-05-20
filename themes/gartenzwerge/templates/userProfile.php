@@ -21,6 +21,9 @@ Mein Konto
     	<label>Ort</label><span><?php echo htmlspecialchars($user->getCity()); ?></span>
     </div>
     <div>
+    	<label>Straße</label><span><?php echo htmlspecialchars($user->getStreet()); ?></span>
+    </div>
+    <div>
     	<label>Telefon</label><span><?php echo htmlspecialchars($user->getPhone()); ?></span>
     </div>
     <div>
@@ -32,11 +35,12 @@ Mein Konto
     <div>
     	<label>IBAN</label><span><?php echo htmlspecialchars($user->getIban()); ?></span>
     </div>
-	<div>
-    	<a class="userEdit" href="/user/edit/<?php echo $user->getId(); ?>">Bearbeiten</a></p>
-	</div>
+   
+    <form id="userEditBtn" method="post" action="/user/edit/<?php echo $user->getId(); ?>">
+	<input name="userEdit" class="submit" type="submit" formmethod="post" value="Bearbeiten">
+	</form>
     
-    <form id="orderForm" method="post" action="/order/list/">
+    <form id="orderForm" method="post" action="/order/">
 	<input name="orderShow" class="submit" type="submit" formmethod="post" value="Meine Bestellungen">
 	</form>
     

@@ -12,13 +12,13 @@
 
     <div id="menu">
         <div class="menuItemContainer">
-        	<a href="/article/list/"><button class="menuButton"> </button></a>
+        	<a href="/article/list/" title="Zum Shop"><button class="menuButton"> </button></a>
         </div>
         <div class="menuItemContainer">
-        	<a href="/user/login/"><button class="menuButton"> </button></a>
+        	<a href="/user/login/" title="Mein Profil"><button class="menuButton"> </button></a>
         </div>
         <div class="menuItemContainer">
-        	<a href="/cart/"><button class="menuButton"> </button></a>
+        	<a href="/cart/" title="Mein Warenkorb"><button class="menuButton"> </button></a>
         </div>       
     </div>
 </div>
