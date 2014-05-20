@@ -206,6 +206,15 @@ class User
 		}
 	}
 	
+	public static function ableToOrder($entityManager, $id) {
+		$user = $entityManager->getRepository('User')->findOneById($id);
+		if ($user->getTitle()==''||$user->getLastname()==''||$user->getFirstname()==''||$user->getStreet()==''||$user->getIban()==''||$user->getBic()==''||$user->getBank()==''||$user->getPhone()==''){
+			return false;
+		}else{
+			return true;
+		}
+	}
+	
 	public static function getSessionId() {
 		return $_SESSION['user']->getId();
 	}
