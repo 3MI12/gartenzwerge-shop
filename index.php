@@ -15,7 +15,6 @@ $controller = isset($_GET['controller']) ? $_GET['controller'] : 'article';
 $action = isset($_GET['action']) ? $_GET['action'] : ($controller == 'article' ? 'list' : null);
 $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : null;
 
-
 switch($controller) {
 	case 'article':
 		require 'shop/controller/articleController.php';
