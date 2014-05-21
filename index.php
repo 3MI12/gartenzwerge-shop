@@ -11,8 +11,8 @@ $_SESSION['activity'] = time();
 $_SESSION['user'] = isset($_SESSION['user']) ? $_SESSION['user'] : new User();
 $_SESSION['order'] = isset($_SESSION['order']) ? $_SESSION['order'] : new Order();
 
-$controller = isset($_GET['controller']) ? $_GET['controller'] : 'article';
-$action = isset($_GET['action']) ? $_GET['action'] : ($controller == 'article' ? 'list' : null);
+$controller = isset($_GET['controller']) ? $_GET['controller'] : 'page';
+$action = isset($_GET['action']) ? $_GET['action'] : ($controller == 'page' ? 'start' : null);
 $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : null;
 
 switch($controller) {
