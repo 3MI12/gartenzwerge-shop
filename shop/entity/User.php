@@ -224,7 +224,7 @@ class User
 					$user->setBic(getPostParam('bic'));
 					$user->setBank(getPostParam('bank'));
 					$user->setPhone(getPostParam('phone'));
-					if(!User::checkAdmin() || $user->getId() == $id){
+					if(!User::checkAdmin() || $user->getId() == User::getSessionId() ){
 					$_SESSION['user'] = $user;
 					}
 				}
