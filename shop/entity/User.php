@@ -170,6 +170,24 @@ class User
 		return $data;
 	}
 	
+	 /**
+ 	* Login or logout of a certain user. 
+ 	* The user object is written to the session or overwritten by an empty user object.
+ 	* 
+ 	* To login you have to send per Post:
+ 	* $_POST['login']
+ 	* $_POST['email']
+ 	* $_POST['password']
+ 	* 
+ 	* To logout you have to send per Post:
+ 	* $_POST['logout']
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param entityManager $entityManager
+ 	* @return array
+ 	*/
 	public static function loginUser($entityManager) {
 		$data = NULL;
 		if(isset($_POST['login'])){
@@ -188,6 +206,15 @@ class User
 		return $data;
 	}
 
+ 	/**
+ 	* Checks if a user is logged in.
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param UserID $id
+ 	* @return BOOL
+ 	*/
 	public static function loginStatus() {
 		if(null !== $_SESSION['user']->getId()){
 			return true;
@@ -196,6 +223,15 @@ class User
 		}
 	}
 	
+	 /**
+ 	* Checks if an admin user is logged in.
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param UserID $id
+ 	* @return BOOL
+ 	*/
 	public static function checkAdmin() {
 		if($_SESSION['user']->getAdmin() == true){
 			return true;
@@ -204,6 +240,15 @@ class User
 		}
 	}
 	
+ 	/**
+ 	* Checks if a certain user is logged in.
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param UserID $id
+ 	* @return BOOL
+ 	*/
 	public static function checkUserSession($id = NULL) {
 		if($_SESSION['user']->getId() == $id){
 			return true;
@@ -212,6 +257,14 @@ class User
 		}
 	}
 	
+	/**
+ 	* Checks the user profile on completeness.
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @return BOOL
+ 	*/
 	public function ableToOrder() {
 		if ($this->getTitle()==''||$this->getLastname()==''||$this->getFirstname()==''||$this->getStreet()==''||$this->getIban()==''||$this->getBic()==''||$this->getBank()==''||$this->getPhone()==''){
 			return false;
@@ -220,164 +273,430 @@ class User
 		}
 	}
 	
+	/**
+ 	* get user id from session
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @return id
+ 	*/
 	public static function getSessionId() {
 		return $_SESSION['user']->getId();
 	}
 	
+	/**
+ 	* set user id
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	*/
 	public function setId()
 	{
 		$this->id;
 	}
 
+	/**
+ 	* get user id
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @return id
+ 	*/
 	public function getId()
 	{
 		return $this->id;
 	}
 
+	/**
+ 	* set title
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param title $title
+  	*/
 	public function setTitle($title)
 	{
 		$this->title = $title;
 	}
 	
+	/**
+ 	* get title
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @return title
+  	*/
 	public function getTitle()
 	{
 		return $this->title;
 	}
 	
+	/**
+ 	* set firstname
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param firstname $firstname
+  	*/
 	public function setFirstname($firstname)
 	{
 		$this->firstname = $firstname;
 	}
 	
+	/**
+ 	* get firstname
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @return firstname
+  	*/
 	public function getFirstname()
 	{
 		return $this->firstname;
 	}
 	
+	/**
+ 	* set lastname
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param lastname $lastname
+  	*/	
 	public function setLastname($lastname)
 	{
 		$this->lastname = $lastname;
 	}
 	
+	/**
+ 	* get lastname
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @return lastname
+  	*/
 	public function getLastname()
 	{
 		return $this->lastname;
 	}
 	
+	/**
+ 	* get the full name
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @return full name
+  	*/
 	public function getName() {
 		return $this->firstname . ' ' . $this->lastname;
 	}
 	
+	/**
+ 	* set email
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param email $email
+  	*/
 	public function setEmail($email)
 	{
 		$this->email = $email;
 	}
 	
+	/**
+ 	* get email
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @return email
+  	*/
 	public function getEmail()
 	{
 		return $this->email;
 	}
 	
+	
+	/**
+ 	* set password hash
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param hash $hash
+  	*/
 	public function setHash($hash)
 	{
 		$this->hash = $hash;
 	}
 	
+	/**
+ 	* get password hash
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @return hash
+  	*/
 	public function getHash()
 	{
 		return $this->hash;
 	}
 	
+	/**
+ 	* set user status
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param status $status
+  	*/
 	public function setStatus($status)
 	{
 		$this->status = $status;
 	}
 	
+	/**
+ 	* get user status
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @return status
+  	*/
 	public function getStatus()
 	{
 		return $this->status;
 	}
 	
+	/**
+ 	* set admin status
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param admin $admin
+  	*/
 	public function setAdmin($admin)
 	{
 		$this->admin = $admin;
 	}
 	
+	/**
+ 	* get admin status
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @return admin
+  	*/
 	public function getAdmin()
 	{
 		return $this->admin;
 	}
 	
+	/**
+ 	* set street
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param street $street
+  	*/
 	public function setStreet($street)
 	{
 		$this->street = $street;
 	}
 	
+	/**
+ 	* get street
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @return street
+  	*/
 	public function getStreet()
 	{
 		return $this->street;
 	}
 	
+	
+	/**
+ 	* set zip
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param zip $zip
+  	*/
 	public function setZip($zip)
 	{
 		$this->zip = $zip;
 	}
 	
+	/**
+ 	* get zip
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @return zip
+  	*/
 	public function getZip()
 	{
 		return $this->zip;
 	}
 	
+	
+	/**
+ 	* set city
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param city $city
+  	*/
 	public function setCity($city)
 	{
 		$this->city = $city;
 	}
 	
+	/**
+ 	* get city
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @return city
+  	*/
 	public function getCity()
 	{
 		return $this->city;
 	}
 	
+	
+	/**
+ 	* set phone
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param phone $phone
+  	*/
 	public function setPhone($phone)
 	{
 		$this->phone = $phone;
 	}
 	
+	/**
+ 	* get phone
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @return phone
+  	*/
 	public function getPhone()
 	{
 		return $this->phone;
 	}
 	
+	/**
+ 	* set iban
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param iban $iban
+  	*/
 	public function setIban($iban)
 	{
 		$this->iban = $iban;
 	}
 	
+	/**
+ 	* get iban
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @return iban
+  	*/
 	public function getIban()
 	{
 		return $this->iban;
 	}
 
+	/**
+ 	* set bank
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param bank $bank
+  	*/
 	public function setBank($bank)
 	{
 		$this->bank = $bank;
 	}
 	
+	/**
+ 	* get bank
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @return bank
+  	*/
 	public function getBank()
 	{
 		return $this->bank;
 	}
 	
+	/**
+ 	* set bic
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param bic $bic
+  	*/
 	public function setBic($bic)
 	{
 		$this->bic = $bic;
 	}
 	
+	/**
+ 	* get bic
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @return bic
+  	*/
 	public function getBic()
 	{
 		return $this->bic;
 	}
 	
+	/**
+ 	* get orders
+ 	* 
+ 	* @author Christoph Broeckmann 2014
+ 	* @version 1.0
+ 	* 
+ 	* @return orders
+  	*/
 	public function getOrders() {
 		return $this->orders;
 	}
