@@ -31,8 +31,8 @@ Nutzerverwaltung
 		<?php foreach($data['user'] as $sysuser): ?>
 		<form id="userUpdateForm" method="post" action="/user/edit/">
 			<input disabled type="text" name="ID" value="<?php echo number_format($sysuser->getId()); ?>">
-			<input disabled type="text" name="Lastname" value="<?php echo htmlspecialchars($sysuser->getLastname()); ?>">
-			<input disabled type="text" name="Firstname" value="<?php echo htmlspecialchars($sysuser->getFirstname()); ?>">      
+			<input disabled type="text" name="Firstname" value="<?php echo htmlspecialchars($sysuser->getFirstname()); ?>"> 
+			<input disabled type="text" name="Lastname" value="<?php echo htmlspecialchars($sysuser->getLastname()); ?>">     
 			<input disabled type="email" name="email" value="<?php echo htmlspecialchars($sysuser->getEmail()); ?>">
             <div class="checkboxStatus">
                 <input type="checkbox" name="Status" value="<?php echo $sysuser->getStatus() ? 'true' : 'false'; ?>" checked="<?php echo $sysuser->getStatus() ? 'checked' : ''; ?>" />
