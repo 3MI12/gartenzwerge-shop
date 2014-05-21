@@ -85,7 +85,7 @@
                                 <div>
                                     <label>Aktiv</label>
                                     <div class="normalCheckbox" >
-                                    	<input type="checkbox" name="active" value="" <?php echo $article->getActive() ? 'checked' : ''; ?> /> 
+                                    	<input type="checkbox" name="active" value="" checked="<?php echo $article->getActive() ? 'checked' : ''; ?>" /> 
                                     </div>
                                     <!--<div class="checkboxArticleActive">
                                         <input type="checkbox" name="active" value="1" >

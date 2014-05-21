@@ -49,5 +49,5 @@ Mein Konto
 	</form>
 </div>
 <?php else: ?>
-User nicht vorhanden.
+<div class="contentError" > Der User nicht vorhanden oder das Passwort ist falsch! </div>
 <?php endif; ?>

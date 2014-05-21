@@ -362,6 +362,25 @@ body{
   z-index: 20;
 }
 
+#errorBox > div {
+  background-color: white;
+    border: 3px solid #D8A758;
+  border-radius: 18px;
+  height: 30px;
+  position: absolute;
+  right: -15px;
+  text-align: center;
+  top: -15px;
+  width: 30px;
+  line-height:30px;
+  cursor:pointer;
+}
+
+#errorBox > div:hover{
+	color:white;
+	background-color:#D8A758;
+	}
+
 .contentError{
 	clear:both;
 	float:left;

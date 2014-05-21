@@ -1,4 +1,9 @@
 $( document ).ready(function() {
+/** card update  on change **/
+$(".orderShowArticle input[type=number]").change(function(){
+	$("#orderShowBuy").css("display" , "none");
+	$("#cartUpdateInfo").css("display" , "block");
+	})
 
 /** hide search field **/
 if( $("#filter").length ){ $("#suche").css("display" , "diplay") } else { $("#suche").css("display" , "none") }
@@ -99,7 +104,12 @@ $("#btn-search").click(function(){
 		
 	
 })	
-	
+
+/** close ErrorList onClick **/
+$("#errorBox > div").click(function(){
+	$("#errorBox").fadeOut("slow");
+	})
+
 /** checkbox **/
 $(".checkboxStatus").each(function(){
 	if( $(this).children("input").val() == "true" ) {
