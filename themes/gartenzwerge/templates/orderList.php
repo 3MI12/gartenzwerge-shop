@@ -25,7 +25,7 @@
             	<input class="submit" type="submit" value="Stornieren">
             </form>
 			<?php endif; else: ?>
-				<span class="orderCanceled">Storniert!</span>
+				<span class="orderCanceled">Die Bestellung wurde storniert!</span>
 			<?php endif; ?>
         </div>
 <?php endforeach; ?>

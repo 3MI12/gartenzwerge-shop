@@ -296,7 +296,7 @@ select option[val="rot"]{
 }
 
 #articleEditForm div:nth-child(3) {
-  position: relative;
+  height: 40px;
   margin-bottom: -20px;
 }
 
@@ -894,7 +894,7 @@ input.submit:hover{
   right: 60px;
 }
 
-.bearbeitenButton input, #neuerArtikel input, #userShowWrapper a, .orderDetailButton input{
+.bearbeitenButton input, #neuerArtikel input, #userShowWrapper a, .orderDetailButton input, .orderCancelButton input{
   background-color: #BCC2BA;
   border: thin solid #636A63;
   border-radius: 15px;
@@ -912,7 +912,6 @@ input.submit:hover{
 }
 
 .orderDetailButton input{
-	width:70px !important;
 	margin-left:20px;}
 
 #userShowWrapper a{
@@ -1080,3 +1079,19 @@ input#btn-kaufen:hover{
 #orderShowBuy input:hover{
 	background-size:65%;
 	border:3px solid #4E544E;}
+	
+.normalCheckbox > input {
+  margin-left: -46px;
+  margin-top: 12px;
+  visibility: visible !important;
+}
+	
+.normalCheckbox {
+	border-top-right-radius:15px;
+	border-bottom-right-radius:15px;
+  background-color: #BCC2BA;
+  float: left;
+  height: 37px;
+  text-align: center;
+  width: 40px;
+}

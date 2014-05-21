@@ -148,7 +148,7 @@ class Order {
 			return $data;
 		}
 		if(!$_SESSION['user']->ableToOrder()) {
-			$_SESSION['messages'][] = 'Sie müssen zunächst ihr Profil vervollständigen!';
+//			$_SESSION['messages'][] = 'Sie müssen zunächst ihr Profil vervollständigen!';
 			$data['redirect'] = '/user/login/';
 			return $data;
 		}

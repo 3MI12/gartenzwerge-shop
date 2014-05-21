@@ -1,4 +1,13 @@
 $( document ).ready(function() {
+
+/** hide search field **/
+if( $("#filter").length ){ $("#suche").css("display" , "diplay") } else { $("#suche").css("display" , "none") }
+
+/** article new input fills **/
+if($("#articleEditForm input[name='size']").val() == ""){$("#articleEditForm input[name='size']").val(5);}else{}
+if($("#articleEditForm input[name='price']").val() == 0.00){$("#articleEditForm input[name='price']").val(1.00);}else{}
+if($("#articleEditForm input[name='vat']").val() == 0.00){$("#articleEditForm input[name='vat']").val(7.00);}else{}
+
 	
 /** suche **/
 $("#btn-search").click(function(){
@@ -286,3 +295,6 @@ $(".btn-articleText").click(function(){
 
 
 });
+
+
+

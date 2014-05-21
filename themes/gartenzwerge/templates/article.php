@@ -27,7 +27,7 @@
                             <label>Geschlecht</label> <input type="text" name="gender" value="<?php echo htmlspecialchars($article->getGender()); ?>" readonly="readonly">
                             </div>
                             <div>
-                            <label>Größe</label> <input type="text" name="size" value="<?php echo htmlspecialchars($article->getSize()); ?>" readonly="readonly">
+                            <label>Größe</label> <input type="text" name="size" value="<?php echo htmlspecialchars($article->getSize()); ?> cm" readonly="readonly">
                             </div>
                             <div>
                             <label>Farbe</label> <input type="text" name="color" value="<?php echo htmlspecialchars($article->getColor()); ?>" readonly="readonly">
@@ -36,7 +36,7 @@
                             <label>Material</label> <input type="text" name="material" value="<?php echo htmlspecialchars($article->getMaterial()); ?>" readonly="readonly">
                             </div>
                             <div>
-                            <label>Lagerbestand</label> <input type="text" name="inventory" value="<?php echo htmlspecialchars($article->getInventory()); ?>" readonly="readonly">
+                            <label>Lagerbestand</label> <input type="text" name="inventory" value="<?php echo htmlspecialchars($article->getInventory()); ?> Stück" readonly="readonly">
                             </div>
                             <div>
                             <label>Menge</label> <input type="number" min="1" step="1" class="menge" max="<?php echo ($article->getInventory()); ?>" name="orderquantity[<?php echo $article->getid(); ?>]" value="<?php echo $_SESSION['order']->getQuantityById($article->getid()) ? $_SESSION['order']->getQuantityById($article->getid()) : 1; ?>">
@@ -48,7 +48,7 @@
 									<?php endif; ?>
 								</span>
                             </div>
-                            <div>für nur <span id="price" style="color:#D8A758;"> <?php echo htmlspecialchars($article->getPrice()); ?> </span> inkl. MWST (<?php echo htmlspecialchars(number_format($article->getVat(), 2)); ?> %) </div>
+                            <div>für nur <span id="price" style="color:#D8A758;"> <?php echo htmlspecialchars($article->getPrice()); ?> €</span> inkl. MWST (<?php echo htmlspecialchars(number_format($article->getVat(), 2)); ?> %) </div>
                             <input id="btn-kaufen" type="submit" name="editcart" value="">
                             <!--<button id="btn-kaufen" type="button"></button>--> 
 						</form>

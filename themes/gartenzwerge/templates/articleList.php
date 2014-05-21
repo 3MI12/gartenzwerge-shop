@@ -28,7 +28,6 @@
                 <div class="articleColor"><label>Farbe</label><span><?php echo htmlspecialchars($article->getColor(), 2); ?></span></div>
                 <div class="articleCategory"><label>Kategorie</label><span><?php echo htmlspecialchars($article->getCategory(), 2); ?></span></div>
                 <div class="articleInventory"><label>Verfügbar</label><span><?php echo $article->getInventory(); ?></span></div>
-                <div class="articleInventory"><label>Aktiv</label><span><?php if($article->getActive()): ?>Ja<?php else: ?>Nein<?php endif; ?></span></div>
             </div>
             <?php echo User::checkAdmin() ? '<form class="bearbeitenButton" action="/article/edit/'.$article->getId().'"><input type="submit" value="Bearbeiten"></form>' : '';?>
         </div>

@@ -22,6 +22,9 @@ Kundenkonto <?php echo htmlspecialchars($data['user']->getId()); ?>
     	<label>Ort</label><span><?php echo htmlspecialchars($user->getCity()); ?></span>
     </div>
     <div>
+    	<label>Straße</label><span><?php echo htmlspecialchars($user->getStreet()); ?></span>
+    </div>
+    <div>
     	<label>Telefon</label><span><?php echo htmlspecialchars($user->getPhone()); ?></span>
     </div>
     <div>

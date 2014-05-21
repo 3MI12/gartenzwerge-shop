@@ -1,8 +1,8 @@
 <div id="footerWrapper">
-	<a href="/page/contact/" style="height:100%; width:100%;"><div id="footerKontakt"></div></a>
-    <div id="footerUp"></div> 
-    <div id="footerDown"></div> 
-    <a href="/page/impressum/" style="height:100%; width:100%;"><div id="footerImpressum"></div></a>  
+	<a href="/page/contact/" style="height:100%; width:100%;" title="Kontakt"><div id="footerKontakt"></div></a>
+    <div id="footerUp" title="Footer ausklappen"></div> 
+    <div id="footerDown" title="Footer einklappen"></div> 
+    <a href="/page/impressum/" style="height:100%; width:100%;" title="Impressum"><div id="footerImpressum"></div></a>  
     <div id="footerContent">
     	<div id="footerLinks">
         	<div>
