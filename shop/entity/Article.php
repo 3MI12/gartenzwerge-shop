@@ -108,7 +108,15 @@ class Article
 			if($articleWithName && $articleWithName->getId() != $article->getId()) {
 				$data['error'][] = 'Artikel mit Name ' . getPostParam('name') . ' existiert bereits!';
 			}
-			$article->setActive(getPostParam('active', 0));
+			switch(getPostParam('active','false')) {
+ 				case 'true':
+ 					$user->setActive(true);
+ 					break;
+ 				case 'false':
+ 					$user->setActive(false);
+ 					break;
+ 				default:
+ 			}
 			$article->setArticlenumber(getPostParam('articlenumber'));
 			$article->setName(getPostParam('name'));
 			if($_FILES["image"]["tmp_name"] !== ''){
