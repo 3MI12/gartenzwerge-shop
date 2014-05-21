@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * Class Article -> Artikelverwaltung
+ * 
+ * @author C. Broeckmann
+ * @version 1.0
+ *
  * @Entity
  * @Table(name="article")
  */
@@ -37,7 +42,16 @@ class Article
 
 	public function __construct() {
 	}
-	
+
+	/**
+ 	* Get all Articles.
+ 	* 
+ 	* @author C. Broeckmann 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param entityManager $em EntityManager instance
+ 	* @return array all articles if user is admin, only active articles otherwise
+ 	*/
 	public static function getAll($em) {
 		if($_SESSION['user']->checkAdmin()) {
 			$articles = $em->getRepository('Article')->findAll();
@@ -48,6 +62,16 @@ class Article
 		return ['articles' => $articles, 'success' => $articles ? true : false];
 	}
 
+	/**
+ 	* Get Article by id.
+ 	* 
+ 	* @author C. Broeckmann 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param entityManager $em EntityManager instance
+  * @param $id id of Article
+ 	* @return Article
+ 	*/
 	public static function getById($em, $id) {
 		return $em->getRepository('Article')->findOneById($id);
 	}
