@@ -8,7 +8,7 @@
 class Media{
 
 /**
- * Generated with imagick a large image and save it under "/media." 
+ * Generated with imagick a small image and save it under "/media." 
  * 
  * The size is defined in the config file "/config/config.php".
  * 
@@ -33,7 +33,7 @@ public static function generateSmall($file,$name){
 }
 
 /**
- * Generated with imagick a large image and save it under "/media." 
+ * Generated with imagick a medium image and save it under "/media." 
  * 
  * The size is defined in the config file "/config/config.php".
  * 
