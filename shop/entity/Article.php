@@ -153,12 +153,12 @@ class Article
 			if($articleWithName && $articleWithName->getId() != $article->getId()) {
 				$data['error'][] = 'Artikel mit Name ' . getPostParam('name') . ' existiert bereits!';
 			}
-			switch(getPostParam('active','false')) {
+			switch(getPostParam('active','true')) {
  				case 'true':
- 					$user->setActive(true);
+ 					$article->setActive(true);
  					break;
  				case 'false':
- 					$user->setActive(false);
+ 					$article->setActive(false);
  					break;
  				default:
  			}
