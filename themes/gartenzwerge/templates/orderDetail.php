@@ -32,7 +32,7 @@
             <div class="orderInfos">
             	<div><label>Artikel</label><span><?php echo htmlspecialchars($article->getName()); ?></span></div>
             	<div><label>Anzahl</label><span><?php echo $article->getQuantity(); ?></span></div>
-                <div><label>Einzelpreis</label><span><?php echo number_format($article->getPrice(), 2); ?></span></div>
+                <div><label>Einzelpreis</label><span><?php echo number_format($article->getPrice(), 2); ?> €</span></div>
                 <div><label>Preis</label><span style="color:#D8A758;"><?php echo number_format($article->getPrice() * $article->getQuantity(), 2); ?> €</span></div>
             </div>
 </div>

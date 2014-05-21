@@ -278,6 +278,12 @@ select option[val="rot"]{
 	height:37px;
 	width:222px;}
 
+#userManagerWrapper #regForm label:nth-child(1), #userManagerWrapper #regForm label:nth-child(3), #userManagerWrapper #regForm label:nth-child(7){
+	clear:none !important;}
+
+#userManagerWrapper #regForm input, #userManagerWrapper #regForm select{
+	margin-right:20px;}
+
 #profilForm select{
 	height:37px;
 	width:222px;}
@@ -978,6 +984,17 @@ input#btn-kaufen:hover{
   position: relative;
   top: -55px;
 }
+
+#cartUpdateInfo{
+	display:none;
+	margin-left:300px;
+	float:left;
+	height:40px;
+	width:auto;
+	padding:10px;
+	font-weight:bold;
+	color:#D8A758;
+	border:2px solid #D8A758;}
 
 #sumPrice, #orderShowBuy label{
 	font-size:22px;}

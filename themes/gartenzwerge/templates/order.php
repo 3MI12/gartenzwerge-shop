@@ -38,4 +38,8 @@
 <form id="orderShowBuy" action="/cart/order/" method="post">
 	<label>jetzt <span style="color:#D8A758;">kostenpflichtig</span> bestellen</label><input type="submit" name="ordercart" value="">
 </form>
+<div id="cartUpdateInfo">
+	Es wurden Änderungen vorgenommen.<br />
+Bitte aktualisieren Sie die Bestellung!
+</div>
 <?php endif; ?>

@@ -22,3 +22,8 @@ a:active { font-weight:normal; color:#535D54; text-decoration:none; }
 .articleListItemLink a:hover { font-weight:normal; color:none; text-decoration:none; }
 .articleListItemLink a:active { font-weight:normal; color:none; text-decoration:none; }
 
+#errorBox > div:hover a:link { font-weight:normal; color:#D8A758; text-decoration:none; }
+#errorBox > div:hover a:visited { font-weight:normal; color:#D8A758; text-decoration:none; }
+#errorBox > div:hover a:focus { font-weight:normal; color:#D8A758; text-decoration:none; }
+#errorBox > div:hover a:hover { font-weight:normal; color:white; text-decoration:none; }
+#errorBox > div:hover a:active { font-weight:normal; color:#D8A758; text-decoration:none; }

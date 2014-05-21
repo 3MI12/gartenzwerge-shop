@@ -13,7 +13,7 @@
 <?php foreach($data['orders'] as $orderId => $order): ?>
 <div class="orderListItemWrapper">
             <div class="orderInfos">
-            	<div><label>Benutzer</label><span><?php if(!$userMode): ?> <?php echo htmlspecialchars($order['user']->getName()); ?> <?php endif; ?></span></div>
+            	<div><label>Benutzer</label><span><a href="/user/show/<?php echo $order['user']->getid(); ?>"><?php echo htmlspecialchars($order['user']->getName()); ?></a></span></div>
             	<div><label>bestellt am</label><span><?php echo $order['ordertime']->format(DATE_FORMAT); ?></span></div>
                 <div><label>Preis gesamt</label><span style="color:#D8A758;"><?php echo number_format($order['price']['total'], 2); ?> €</span></div>
             </div>
