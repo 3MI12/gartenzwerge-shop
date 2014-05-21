@@ -60,23 +60,97 @@ class User
 	*/
 	private $orders;
 	
+	/**
+ 	* __construct()
+ 	* 
+ 	* @author Christoph Broeckmann 2014
+ 	* @version 1.0
+  	*/
 	public function __construct() {
 		$this->orders = new ArrayCollection();
 	}
 	
+	/**
+ 	* Get all users.
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param entityManager $entityManager
+ 	* @return array
+ 	*/
 	public static function getAllUser($entityManager) {
 		return $entityManager->getRepository('User')->findAll();
 	}
 	
+	/**
+ 	* Get a certain user by id.
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param entityManager $entityManager
+ 	* @param id $id
+ 	* @return user object
+ 	*/
 	public static function getUserById($entityManager, $id) {
 		return $entityManager->getRepository('User')->findOneById($id);
 	}
 	
+	/**
+ 	* Get a certain user by email.
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param entityManager $entityManager
+ 	* @param email $email
+ 	* @return user object
+ 	*/
 	public static function getUserByEmail($entityManager, $email)
 	{
 		return $entityManager->getRepository('User')->findOneByEmail($email);
 	}
 	
+	/**
+ 	* Register, edit and change the status of a user.
+ 	* 
+ 	* To edit you have to send per Post:
+ 	* $_POST['userEdit'] (value of submit button)
+ 	* $_POST['title'] (string)
+ 	* $_POST['firstname'] (string)
+ 	* $_POST['lastname'] (string)
+ 	* $_POST['email'] (string)
+ 	* $_POST['password'] (string)
+ 	* $_POST['street'] (string)
+ 	* $_POST['zip'] (string)
+ 	* $_POST['city'] (string)
+ 	* $_POST['bank'] (string)
+ 	* $_POST['bic'] (string)
+ 	* $_POST['iban'] (string)
+ 	* $_POST['phone'] (string)
+ 	* 
+ 	* 
+ 	* To register you have to send per Post:
+ 	* $_POST['userRegister'] (value of submit button)
+ 	* $_POST['title'] (string)
+ 	* $_POST['firstname'] (string)
+ 	* $_POST['lastname'] (string)
+ 	* $_POST['email'] (string)
+ 	* $_POST['password'] (string)
+ 	* 
+ 	* To change the status of a user you have to send per Post:
+ 	* $_POST['userStatus'] (value of submit button)
+ 	* $_POST['Status'] (string true/false)
+ 	* $_POST['Admin'] (string true/false)
+ 	* 
+ 	* @author Benjamin Brandt 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param entityManager $entityManager
+ 	* @param id $id
+ 	* @return array
+ 	*/
 	public static function buildUser($entityManager, $id = NULL) {
 		$user = $entityManager->getRepository('User')->findOneById($id);
 		$data['user'] = $user;
