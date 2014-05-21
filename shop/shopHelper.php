@@ -1,4 +1,13 @@
 <?php
+/**
+ * Validates email addresses on the php_filter and a reverseDNS check.
+ * 
+ * @author Benjamin Brandt 2014
+ * @version 1.0
+ * 
+ * @param email adress $email
+ * @return BOOL
+ */
 function validateEmail($email){
 	if(filter_var($email, FILTER_VALIDATE_EMAIL)){
 		$domain = explode("@",$email);
