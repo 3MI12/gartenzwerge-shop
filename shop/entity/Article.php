@@ -77,7 +77,7 @@ class Article
 			$article->setArticlenumber(getPostParam('articlenumber'));
 			$article->setName(getPostParam('name'));
 			if($_FILES["image"]["tmp_name"] !== ''){
-				$article->setImage(media::uploadPicture($_FILES["image"]["tmp_name"]));
+				$article->setImage(Media::uploadPicture($_FILES["image"]["tmp_name"]));
 			}
 			$article->setGender(getPostParam('gender'));
 			$article->setSize(getPostParam('size'));
