@@ -1,6 +1,14 @@
 <?php
 class media{
-	
+
+/**
+ * Generated with imagick a large image and save it under "/media." 
+ * 
+ * The size is defined in the config file "/config/config.php".
+ * 
+ * @param file-path $file
+ * @param file-name $name
+ */	
 public static function generateSmall($file,$name){
 	$im = new Imagick($file);
 	if($im->getImageWidth() > $im->getImageHeight()){
@@ -15,6 +23,14 @@ public static function generateSmall($file,$name){
 	$im->destroy();
 }
 
+/**
+ * Generated with imagick a large image and save it under "/media." 
+ * 
+ * The size is defined in the config file "/config/config.php".
+ * 
+ * @param file-path $file
+ * @param file-name $name
+ */
 public static function generateMedium($file,$name){
 	$im = new Imagick($file);
 	if($im->getImageWidth() > $im->getImageHeight()){
@@ -29,6 +45,14 @@ public static function generateMedium($file,$name){
 	$im->destroy();
 }
 
+/**
+ * Generated with imagick a large image and save it under "/media." 
+ * 
+ * The size is defined in the config file "/config/config.php".
+ * 
+ * @param file-path $file
+ * @param file-name $name
+ */
 public static function generateLarge($file,$name){
 	$im = new Imagick($file);
 	if($im->getImageWidth() > $im->getImageHeight()){
@@ -43,10 +67,18 @@ public static function generateLarge($file,$name){
 	$im->destroy();
 }
 
+/**
+ * Generate an MD5-file-hash based filename for uploaded pictures and checks the image format.
+ *  
+ * Allowed exif_imagetype is "IMAGETYPE_JPEG"
+ * 
+ * @param file-path $file
+ * @return MD5-file-hash
+ */
 public static function uploadPicture($file){
-	if(true){
-		$name = hash_file('MD5', $file);
-		media::generateSmall($file,$name);
+	if(exif_imagetype($file) == IMAGETYPE_JPEG){
+		$name = hash_file('MD5', $file); 
+		media::generateSmall($file,$name); 
 		media::generateMedium($file,$name);
 		media::generateLarge($file,$name);
 	}else{
