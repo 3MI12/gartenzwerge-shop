@@ -2,6 +2,11 @@
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
+ * Class User -> userManager
+ * 
+ * @author Benjamin Brandt 2014
+ * @version 1.0
+ * 
  * @Entity
  * @Table(name="user")
  */
