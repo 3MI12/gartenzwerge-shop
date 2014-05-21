@@ -429,6 +429,7 @@ class Article
 	/**
  	* get article data for display purposes
   *
+  * @param Article $article
  	* @return array
  	*/
 	public static function getArticleData($article) {
