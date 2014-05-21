@@ -3,32 +3,61 @@
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
+ * Class Order -> Bestellung
+ * 
+ * Acts as cart and stores customer orders
+ *
+ * @author C. Broeckmann
+ * @version 1.0
+ *
  * @Entity
  * @Table(name="`order`")
  */
 class Order {
-	/** @Id @GeneratedValue @Column(type="integer", unique=true, nullable=false) */
+	/**
+  * @Id @GeneratedValue @Column(type="integer", unique=true, nullable=false)
+  * @var int id of order object in database
+  */
 	private $id;
 	/**
-     * @ManyToOne(targetEntity="User", inversedBy="orders", cascade={"all"})
-     **/
+  * @ManyToOne(targetEntity="User", inversedBy="orders", cascade={"all"})
+  * @var User the customer who made the order
+  **/
 	private $user;
-	/** @date @Column(type="datetime") */
+	/**
+  * @date @Column(type="datetime")
+  * @var DateTime time the order was placed
+  */
 	private $ordertime;
-	/** @Column(type="decimal", precision=10, scale=2, nullable=false) */
+	/**
+  * @Column(type="decimal", precision=10, scale=2, nullable=false)
+  * @var float total price of order including shipping
+  */
 	private $price;
-	/** @Column(type="boolean") */
+	/**
+  * @Column(type="boolean")
+  * @var boolean whether or not order was canceled
+  */
 	private $canceled;
 	/**
-     * @ManyToMany(targetEntity="OrderArticle", cascade={"all"})
-     **/
+  * @ManyToMany(targetEntity="OrderArticle", cascade={"all"})
+  * @var OrderArticle[] the articles ordered
+  **/
 	private $positions;
 
-    public function __construct()
-    {
-        $this->positions = new ArrayCollection();
-    }
+  /**
+ 	* constructor, initializes $positions as ArrayCollection
+  */  
+  public function __construct() {
+    $this->positions = new ArrayCollection();
+  }
 	
+	/**
+ 	* get all orders
+  *
+  * @param entityManager $em EntityManager instance
+ 	* @return Array element 'orders' containing order data
+ 	*/
 	public static function getAll($em) {
 		if(!User::checkAdmin()) {
 			$_SESSION['messages'][] = 'Sie müssen als Administrator angemeldet sein, um alle Bestellungen anzusehen!';
@@ -43,6 +72,12 @@ class Order {
 		return $data;
 	}
 
+	/**
+ 	* get all orders for the currently logged in user
+  *
+  * @param entityManager $em EntityManager instance
+ 	* @return Array element 'orders' containing order data
+ 	*/
 	public static function getAllByUser($em) {
 		if(!$_SESSION['user']->getId()) {
 			$_SESSION['messages'][] = 'Sie müssen sich zuerst anmelden, um Ihre Bestellungen anzusehen!';
@@ -57,6 +92,13 @@ class Order {
 		return $data;
 	}
 
+	/**
+ 	* get order by id
+  *
+  * @param entityManager $em EntityManager instance
+  * @param int $id order id
+ 	* @return Array element 'order' containing order data
+ 	*/
 	public static function getById($em, $id) {
 		$data = array();
 		$order = $em->getRepository('Order')->findOneById($id);
@@ -74,10 +116,27 @@ class Order {
 		return $data;
 	}
 	
+	/**
+ 	* get orders by customer
+  *
+  * @param entityManager $em EntityManager instance
+  * @param int $userId user id
+ 	* @return Array
+ 	*/
 	public static function getByCustomer($em, $userId) {
 		return $em->getRepository('Order')->findByUser($userId);
 	}
 	
+	/**
+ 	* add an article to cart
+  *
+  * Uses POST param 'orderquantity' - an array with article ids as keys and quantity of article to put in cart as input.
+  * 
+  * Will create an error message for each ordered article with a quantity that is greater than the available inventory.
+  *
+  * @param entityManager $em EntityManager instance
+ 	* @return Array containing 'success', 'error', 'positions' and 'price'
+ 	*/
 	public function add($em) {
 		$data = array('success' => true, 'error' => array());
 		$orderQuantity = getPostParam('orderquantity', array());
@@ -108,6 +167,11 @@ class Order {
 		return $data;
 	}
 	
+	/**
+ 	* calculates price of order
+  *
+ 	* @return Array containing entries 'articles', 'shipping' and 'total'
+ 	*/
 	public function calcPrice() {
 		$price['articles'] = 0;
 		foreach($this->positions as $orderArticle) {
@@ -119,11 +183,22 @@ class Order {
 		return $price;
 	}
 	
+	/**
+ 	* get quantity of an article in cart
+  *
+  * @param int $articleId
+ 	* @return float
+ 	*/
 	public function getQuantityById($articleId) {
 		$orderArticle = $this->positions->get($articleId);
 		return $orderArticle ? $orderArticle->getQuantity() : 0;
 	}
 	
+	/**
+ 	* get order data for display purposes
+  *
+ 	* @return Array contains entries 'id', 'positions', 'price', 'user', 'ordertime' and 'canceled'
+ 	*/
 	public function getOrderData() {
 		return array(
 			'id' => $this->getId(),
@@ -135,6 +210,17 @@ class Order {
 		);
 	}
 	
+	/**
+ 	* persist shopping cart content to database
+  *
+  * Checks for each OrderArticle placed in cart whether corresponding Article still is available in ordered quantity.
+  * If this succeeds for all ordered articles, will then persist OrderArticles with ordered quantity in database,
+  * and will finally persist Order object as well. Clears Order object stored in session afterwards, so that cart will be empty again.
+  *
+  * Will issue an error for every ordered article that is not available in requested quantity any more otherwise.
+  *
+ 	* @return Array will contain 'success', 'error' and possible 'redirect' instruction
+ 	*/
 	public function finalize($em) {
 		$data = array('success' => true, 'error' => array());
 		if(!count($this->positions)) {
@@ -148,7 +234,7 @@ class Order {
 			return $data;
 		}
 		if(!$_SESSION['user']->ableToOrder()) {
-//			$_SESSION['messages'][] = 'Sie müssen zunächst ihr Profil vervollständigen!';
+			$_SESSION['messages'][] = 'Um Bestellen zu können, müssen Sie zunächst ihr Profil vervollständigen!';
 			$data['redirect'] = '/user/login/';
 			return $data;
 		}
@@ -179,6 +265,14 @@ class Order {
 		return $data;
 	}
 	
+	/**
+ 	* cancel an existing order
+  *
+  * Cancels an existing order. Will add ordered quantity of each OrderArticle back onto corresponding Article's inventory.
+  *
+  * @param entityManager $em EntityManager instance
+ 	* @return array will containg 'redirect' to order list
+ 	*/
 	public function cancel($em) {
 		if(!$_SESSION['user']->checkAdmin()) {
 			$_SESSION['messages'][] = 'Sie müssen als Administrator angemeldet sein, um Bestellungen stornieren zu können!';
@@ -199,10 +293,21 @@ class Order {
 		return $data;
 	}
 	
+	/**
+ 	* get property $id
+  *
+ 	* @return int 
+ 	*/
 	public function getId() {
 		return $this->id;
 	}
-	public function getUser() {
+	
+	/**
+ 	* get property $user
+  *
+ 	* @return User 
+ 	*/
+  public function getUser() {
 		return $this->user;
 	}
 	
