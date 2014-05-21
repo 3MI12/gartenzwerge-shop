@@ -1,6 +1,6 @@
 <?php
 /**
- * Validates email addresses on the php_filter and a reverseDNS check.
+ * Validates email addresses with the "php FILTER_VALIDATE_EMAIL" and a reverseDNS lookup.
  * 
  * @author Benjamin Brandt 2014
  * @version 1.0
