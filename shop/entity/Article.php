@@ -75,6 +75,17 @@ class Article
 	public static function getById($em, $id) {
 		return $em->getRepository('Article')->findOneById($id);
 	}
+
+	/**
+ 	* Create new or edit existing Article.
+ 	* 
+ 	* @author C. Broeckmann 2014
+ 	* @version 1.0
+ 	* 
+ 	* @param entityManager $em EntityManager instance
+  * @param $id id of Article
+ 	* @return array element 'article' will contain Article data
+ 	*/
 	
 	public static function editCreate($em, $id) {
 		$data = array();
@@ -97,15 +108,7 @@ class Article
 			if($articleWithName && $articleWithName->getId() != $article->getId()) {
 				$data['error'][] = 'Artikel mit Name ' . getPostParam('name') . ' existiert bereits!';
 			}
-			switch(getPostParam('active','false')) {
-				case 'true':
-					$user->setActive(true);
-					break;
-				case 'false':
-					$user->setActive(false);
-					break;
-				default:
-			}
+			$article->setActive(getPostParam('active', 0));
 			$article->setArticlenumber(getPostParam('articlenumber'));
 			$article->setName(getPostParam('name'));
 			if($_FILES["image"]["tmp_name"] !== ''){
