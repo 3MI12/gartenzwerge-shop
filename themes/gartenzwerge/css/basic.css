@@ -233,8 +233,7 @@ body{
 	
 #contentWrapper {
   background-image: url("../resourcen/icons/brushed.png");
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
+  border-top-right-radius: 25px;
   float: left;
   min-height: 800px;
   padding: 40px 100px 200px;
@@ -349,17 +348,21 @@ body{
   text-align:center;
 }
 
-#errorBox{
-	position:relative;
-	float:left;
-	clear:both;
+#errorBox {
   background-color: #EEEEEE;
   border: 3px solid #D8A758;
   color: #D8A758;
   font-size: 18px;
   height: auto;
+  margin-left: 500px;
   padding: 15px 20px;
-  position: absolute;
+  position: fixed;
   text-align: center;
-  z-index: 250;
+  top: 180px;
+  z-index: 20;
 }
+
+.contentError{
+	clear:both;
+	float:left;
+	color:#D8A758;}

@@ -2,7 +2,7 @@
     Warenkorb
 </div>
 <?php if(empty($data['positions']) || !count($data['positions'])): ?>
-	<div>Noch keine Artikel im Warenkorb.</div>
+	<div class="contentError">Noch keine Artikel im Warenkorb.</div>
 <?php else: ?>
 <form id="orderShowForm" action="/cart/edit/" method="post">
 	<?php $count = 1; $price = $data['price']; ?>
@@ -14,7 +14,7 @@
     <div class="orderHr"></div>
          <div class="orderShowArticle">
             <label>Artikel</label><input type="text" value="<?php echo htmlspecialchars($article->getName()); ?>" readonly disabled="disabled"/>
-            <label>Preis</label><input type="text" value="<?php echo number_format($article->getPrice(), 2); ?>" readonly disabled="disabled"/>
+            <label>Preis in €</label><input type="text" value="<?php echo number_format($article->getPrice(), 2); ?>" readonly disabled="disabled"/>
             <label>verfügbar</label><input type="text" value="<?php echo $article->getInventory(); ?>" readonly disabled="disabled"/>
             <label>Anzahl</label><input type="number" min="0" max="<?php echo $article->getInventory(); ?>" name="orderquantity[<?php echo $article->getArticleid(); ?>]" value="<?php echo $article->getQuantity(); ?>" size="2">
             

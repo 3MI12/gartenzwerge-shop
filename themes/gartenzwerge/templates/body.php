@@ -1,7 +1,7 @@
 <body>
 	<div id="wrapper">
 		<?php require TEMPLATE_PATH . 'header.php'; ?>
-
+		
         <div id="main">
             <div id="contentMenu">
             <?php 
@@ -11,7 +11,6 @@
             </div>
             <div id="contentWrapper">
             <?php
-				include TEMPLATE_PATH. 'errorList.php';
 				include TEMPLATE_PATH. 'messages.php';
                 $template = isset($template) ? $template : '404';
                 $templateFile = TEMPLATE_PATH.$template.'.php';
@@ -29,6 +28,7 @@
 
     </div>
     <div id="slider">
+		<?php include TEMPLATE_PATH. 'errorList.php'; ?>
         <img src="<?php echo FE_THEME_PATH; ?>resourcen/images/slider2.jpg" width="100%" height="100%;"  />
     </div>
     <?php require TEMPLATE_PATH . 'footer.php'; ?>

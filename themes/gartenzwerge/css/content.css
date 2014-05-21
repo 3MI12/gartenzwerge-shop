@@ -228,9 +228,34 @@ dt { float:left; cear:left; width:10em; }
 	float:left;}
 
 .orderDetailButton {
+	margin-top:15px;
+	margin-right:30px;
+	margin-left:270px;
+	clear:both;
   float: left;
   position: relative;
 }
+
+.orderCancelButton, .orderCanceled{
+	margin-top:15px;
+	position:relative;
+	float:left;}
+
+.orderCanceled{
+	width:auto;
+	height:40px;
+	border:2px solid #D8A758;
+	border-radius:15px;
+	color:#D8A758;
+	font-weight:bold;
+	padding:0 10px;
+	line-height:40px;}
+
+.orderDetailWrapper .orderCanceled{
+	clear:both;}
+
+.orderDetailWrapper .orderCancelButton{
+	clear:both;}
 
 #orderDetailButton{
 	position:relative;
