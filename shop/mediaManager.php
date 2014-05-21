@@ -1,10 +1,19 @@
 <?php
-class media{
+/**
+ * Class Media - the MediaManager
+ * 
+ * @author Benjamin Brandt 2014
+ * @version 1.0
+ */
+class Media{
 
 /**
  * Generated with imagick a large image and save it under "/media." 
  * 
  * The size is defined in the config file "/config/config.php".
+ * 
+ * @author Benjamin Brandt 2014
+ * @version 1.0
  * 
  * @param file-path $file
  * @param file-name $name
@@ -28,6 +37,9 @@ public static function generateSmall($file,$name){
  * 
  * The size is defined in the config file "/config/config.php".
  * 
+ * @author Benjamin Brandt 2014
+ * @version 1.0
+ * 
  * @param file-path $file
  * @param file-name $name
  */
@@ -50,6 +62,9 @@ public static function generateMedium($file,$name){
  * 
  * The size is defined in the config file "/config/config.php".
  * 
+ * @author Benjamin Brandt 2014
+ * @version 1.0
+ * 
  * @param file-path $file
  * @param file-name $name
  */
@@ -71,6 +86,9 @@ public static function generateLarge($file,$name){
  * Generate an MD5-file-hash based filename for uploaded pictures and checks the image format.
  *  
  * Allowed exif_imagetype is "IMAGETYPE_JPEG"
+ * 
+ * @author Benjamin Brandt 2014
+ * @version 1.0
  * 
  * @param file-path $file
  * @return MD5-file-hash
