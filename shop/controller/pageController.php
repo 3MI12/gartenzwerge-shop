@@ -10,6 +10,9 @@ switch($action) {
 	case 'agb':
 		$template = 'agb';
 		break;
+	case 'start':
+		$template = 'start';
+		break;
 	default:
 		$template = '404';
 }
