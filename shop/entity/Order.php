@@ -80,7 +80,7 @@ class Order {
  	*/
 	public static function getAllByUser($em) {
 		if(!$_SESSION['user']->getId()) {
-			$_SESSION['messages'][] = 'Sie müssen sich zuerst anmelden, um Ihre Bestellungen anzusehen!';
+			//$_SESSION['messages'][] = 'Sie müssen sich zuerst anmelden, um Ihre Bestellungen anzusehen!';
 			$data['redirect'] = '/user/login/';
 			return $data;
 		}
