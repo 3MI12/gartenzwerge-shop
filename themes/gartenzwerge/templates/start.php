@@ -11,7 +11,7 @@ Bei uns finden Sie alles, was das Herz des Gartenzwerg-Freundes begehrt.<br />
 
 
 
-<p>Schauen Sie sich doch mal unser Angebot an, viel Spaß bem stöbern... <br />
+<p>Schauen Sie sich doch mal unser Angebot an, viel Spaß beim Stöbern... <br />
 Hier geht es zur <a href="/article/list/">Liste unserer Gartenzwerge</a>.</p>
 </div>
 </div>
