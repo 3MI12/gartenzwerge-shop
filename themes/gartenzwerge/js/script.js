@@ -252,7 +252,7 @@ $("#btn-filter").click(function(){
 				if(	materialFilter == "-") { materialStatus = true }
 					else if( materialFilter == materialArticle ) { materialStatus = true } else { materialStatus = false }
 					
-				if( (sizeArticle > minSizeFilter) && (sizeArticle < maxSizeFilter)  ) { sizeStatus = true; } else { sizeStatus = false }
+				if( (sizeArticle >= minSizeFilter) && (sizeArticle <= maxSizeFilter)  ) { sizeStatus = true; } else { sizeStatus = false }
 				
 				if( (genderStatus && categoryStatus && colorStatus && materialStatus && sizeStatus) == true) { $(this).fadeIn("slow") } else { $(this).fadeOut("slow") }
 			});
