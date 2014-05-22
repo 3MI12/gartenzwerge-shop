@@ -232,7 +232,7 @@ $("#btn-filter").click(function(){
 				var categoryStatus;
 						
 				if( ($(this).children(".articleInfos").children(".articleGender").children("span").text()) == "male" ){ genderArticle = 1 } else { genderArticle = 2 };
-				if( ($(this).children(".articleInfos").children(".articleCategory").children("span").text()) == "indoor" ){ categoryArticle = 1 } else { categoryArticle = 2 };
+				if( ($(this).children(".articleInfos").children(".articleCategory").children("span").text()) == "Indoor" ){ categoryArticle = 1 } else { categoryArticle = 2 };
 				
 				var colorArticle = $(this).children(".articleInfos").children(".articleColor").children("span").text();
 				var materialArticle = $(this).children(".articleInfos").children(".articleMaterial").children("span").text();
