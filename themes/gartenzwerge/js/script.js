@@ -150,6 +150,15 @@ $(".checkboxAdmin").click(function(){
 			$(this).children("label").animate( { left: 40, backgroundColor: "#BCC2BA" }, "slow");
 			}
 	})
+
+$(".checkboxArticleActive").each(function(){
+	if( $(this).children("input").val() == "true" ) {
+		$(this).children("label").css( { left: 40, backgroundColor: "#BCC2BA" } );
+		}
+		else {
+			$(this).children("label").css( { left: 7, backgroundColor: "#444444" } );
+			}
+	})
 	
 $(".checkboxArticleActive").click(function(){
 	if( $(this).children("input").val() == "true" ){
