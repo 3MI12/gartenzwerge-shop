@@ -1,5 +1,4 @@
 <?php
-
 switch($action) {
 	case 'list':
 		$data = Article::getAll($entityManager);
