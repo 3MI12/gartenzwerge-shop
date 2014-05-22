@@ -263,7 +263,11 @@ class Order {
 		        sendOrderConfirmMail($this, $this->user);		
 		}
 		else {
-			$data['order'] = $this->getOrderData();
+			$errors = $data['error'];
+			$success = $data['success'];
+			$data = $this->getOrderData();
+			$data['error'] = $errors;
+			$data['success'] = $success;
 		}
 		return $data;
 	}
