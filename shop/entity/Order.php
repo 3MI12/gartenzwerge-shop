@@ -253,15 +253,15 @@ class Order {
 				$article->setInventory($article->getInventory() - $orderArticle->getQuantity());
 				$em->persist($article, $orderArticle);
 			}
+		        $this->ordertime = new DateTime();
+		        $this->canceled = false;
+		        $em->persist($this->user);
+		        $em->persist($this);
+		        $em->flush();
+		        $_SESSION['messages'][] = 'Bestellung ausgeführt!';
+		        $_SESSION['order'] = new Order();
+		        sendOrderConfirmMail($this, $this->user);		
 		}
-		$this->ordertime = new DateTime();
-		$this->canceled = false;
-		$em->persist($this->user);
-		$em->persist($this);
-		$em->flush();
-		$_SESSION['messages'][] = 'Bestellung ausgeführt!';
-		$_SESSION['order'] = new Order();
-		sendOrderConfirmMail($this, $this->user);		
 		return $data;
 	}
 	
