@@ -292,12 +292,22 @@ select option[val="rot"]{
 	height:37px;
 	width:150px;}
 
-#articleEditForm input[name="image"] {
+/*#articleEditForm input[name="image"] {
   cursor: pointer;
   float: none !important;
   opacity: 0;
   position: relative;
   top: -37px;
+  z-index: 5;
+}*/
+
+#articleEditForm input[name="image"] {
+  cursor: pointer;
+  float: none !important;
+  left: 580px;
+  opacity: 0;
+  position: absolute;
+  top: 223px;
   z-index: 5;
 }
 
