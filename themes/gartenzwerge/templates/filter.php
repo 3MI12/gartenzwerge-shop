@@ -42,9 +42,9 @@
             <div id="rangeBox">
                 <div id="rangeBoxMin">
                 	<div>
-                		<input type="text" class="rangeDisplay" id="rangeMinDisplay" value="20" />cm
+                		<input type="text" class="rangeDisplay" id="rangeMinDisplay" value="10" />cm
                     </div>
-                    <input type="range" name="groesseMin" value="20" min="20" max="80" onchange="updateRangeMinDisplay(this.value);" />
+                    <input type="range" name="groesseMin" value="10" min="10" max="80" onchange="updateRangeMinDisplay(this.value);" />
                     
                 </div>
                  <div id="rangeBoxMax">
