@@ -262,6 +262,9 @@ class Order {
 		        $_SESSION['order'] = new Order();
 		        sendOrderConfirmMail($this, $this->user);		
 		}
+		else {
+			$data['order'] = $this->getOrderData();
+		}
 		return $data;
 	}
 	
