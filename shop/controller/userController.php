@@ -8,8 +8,8 @@ switch($action) {
 			$data['user'] =  User::getAllUser($entityManager);
 			$template = 'userList';
 		}else{
-			$data['error'][] = "Bitte melden sie sich als Admin an!";
-			$template = 'errorList';
+			$_SESSION['messages'][] = "Bitte melden sie sich als Admin an!";
+			$data['redirect'] = "/user/login/";
 		}
 		break;
 	case 'show':
@@ -17,8 +17,8 @@ switch($action) {
 			$data['user'] = User::getUserById($entityManager, $id);
 			$template = 'user';
 		}else{
-			$data['error'][] = "Sie können nur ihr eigenes Profil anzeigen!";
-			$template = 'errorList';
+			$_SESSION['messages'][] = "Sie können nur ihr eigenes Profil anzeigen!";
+			$data['redirect'] = "/user/login/";
 		}
 		break;
 	case 'edit':
@@ -28,8 +28,8 @@ switch($action) {
 			$template = !empty($data['statusupdate']) ? 'userList' : $template;
 			$template = (isset($_POST['userRegister']) && !User::loginStatus()) ? 'login' : $template;
 		}else{
-			$data['error'][] = "Sie können nur ihr eigenes Profil bearbeiten!";
-			$template = 'errorList';
+			$_SESSION['messages'][] = "Sie können nur ihr eigenes Profil bearbeiten!";
+			$data['redirect'] = "/user/login/";
 		}
 		break;
 	case 'login':
