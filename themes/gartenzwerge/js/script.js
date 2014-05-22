@@ -239,7 +239,7 @@ $("#btn-filter").click(function(){
 				var sizeArticle = parseInt($(this).children(".articleInfos").children(".articleSize").children("span").text());
 				
 				if( categoryFilter == 3) { categoryStatus = true }
-					else if ( categoryFilter == genderArticle ) { categoryStatus = true }
+					else if ( categoryFilter == categoryArticle ) { categoryStatus = true }
 						else { categoryStatus = false }
 				
 				if( genderFilter == 3) { genderStatus = true }
